@@ -27,3 +27,5 @@ let UserSchema = new Schema({
     default: 'user'
   }
 })
+
+module.exports = mongoose.Model('User', UserSchema)
