@@ -1,0 +1,66 @@
+.btn {
+  height: 42px;
+  width: 140px;
+  line-height: 34px;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid silver;
+  text-align: center;
+  background: white;
+  color: black;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 3px 5px;
+}
+
+.btn-small {
+  height: 40px;
+  width: 100px;
+}
+
+.btn-medium {
+  height: 40px;
+  width: 175px;
+}
+
+.btn-big {
+  height: 40px;
+  width: 240px;
+}
+
+.btn-white {
+
+}
+
+.btn-red {
+
+}
+
+.btn-black {
+
+}
+
+.btn-blue {
+
+}
+
+@media screen and (min-width: 760px) {
+  .btn-white:hover {
+
+  }
+
+  .btn-red:hover {
+
+  }
+
+  .btn-black:hover {
+
+  }
+
+  .btn-blue:hover {
+
+  }
+}
