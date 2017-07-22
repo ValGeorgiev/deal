@@ -10,6 +10,10 @@
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux';
 
-const reducers = {};
+import routerReducer from './routerReducer'
+
+const reducers = {
+  router: routerReducer
+};
 const combined = combineReducers(reducers);
 module.exports = combined;

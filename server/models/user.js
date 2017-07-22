@@ -23,8 +23,16 @@ let UserSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'agency', 'admin'],
+    enum: ['user', 'admin'],
     default: 'user'
+  },
+  isAgency: {
+    type: Boolean,
+    default: false
+  },
+  agency: {
+    type: Schema.Types.ObjectId,
+    ref: 'Agency'
   }
 })
 
