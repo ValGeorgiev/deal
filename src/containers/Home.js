@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import t from '../translations'
 import {} from '../actions'
 
 class Home extends Component {
@@ -13,6 +14,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        {t('hello.world')}
         Home Container
       </div>
     )
