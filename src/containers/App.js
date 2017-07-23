@@ -10,6 +10,8 @@ import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RouteRoot from '../routes/RouteRoot'
+import Footer from '../components/generics/main-footer/Footer'
+import Header from '../components/generics/main-header/Header'
 import * as ACTIONS from '../actions/'
 
 /* Populated by react-webpack-redux:reducer */
@@ -21,9 +23,11 @@ class App extends Component {
     } = this.props
     return (
       <div>
+        <Header />
         <RouteRoot
           actions={actions}
           router={router} />
+        <Footer />
       </div>
     )
   }
