@@ -4,22 +4,39 @@ class DealModal extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      open: this.props.open
+    }
+
     this.closeModal = this.closeModal.bind(this)
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      open: nextProps.open
+    })
+  }
+
   closeModal() {
-    console.log('close')
+    this.setState({
+      open: false
+    })
   }
 
   render() {
     let {
       header,
-      children
+      children,
+      size
     } = this.props
 
+    let {
+      open
+    } = this.state
+
     return (
-      <div className='modal'>
-        <div className='modal__wrapper'>
+      <div className={`modal ${!open ? 'hide' : ''}`}>
+        <div className={`modal__wrapper ${size}`}>
           <div className='modal__wrapper__header'>
             <h3>{header}</h3>
             <span className='modal__closeBtn' onClick={this.closeModal}></span>

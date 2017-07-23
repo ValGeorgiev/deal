@@ -1,7 +1,76 @@
 .modal {
-  display: none;
+  display: inline-block;
+
+  &.hide {
+    display: none;
+  }
+
+  .modal__wrapper {
+    z-index: 9999;
+    background: white;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    height: auto;
+    padding: 10px;
+
+    &.large {
+      width: 640px;
+      margin-left: -320px;
+    }
+    &.big {
+      width: 520px;
+      margin-left: -260px;
+    }
+    &.medium {
+      width: 410px;
+      margin-left: -205px;
+    }
+    &.small {
+      width: 300px;
+      margin-left: -150px;
+    }
+  }
 
   .modal__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    background: rgba(20, 20, 37, 0.6);
+    z-index: 9998;
+  }
 
+  .modal__wrapper__header {
+    position: relative;
+
+    .modal__closeBtn {
+      content: 'x';
+      color: silver;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 759px) {
+  .modal {
+
+    .modal__wrapper {
+
+      &.large,
+      &.big,
+      &.medium,
+      &.small {
+        width: initial;
+        left: 10px;
+        right: 10px;
+        margin: 0;
+      }
+    }
   }
 }
