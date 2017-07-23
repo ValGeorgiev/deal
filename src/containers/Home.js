@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
+import t from '../translations'
 import {} from '../actions'
 
 class Home extends Component {
@@ -13,6 +15,8 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Link to="/test"> Test </Link>
+        <br/>
         Home Container
       </div>
     )

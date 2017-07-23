@@ -3,6 +3,8 @@ const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
+const userApiRoutes = require('./routers/user/userRoute')
+
 const {
   PORT,
   DATABASE
@@ -26,6 +28,9 @@ app.use(bodyParser.urlencoded({
 
 // parse application/json
 app.use(bodyParser.json())
+
+// routing
+app.use('/api', userApiRoutes.router)
 
 app.listen(PORT, () => {
   console.log("Server is started and listen on port 8001")
