@@ -15,8 +15,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Link to="/test"> Test </Link>
-        <br/>
         Home Container
       </div>
     )
