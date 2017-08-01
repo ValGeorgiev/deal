@@ -5,7 +5,7 @@ class DealModal extends Component {
     super(props)
 
     this.state = {
-      open: this.props.open
+      open: props.open
     }
 
     this.closeModal = this.closeModal.bind(this)
@@ -21,6 +21,7 @@ class DealModal extends Component {
     this.setState({
       open: false
     })
+    this.props.onClose()
   }
 
   render() {
@@ -39,7 +40,7 @@ class DealModal extends Component {
         <div className={`modal__wrapper ${size}`}>
           <div className='modal__wrapper__header'>
             <h3>{header}</h3>
-            <span className='modal__closeBtn' onClick={this.closeModal}></span>
+            <span className='modal__closeBtn' onClick={this.closeModal}>x</span>
           </div>
           <div className='modal__body'>
             { children }

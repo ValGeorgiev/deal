@@ -7,19 +7,39 @@ class Header extends Component {
   constructor() {
     super()
     this.state = {
-      open: false
+      openLogin: false,
+      openSignup: false
     }
     this.openLogin = this.openLogin.bind(this)
+    this.openSignup = this.openSignup.bind(this)
   }
 
   openLogin() {
     this.setState({
-      open: true
+      openLogin: true
+    })
+  }
+
+  closeLogin() {
+    this.setState({
+      openLogin: false
+    })
+  }
+
+  openSignup() {
+    this.setState({
+      openSignup: true
+    })
+  }
+
+  closeSignup() {
+    this.setState({
+      openSignup: false
     })
   }
 
   render() {
-    let { open } = this.state
+    let { openLogin, openSignup } = this.state
     return (
       <div className="header_wrapper">
         <span>Logo</span>
@@ -28,12 +48,26 @@ class Header extends Component {
           <a className="header_wrapper__login-section__login" onClick={this.openLogin} href="javascript:void(0);">
             {t('login')}
           </a>
-          <DealModal header="Login" open={open} size='small'>
+          <DealModal
+            header="Login"
+            open={openLogin}
+            size='small'
+            onClose={() => this.closeLogin()}
+          >
             <div> test </div>
           </DealModal>
-          <a className="header_wrapper__login-section__signup" href="javascript:void(0);">
+
+          <a className="header_wrapper__login-section__signup" onClick={this.openSignup} href="javascript:void(0);">
             {t('sign.up')}
           </a>
+          <DealModal
+            header='Sign up'
+            open={openSignup}
+            size='small'
+            onClose={() => this.closeSignup()}
+          >
+            <div> test </div>
+          </DealModal>
         </div>
 
       </div>
