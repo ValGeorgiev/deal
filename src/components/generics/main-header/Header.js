@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import t from '../../../translations'
 import DealModal from '../deal-modal/DealModal'
+import Signup from '../../auth/signup/Signup'
 import './header.scss'
 
 class Header extends Component {
@@ -38,6 +39,13 @@ class Header extends Component {
     })
   }
 
+  closeSignupOpenLogin() {
+    this.setState({
+      openSignup: false,
+      openLogin: true
+    })
+  }
+
   render() {
     let { openLogin, openSignup } = this.state
     return (
@@ -61,12 +69,12 @@ class Header extends Component {
             {t('sign.up')}
           </a>
           <DealModal
-            header='Sign up'
+            header='Регистрация'
             open={openSignup}
-            size='small'
+            size='medium'
             onClose={() => this.closeSignup()}
           >
-            <div> test </div>
+            <Signup openLogin={() => this.closeSignupOpenLogin()} />
           </DealModal>
         </div>
 

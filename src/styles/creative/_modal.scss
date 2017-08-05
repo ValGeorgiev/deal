@@ -1,6 +1,10 @@
 .modal {
   display: inline-block;
 
+  h3 {
+    color: #14141C;
+  }
+
   &.hide {
     display: none;
   }
@@ -9,10 +13,10 @@
     z-index: 9999;
     background: white;
     position: absolute;
-    top: 35%;
+    top: 15%;
     left: 50%;
     height: auto;
-    padding: 10px;
+    padding: 10px 20px;
 
     &.large {
       width: 640px;
@@ -45,6 +49,8 @@
 
   .modal__wrapper__header {
     position: relative;
+    border-bottom: 1px solid #EDF0EB;
+    margin-bottom: 20px;
 
     .modal__closeBtn {
       cursor: pointer;

@@ -1,0 +1,27 @@
+.signup__btn-wrapper {
+  margin: 20px 10px;
+  text-align: center;
+
+  .signup__login-btn {
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+    color: #1C4278;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.signup_wrapper {
+
+  .input-wrapper {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+
+    input {
+      float: right;
+      margin-right: 10px;
+    }
+  }
+}
