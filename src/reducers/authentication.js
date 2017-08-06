@@ -10,7 +10,7 @@ function reducer(state = initialState, action) {
 
   switch (action.type) {
     case USER_SIGN_UP: {
-      console.log('reducer')
+      console.log(action.payload)
       return nextState
     }
     default: {
