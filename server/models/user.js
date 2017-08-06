@@ -39,22 +39,22 @@ let UserSchema = new Schema({
   }
 })
 
-UserSchema.path('email').validate(function (name) {
+UserSchema.path('email').validate((name) => {
     return name.length >= 5 && name.length <= 60
 })
 
-UserSchema.path('password').validate(function (password) {
+UserSchema.path('password').validate((password) => {
     return password.length > 5 && password.length <= 40
 })
 
 UserSchema.pre('save', function(next) {
-    var user = this
+    const user = this
 
     if (!user.isModified('password')) {
       return next()
     }
 
-    bcrypt.hash(user.password, null, null, function(err, hash) {
+    bcrypt.hash(user.password, null, null, (err, hash) => {
       if (err) {
         return next(err)
       }
@@ -70,4 +70,4 @@ UserSchema.methods.comparePassword = function(password) {
     return bcrypt.compareSync(password, user.password)
 }
 
-module.exports = mongoose.Model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema)

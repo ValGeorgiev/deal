@@ -54,8 +54,13 @@ class Signup extends Component {
       familyName,
       password
     } = this.state
-    console.log(this.props)
-    this.props.actions.signup()
+
+    this.props.actions.signup({
+      email,
+      name,
+      familyName,
+      password
+    })
   }
 
   render() {

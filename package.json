@@ -70,6 +70,7 @@
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "concurrently": "^3.5.0",
     "cors": "^2.8.4",
