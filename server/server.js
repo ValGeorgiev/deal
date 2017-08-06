@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const userApiRoutes = require('./routers/user/userRoute')
 
@@ -20,6 +21,9 @@ mongoose.connect(DATABASE, {
   }
 })
 
+app.use(cors({
+  origin: 'http://localhost:8000'
+}));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({

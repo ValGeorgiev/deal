@@ -11,9 +11,11 @@
 import { combineReducers } from 'redux';
 
 import routerReducer from './routerReducer'
+import authentication from './authentication'
 
 const reducers = {
-  router: routerReducer
+  router: routerReducer,
+  authentication
 };
 const combined = combineReducers(reducers);
 module.exports = combined;

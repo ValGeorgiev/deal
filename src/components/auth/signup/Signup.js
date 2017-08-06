@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+// import { signup } from '../../../actions/authentication'
+import * as ACTIONS from '../../../actions'
+
 import './signup.scss'
 
 class Signup extends Component {
@@ -49,7 +54,8 @@ class Signup extends Component {
       familyName,
       password
     } = this.state
-
+    console.log(this.props)
+    this.props.actions.signup()
   }
 
   render() {
@@ -101,4 +107,27 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+const mapStateToProps = (state) => {
+  // return {
+  //   isMobile: state.app.isMobile
+  // }
+
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  const actions = ACTIONS
+  const actionMap = {
+    actions: bindActionCreators(actions, dispatch)
+  }
+
+  return actionMap
+
+
+  // return {
+  //   signup: () => dispatch(signup())
+  // }
+  // return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
