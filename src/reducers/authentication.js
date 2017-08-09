@@ -1,5 +1,6 @@
 import {
-  USER_SIGN_UP
+  USER_SIGN_UP,
+  USER_SIGN_UP_ERROR
 } from '../actions/const'
 
 
@@ -10,8 +11,18 @@ function reducer(state = initialState, action) {
 
   switch (action.type) {
     case USER_SIGN_UP: {
-      console.log('reducer')
-      return nextState
+      const { success_message } = action.payload
+      return {
+        nextState,
+        success_message
+      }
+    }
+    case USER_SIGN_UP_ERROR: {
+      const { message } = action.payload
+      return {
+        nextState,
+        message
+      }
     }
     default: {
       return state

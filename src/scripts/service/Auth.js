@@ -1,26 +1,24 @@
-import fetch from 'node-fetch'
 import {
   SIGN_UP_LINK,
   LOGIN_LINK
 } from './links'
 
+import HTTP from '../HTTP'
+
 class Auth {
   signup(data) {
-    console.log('Auth.signup()')
 
     return new Promise((resolve, reject) => {
-      fetch(SIGN_UP_LINK, {
-        method: 'POST',
-        body: 'a=1'
-      }).then((response) => {
-        console.log('res: ' )
-        console.log(response)
-        resolve(response)
-      }).catch((err) => {
-        reject(err)
+      HTTP.post(SIGN_UP_LINK, data).then(({ json, ok }) => {
+        if (ok) {
+          resolve(json)
+        } else {
+          reject(json)
+        }
       })
     })
   }
+
 
   login() {
 

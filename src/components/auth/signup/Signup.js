@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-// import { signup } from '../../../actions/authentication'
 import * as ACTIONS from '../../../actions'
 
 import './signup.scss'
@@ -14,7 +13,8 @@ class Signup extends Component {
       email: '',
       name: '',
       familyName: '',
-      password: ''
+      password: '',
+      error: null
     }
 
     this.changeEmail = this.changeEmail.bind(this)
@@ -47,6 +47,41 @@ class Signup extends Component {
     })
   }
 
+  validateSignupForm(callback) {
+    const {
+      email,
+      name,
+      familyName,
+      password
+    } = this.state
+
+    const regex = /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/
+
+    if (!regex.test(email)) {
+      callback({
+        message: 'The email is not correct!'
+      })
+      return
+    }
+
+    if (password.length < 5 || password.length > 20) {
+      callback({
+        message: 'The password is not correct!'
+      })
+      return
+    }
+
+    if (name.trim().length === 0 || familyName.trim().length === 0) {
+      callback({
+        message: 'The names are mandatory!'
+      })
+      return
+    }
+
+    callback(null)
+    return
+  }
+
   submit() {
     const {
       email,
@@ -54,8 +89,24 @@ class Signup extends Component {
       familyName,
       password
     } = this.state
-    console.log(this.props)
-    this.props.actions.signup()
+
+    this.validateSignupForm((err) => {
+      if (!err) {
+        this.props.actions.signup({
+          email,
+          name,
+          familyName,
+          password
+        })
+        this.setState({
+          error: null
+        })
+      } else {
+        this.setState({
+          error: err.message
+        })
+      }
+    })
   }
 
   render() {
@@ -63,11 +114,13 @@ class Signup extends Component {
       email,
       name,
       familyName,
-      password
+      password,
+      error
     } = this.state
 
     const {
-      openLogin
+      openLogin,
+      _error
     } = this.props
 
     return (
@@ -96,6 +149,12 @@ class Signup extends Component {
             <input type='password' value={password} onChange={this.changePassword} />
           </label>
         </div>
+        {!!error || !!_error ? (
+          <div className='error-wrappper'>
+            <p>{error || _error}</p>
+          </div>
+          ) : null
+        }
 
         <div className='signup__btn-wrapper'>
           <button className='btn btn-big btn-blue' onClick={() => this.submit()}>Регистрирай ме!</button>
@@ -108,11 +167,10 @@ class Signup extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // return {
-  //   isMobile: state.app.isMobile
-  // }
-
-  return {}
+  return {
+    _error: state.authentication.message,
+    success: state.authentication.success_message
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -122,12 +180,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 
   return actionMap
-
-
-  // return {
-  //   signup: () => dispatch(signup())
-  // }
-  // return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)

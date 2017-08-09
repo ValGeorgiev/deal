@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const Auth = require('../../scripts/auth')
 
 router.post('/auth/signup', (req, res) => {
-  console.log('test')
-  console.log(req.body)
-  res.send('test')
+  Auth.signup(req, res)
 })
 
 module.exports = {

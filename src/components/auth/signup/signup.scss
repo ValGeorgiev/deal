@@ -1,5 +1,5 @@
 .signup__btn-wrapper {
-  margin: 20px 10px;
+  margin: 0 10px 20px;
   text-align: center;
 
   .signup__login-btn {
@@ -23,5 +23,13 @@
       float: right;
       margin-right: 10px;
     }
+  }
+
+  .error-wrappper {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    color: #FF2B38
   }
 }
