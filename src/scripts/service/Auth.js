@@ -7,17 +7,18 @@ import HTTP from '../HTTP'
 
 class Auth {
   signup(data) {
-    console.log('Auth.signup()')
 
     return new Promise((resolve, reject) => {
-
-      HTTP.post(SIGN_UP_LINK, data).then((json) => {
-        resolve(json)
-      }).catch((err) => {
-        reject(err)
+      HTTP.post(SIGN_UP_LINK, data).then(({ json, ok }) => {
+        if (ok) {
+          resolve(json)
+        } else {
+          reject(json)
+        }
       })
     })
   }
+
 
   login() {
 

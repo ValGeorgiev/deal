@@ -11,7 +11,10 @@ class HTTP {
         'Content-Type': 'application/json'
       }
     }).then((res) => {
-      return res.json()
+      return {
+        json: res.json(),
+        ok: res.ok
+      }
     })
   }
 
