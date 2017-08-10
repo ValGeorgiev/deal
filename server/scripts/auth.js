@@ -5,7 +5,35 @@ class Auth {
 
   }
 
-  login() {
+  login(req, res) {
+
+    const {
+      email,
+      password
+    } = req.body
+
+    User.findOne({
+      email
+    }, (err, user) => {
+      if (!!user) {
+        if(user.comparePassword(password) === true) {
+
+          return res.status(200).send({
+            success_message: 'Welcome back!'
+          })
+        } else {
+
+          return res.status(401).send({
+            message: 'Please check your creadentials again!'
+          })
+        }
+      } else {
+
+        return res.status(401).send({
+          message: 'Please check your creadentials again!'
+        })
+      }
+    })
 
   }
 

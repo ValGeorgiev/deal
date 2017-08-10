@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import t from '../../../translations'
 import DealModal from '../deal-modal/DealModal'
 import Signup from '../../auth/signup/Signup'
+import Login from '../../auth/login/Login'
 import './header.scss'
 
 class Header extends Component {
@@ -46,6 +47,13 @@ class Header extends Component {
     })
   }
 
+  closeLoginOpenSignup() {
+    this.setState({
+      openSignup: true,
+      openLogin: false
+    })
+  }
+
   render() {
     let { openLogin, openSignup } = this.state
     return (
@@ -59,10 +67,10 @@ class Header extends Component {
           <DealModal
             header="Login"
             open={openLogin}
-            size='small'
+            size='medium'
             onClose={() => this.closeLogin()}
           >
-            <div> test </div>
+            <Login openSignup={() => this.closeLoginOpenSignup()} />
           </DealModal>
 
           <a className="header_wrapper__login-section__signup" onClick={this.openSignup} href="javascript:void(0);">
