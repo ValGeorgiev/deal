@@ -6,6 +6,10 @@ router.post('/auth/signup', (req, res) => {
   Auth.signup(req, res)
 })
 
+router.post('/auth/login', (req, res) => {
+  Auth.login(req, res)
+})
+
 module.exports = {
   router
 }

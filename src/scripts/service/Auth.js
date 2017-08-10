@@ -19,9 +19,17 @@ class Auth {
     })
   }
 
+  login(data) {
 
-  login() {
-
+     return new Promise((resolve, reject) => {
+      HTTP.post(LOGIN_LINK, data).then(({ json, ok }) => {
+        if (ok) {
+          resolve(json)
+        } else {
+          reject(json)
+        }
+      })
+    })
   }
 
   logout() {

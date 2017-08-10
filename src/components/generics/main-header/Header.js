@@ -67,7 +67,7 @@ class Header extends Component {
           <DealModal
             header="Login"
             open={openLogin}
-            size='small'
+            size='medium'
             onClose={() => this.closeLogin()}
           >
             <Login openSignup={() => this.closeLoginOpenSignup()} />

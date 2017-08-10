@@ -1,6 +1,8 @@
 import {
   USER_SIGN_UP,
-  USER_SIGN_UP_ERROR
+  USER_SIGN_UP_ERROR,
+  USER_LOGIN,
+  USER_LOGIN_ERROR
 } from '../actions/const'
 
 
@@ -19,6 +21,21 @@ function reducer(state = initialState, action) {
     }
     case USER_SIGN_UP_ERROR: {
       const { message } = action.payload
+      return {
+        nextState,
+        message
+      }
+    }
+    case USER_LOGIN: {
+      const { success_message } = action.payload
+      return {
+        nextState,
+        success_message
+      }
+    }
+    case USER_LOGIN_ERROR: {
+      const { message } = action.payload
+
       return {
         nextState,
         message

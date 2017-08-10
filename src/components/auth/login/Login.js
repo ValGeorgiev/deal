@@ -115,7 +115,7 @@ class Login extends Component {
 
         <div className='login__btn-wrapper'>
           <button className='btn btn-big btn-blue' onClick={() => this.submit()}>Вход!</button>
-          <button className='login__login-btn' onClick={() => openSignup()}>Нямате регистрация?</button>
+          <button className='login__signup-btn' onClick={() => openSignup()}>Нямате регистрация?</button>
         </div>
 
       </div>
