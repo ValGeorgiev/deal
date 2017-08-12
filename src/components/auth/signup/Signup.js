@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ACTIONS from '../../../actions'
+import t from '../../../translations'
 
 import './signup.scss'
 
@@ -127,25 +128,25 @@ class Signup extends Component {
       <div className='signup_wrapper'>
         <div className='input-wrapper'>
           <label>
-            Email:
+            {t('sign.up.email')}
             <input type='email' value={email} onChange={this.changeEmail} />
           </label>
         </div>
         <div className='input-wrapper'>
           <label>
-            Име:
+            {t('sign.up.name')}
             <input type='text' value={name} onChange={this.changeName} />
           </label>
         </div>
         <div className='input-wrapper'>
           <label>
-            Фамилия:
+            {t('sign.up.family.name')}
             <input type='text' value={familyName} onChange={this.changeFamilyName} />
           </label>
         </div>
         <div className='input-wrapper'>
           <label>
-            Парола:
+            {t('sign.up.password')}
             <input type='password' value={password} onChange={this.changePassword} />
           </label>
         </div>
@@ -157,8 +158,8 @@ class Signup extends Component {
         }
 
         <div className='signup__btn-wrapper'>
-          <button className='btn btn-big btn-blue' onClick={() => this.submit()}>Регистрирай ме!</button>
-          <button className='signup__login-btn' onClick={() => openLogin()}>Имате регистрация?</button>
+          <button className='btn btn-big btn-blue' onClick={() => this.submit()}>{t('sign.up.register.me')}</button>
+          <button className='signup__login-btn' onClick={() => openLogin()}>{t('sign.up.you.have.registration')}</button>
         </div>
 
       </div>

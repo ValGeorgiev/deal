@@ -65,7 +65,7 @@ class Header extends Component {
             {t('login')}
           </a>
           <DealModal
-            header="Login"
+            header={t('login.title')}
             open={openLogin}
             size='medium'
             onClose={() => this.closeLogin()}
@@ -77,7 +77,7 @@ class Header extends Component {
             {t('sign.up')}
           </a>
           <DealModal
-            header='Регистрация'
+            header={t('sign.up.title')}
             open={openSignup}
             size='medium'
             onClose={() => this.closeSignup()}

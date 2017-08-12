@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ACTIONS from '../../../actions'
+import t from '../../../translations'
 
 import './login.scss'
 
@@ -96,13 +97,13 @@ class Login extends Component {
       <div className='login_wrapper'>
         <div className='input-wrapper'>
           <label>
-            Email:
+            {t('login.email')}
             <input type='email' value={email} onChange={this.changeEmail} />
           </label>
         </div>
         <div className='input-wrapper'>
           <label>
-            Парола:
+            {t('login.password')}
             <input type='password' value={password} onChange={this.changePassword} />
           </label>
         </div>
@@ -114,8 +115,8 @@ class Login extends Component {
         }
 
         <div className='login__btn-wrapper'>
-          <button className='btn btn-big btn-blue' onClick={() => this.submit()}>Вход!</button>
-          <button className='login__signup-btn' onClick={() => openSignup()}>Нямате регистрация?</button>
+          <button className='btn btn-big btn-blue' onClick={() => this.submit()}>{t('login.login')}</button>
+          <button className='login__signup-btn' onClick={() => openSignup()}>{t('login.уou.dont.have.registration')}</button>
         </div>
 
       </div>

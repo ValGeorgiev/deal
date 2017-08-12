@@ -1,3 +1,4 @@
+
 window.LGMaps.maps.bulgaria = {
   "config": {
     "mapWidth": 900.400,
@@ -8,7 +9,7 @@ window.LGMaps.maps.bulgaria = {
   "paths": [
     {
       "enable": true,
-      "name": "Велико Търново",
+      "name": __t__('city.bg.veliko.tarnovo'),
       "abbreviation": "VT",
       "textX": 0,
       "textY": 0,
@@ -21,7 +22,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Монтана",
+      "name": __t__('city.bg.montana'),
       "abbreviation": "MT",
       "textX": 0,
       "textY": 0,
@@ -34,7 +35,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Враца",
+      "name": __t__('city.bg.vratsa'),
       "abbreviation": "VR",
       "textX": 0,
       "textY": 0,
@@ -47,7 +48,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Кюстендил",
+      "name": __t__('city.bg.kyustendil'),
       "abbreviation": "KY",
       "textX": 0,
       "textY": 0,
@@ -60,7 +61,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Видин",
+      "name": __t__('city.bg.vidin'),
       "abbreviation": "VD",
       "textX": 0,
       "textY": 0,
@@ -73,7 +74,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Бургас",
+      "name": __t__('city.bg.burgas'),
       "abbreviation": "BR",
       "textX": 0,
       "textY": 0,
@@ -86,7 +87,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Ямбол",
+      "name": __t__('city.bg.yambol'),
       "abbreviation": "YA",
       "textX": 0,
       "textY": 0,
@@ -99,7 +100,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Търговище",
+      "name": __t__('city.bg.targovishte'),
       "abbreviation": "TU",
       "textX": 0,
       "textY": 0,
@@ -112,7 +113,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Разград",
+      "name": __t__('city.bg.razgrad'),
       "abbreviation": "RG",
       "textX": 0,
       "textY": 0,
@@ -125,7 +126,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Шумен",
+      "name": __t__('city.bg.shumen'),
       "abbreviation": "SH",
       "textX": 0,
       "textY": 0,
@@ -138,7 +139,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Добрич",
+      "name": __t__('city.bg.dobrich'),
       "abbreviation": "DO",
       "textX": 0,
       "textY": 0,
@@ -151,7 +152,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Варна",
+      "name": __t__('city.bg.varna'),
       "abbreviation": "VN",
       "textX": 0,
       "textY": 0,
@@ -164,7 +165,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Силистра",
+      "name": __t__('city.bg.silistra'),
       "abbreviation": "SI",
       "textX": 0,
       "textY": 0,
@@ -177,7 +178,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Русе",
+      "name": __t__('city.bg.ruse'),
       "abbreviation": "RS",
       "textX": 0,
       "textY": 0,
@@ -190,7 +191,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Благоевград",
+      "name": __t__('city.bg.blagoevgrad'),
       "abbreviation": "BL",
       "textX": 0,
       "textY": 0,
@@ -203,7 +204,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Сливен",
+      "name": __t__('city.bg.sliven'),
       "abbreviation": "SL",
       "textX": 0,
       "textY": 0,
@@ -216,7 +217,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Стара Загора",
+      "name": __t__('city.bg.stara.zagora'),
       "abbreviation": "SZ",
       "textX": 0,
       "textY": 0,
@@ -229,7 +230,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Хасково",
+      "name": __t__('city.bg.haskovo'),
       "abbreviation": "KK",
       "textX": 0,
       "textY": 0,
@@ -242,7 +243,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Пловдив",
+      "name": __t__('city.bg.plovdiv'),
       "abbreviation": "PD",
       "textX": 0,
       "textY": 0,
@@ -255,7 +256,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Пазарджик",
+      "name": __t__('city.bg.pazardzhik'),
       "abbreviation": "PZ",
       "textX": 0,
       "textY": 0,
@@ -268,7 +269,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Смолян",
+      "name": __t__('city.bg.smolyan'),
       "abbreviation": "SM",
       "textX": 0,
       "textY": 0,
@@ -281,7 +282,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Кърджали",
+      "name": __t__('city.bg.kardzhali'),
       "abbreviation": "KZ",
       "textX": 0,
       "textY": 0,
@@ -294,7 +295,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "София - Област",
+      "name": __t__('city.bg.sofia.province'),
       "abbreviation": "SF",
       "textX": 0,
       "textY": 0,
@@ -307,7 +308,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "София",
+      "name": __t__('city.bg.sofia'),
       "abbreviation": "SG",
       "textX": 0,
       "textY": 0,
@@ -320,7 +321,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Перник",
+      "name": __t__('city.bg.pernik'),
       "abbreviation": "PN",
       "textX": 0,
       "textY": 0,
@@ -333,7 +334,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Габрово",
+      "name": __t__('city.bg.gabrovo'),
       "abbreviation": "GB",
       "textX": 0,
       "textY": 0,
@@ -346,7 +347,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Ловеч",
+      "name": __t__('city.bg.lovech'),
       "abbreviation": "LV",
       "textX": 0,
       "textY": 0,
@@ -359,7 +360,7 @@ window.LGMaps.maps.bulgaria = {
     },
     {
       "enable": true,
-      "name": "Плевен",
+      "name": __t__('city.bg.pleven'),
       "abbreviation": "PV",
       "textX": 0,
       "textY": 0,

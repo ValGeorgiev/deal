@@ -14,4 +14,5 @@ let translate = function(text) {
   return require(`./${locale}`)[text]
 }
 
+window.__t__ = translate
 module.exports = translate
