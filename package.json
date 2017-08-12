@@ -69,6 +69,8 @@
     "webpack-dev-server": "^2.1.0-beta"
   },
   "dependencies": {
+    "ammap3": "github:amcharts/ammap3",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "bcrypt": "^1.0.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",

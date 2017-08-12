@@ -1,0 +1,24 @@
+.home-navigation__wrapper {
+  text-align: center;
+  background-color: #1C4278;
+
+  .nav-button__wrapper {
+    display: inline-block;
+    width: 33%;
+    height: 260px;
+  }
+
+  .nav-button {
+    margin: 10px;
+    height: auto;
+
+    img {
+      margin-top: 5px;
+    }
+
+    h2 {
+      margin: 10px 0;
+      color: #EDF0EB;
+    }
+  }
+}
