@@ -43,7 +43,7 @@ class AddEstateUser extends Component {
                 <input type='email' />
               </label>
             </div>
-            <div className='input-wrapper'>
+            <div className='input-wrapper password'>
               <label>
                 {t('login.password')}
                 <input type='password' />
@@ -54,8 +54,8 @@ class AddEstateUser extends Component {
             &
           </div>
           <div className='guess__login'>
-            <h3>Продължете като гост като въведете email и две имена.</h3>
-            <div className='input-wrapper'>
+            <h3>Продължете като гост - въведете email и две имена.</h3>
+            <div className='input-wrapper email'>
               <label>
                 Email:
                 <input type='email' />

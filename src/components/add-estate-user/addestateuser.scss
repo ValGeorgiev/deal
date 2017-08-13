@@ -1,6 +1,7 @@
 .add-estate-user__wrapper {
   border-bottom: 1px solid #1C4278;
   margin-bottom: 15px;
+  text-align: center;
 
   .user__wrapper {
     overflow: hidden;
@@ -15,10 +16,33 @@
 
   .user__login {
     display: inline-block;
+    margin-left: 3%;
+    margin-right: 5%;
+    text-align: left;
+
+    h3 {
+      height: 55px;
+      line-height: 55px;
+    }
+
+    .input-wrapper {
+
+      input {
+        margin-left: 21px;
+      }
+
+      &.password {
+
+        input {
+          margin-left: 10px;
+        }
+      }
+    }
   }
 
   .user-estate-buttons {
-    text-align: center;
+    margin-top: -35px;
+    margin-left: -40px;
   }
 
   .login-divider {
@@ -30,11 +54,44 @@
   }
 
   .guess__login {
+    text-align: justify;
     display: inline-block;
+    margin-left: 5%;
+    margin-right: 3%;
+
+    h3 {
+      width: 350px;
+    }
+
+    .input-wrapper {
+
+      input {
+        margin-left: 15px;
+      }
+
+      &.email {
+        input {
+          margin-left: 21px;
+        }
+      }
+    }
+
   }
 
   .user__wrapper.start-animation {
     height: 0;
+  }
+
+  .ready-state {
+    height: 50px;
+    line-height: 50px;
+    color: #FAF7F8;
+    background-color: #24ED25;
+    background-image: linear-gradient(#24ED25, #26A717);
+
+    p {
+      font-size: 24px;
+    }
   }
 
 }
