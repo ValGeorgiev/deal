@@ -8,7 +8,13 @@ class AddEstateInfo extends Component {
 
     this.state = {
       readyState: false,
-      readyClass: false
+      readyClass: false,
+      quadrature: '',
+      floor: '',
+      allFloors: '',
+      price: '',
+      buildingYear: '',
+      moreInfo: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -34,8 +40,23 @@ class AddEstateInfo extends Component {
     })
   }
 
+  handleChangeInput(event, type) {
+    let object = {}
+    object[type] = event.target.value
+    this.setState(object)
+  }
+
   render() {
-    const { readyState, readyClass } = this.state
+    const {
+      readyState,
+      readyClass,
+      quadrature,
+      buildingYear,
+      moreInfo,
+      floor,
+      allFloors,
+      price
+    } = this.state
 
     const animationClass = readyClass ? 'start-animation' : ''
 
@@ -48,19 +69,19 @@ class AddEstateInfo extends Component {
               <div className='input-wrapper'>
                 <label>
                   Квадратура:
-                  <input type='number' />
+                  <input onChange={(event) => this.handleChangeInput(event, 'quadrature')} value={quadrature} type='number' />
                 </label>
               </div>
               <div className='input-wrapper'>
                 <label>
                   Етаж:
-                  <input type='number' />
+                  <input  onChange={(event) => this.handleChangeInput(event, 'floor')} value={floor} type='number' />
                 </label>
               </div>
               <div className='input-wrapper'>
                 <label>
                   Етажност:
-                  <input type='number' />
+                  <input  onChange={(event) => this.handleChangeInput(event, 'allFloors')} value={allFloors} type='number' />
                 </label>
               </div>
             </div>
@@ -68,7 +89,7 @@ class AddEstateInfo extends Component {
               <div className='input-wrapper'>
                 <label>
                   Цена:
-                  <input type='number' />
+                  <input  onChange={(event) => this.handleChangeInput(event, 'price')} value={price} type='number' />
                 </label>
               </div>
               <div className='input-wrapper'>
@@ -96,7 +117,7 @@ class AddEstateInfo extends Component {
               <div className='input-wrapper'>
                 <label>
                   Година на строителство:
-                  <input type='number' />
+                  <input onChange={(event) => this.handleChangeInput(event, 'buildingYear')} value={buildingYear} type='number' />
                 </label>
               </div>
             </div>
@@ -105,7 +126,7 @@ class AddEstateInfo extends Component {
                 <label htmlFor='additional-info'>
                   Допълнителна информация:
                 </label>
-                <textarea id='additional-info' />
+                <textarea onChange={(event) => this.handleChangeInput(event, 'moreInfo')} value={moreInfo} id='additional-info' />
               </div>
             </div>
           </div>
