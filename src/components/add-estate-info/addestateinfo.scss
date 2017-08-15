@@ -1,0 +1,77 @@
+.add-estate-info__wrapper {
+
+  .info__wrapper {
+    overflow: hidden;
+    height: 460px;
+    -webkit-transition-property: height; /* Safari */
+    -webkit-transition-duration: 2.5s; /* Safari */
+    -webkit-transition-delay: 0.5s; /* Safari */
+    transition-property: height;
+    transition-duration: 2.5s;
+    transition-delay: 0.5s;
+  }
+
+  .info__title {
+    text-align: center;
+  }
+
+  .floor__wrapper {
+    border-bottom: 1px solid silver;
+
+    .input-wrapper {
+      display: inline-block;
+    }
+  }
+
+  .price-building__wrapper {
+    border-bottom: 1px solid silver;
+
+    .input-wrapper {
+      display: inline-block;
+    }
+  }
+
+  .more__wrapper {
+    text-align: center;
+
+    label {
+      display: block;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    #additional-info {
+      width: 80%;
+      height: 140px;
+    }
+
+  }
+  .info-btn__wrapper {
+    text-align: center;
+  }
+
+  .info__wrapper.start-animation {
+    height: 0;
+  }
+
+  .ready-state {
+    height: 50px;
+    line-height: 50px;
+    color: #FAF7F8;
+    background-color: #24ED25;
+    background-image: linear-gradient(#24ED25, #26A717);
+    text-align: center;
+
+    p {
+      font-size: 24px;
+      display: inline-block;
+    }
+
+    span {
+      cursor: pointer;
+      font-size: 19px;
+      margin-left: 10px;
+      text-decoration: underline;
+    }
+  }
+}
