@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import t from '../../translations'
+import * as ACTIONS from '../../actions/'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import './addestateinfo.scss'
 
 class AddEstateInfo extends Component {
@@ -109,7 +112,7 @@ class AddEstateInfo extends Component {
                     <option value='brick'>тухла</option>
                     <option value='panel'>панел</option>
                     <option value='epk'>ЕПК</option>
-                    <option value='gradored'>градоред</option>
+                    <option value='beamwork'>градоред</option>
                     <option value='PK'>ПК</option>
                   </select>
                 </label>
@@ -145,4 +148,17 @@ class AddEstateInfo extends Component {
   }
 }
 
-export default AddEstateInfo
+function mapStateToProps(state) { // eslint-disable-line no-unused-vars
+  /* Populated by react-webpack-redux:reducer */
+  const props = {
+    router: state.router
+  }
+  return props
+}
+function mapDispatchToProps(dispatch) {
+  /* Populated by react-webpack-redux:action */
+  const actions = ACTIONS
+  const actionMap = { actions: bindActionCreators(actions, dispatch) }
+  return actionMap
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AddEstateInfo)
