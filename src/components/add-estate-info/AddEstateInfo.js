@@ -17,7 +17,10 @@ class AddEstateInfo extends Component {
       allFloors: '',
       price: '',
       buildingYear: '',
-      moreInfo: ''
+      moreInfo: '',
+      buildingType: 'brick',
+      currency: '€',
+      estateType: 'appartament'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,6 +28,45 @@ class AddEstateInfo extends Component {
   }
 
   handleSubmit() {
+    const {
+      quadrature,
+      buildingYear,
+      moreInfo,
+      floor,
+      allFloors,
+      price,
+      buildingType,
+      currency,
+      estateType
+    } = this.state
+
+
+    this.props.actions.addEstateInformation({
+      quadrature,
+      buildingYear,
+      moreInfo,
+      floor,
+      allFloors,
+      price,
+      buildingType,
+      currency,
+      estateType
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+
+    const {
+      success,
+      error
+    } = nextProps
+
+    if (success) {
+      this.startAnimation()
+    }
+  }
+
+  startAnimation() {
     this.setState({
       readyClass: true
     })
@@ -43,6 +85,19 @@ class AddEstateInfo extends Component {
     })
   }
 
+  selectType(type) {
+    this.setState({
+      estateType: type
+    })
+  }
+
+  returnType(type) {
+    if (type === this.state.estateType) {
+      return 'btn-blue'
+    }
+    return ''
+  }
+
   handleChangeInput(event, type) {
     let object = {}
     object[type] = event.target.value
@@ -58,8 +113,15 @@ class AddEstateInfo extends Component {
       moreInfo,
       floor,
       allFloors,
-      price
+      price,
+      buildingType,
+      currency,
+      estateType
     } = this.state
+
+    const {
+      error
+    } = this.props
 
     const animationClass = readyClass ? 'start-animation' : ''
 
@@ -68,6 +130,29 @@ class AddEstateInfo extends Component {
         <div className={`${animationClass} info__wrapper`}>
           <h3 className='info__title'>Информация за имота</h3>
           <div>
+            <div className='estate_type__wrapper'>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('appartament')}`} onClick={() => this.selectType('appartament')}>Апартаменти</button>
+              </div>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('house')}`} onClick={() => this.selectType('house')}>Къщи</button>
+              </div>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('bussiness')}`} onClick={() => this.selectType('bussiness')}>Бизнес имоти</button>
+              </div>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('hotel')}`} onClick={() => this.selectType('hotel')}>Хотели</button>
+              </div>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('faculty')}`} onClick={() => this.selectType('faculty')}>Производствени помещения</button>
+              </div>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('sports')}`} onClick={() => this.selectType('sports')}>Спортни съоръжения</button>
+              </div>
+              <div className='type-wrapper'>
+                <button className={`btn ${this.returnType('field')}`} onClick={() => this.selectType('field')}>Парцели</button>
+              </div>
+            </div>
             <div className='floor__wrapper'>
               <div className='input-wrapper'>
                 <label>
@@ -98,21 +183,22 @@ class AddEstateInfo extends Component {
               <div className='input-wrapper'>
                 <label>
                   Валута:
-                  <select>
-                    <option value='euro'>€</option>
-                    <option value='dollar'>$</option>
-                    <option value='lev'>лв</option>
+                  <select value={currency} onChange={(event) => this.handleChangeInput(event, 'currency')}>
+                    <option default value='€'>€</option>
+                    <option value='$'>$</option>
+                    <option value='лв'>лв</option>
+                    <option value='£'>£</option>
                   </select>
                 </label>
               </div>
               <div className='input-wrapper'>
                 <label>
                   Вид строителство:
-                  <select>
-                    <option value='brick'>тухла</option>
+                  <select value={buildingType} onChange={(event) => this.handleChangeInput(event, 'buildingType')}>
+                    <option default value='brick'>тухла</option>
                     <option value='panel'>панел</option>
                     <option value='epk'>ЕПК</option>
-                    <option value='beamwork'>градоред</option>
+                    <option value='beamworkn'>градоред</option>
                     <option value='PK'>ПК</option>
                   </select>
                 </label>
@@ -133,6 +219,14 @@ class AddEstateInfo extends Component {
               </div>
             </div>
           </div>
+          {!!error ?
+            (
+              <div>
+                <p>{error}</p>
+              </div>
+            ) : null
+
+          }
           <div className='info-btn__wrapper'>
             <button onClick={this.handleSubmit} className='btn btn-big btn-blue'>Продължи</button>
           </div>
@@ -148,10 +242,13 @@ class AddEstateInfo extends Component {
   }
 }
 
-function mapStateToProps(state) { // eslint-disable-line no-unused-vars
+function mapStateToProps(state) {
+  // eslint-disable-line no-unused-vars
   /* Populated by react-webpack-redux:reducer */
+
   const props = {
-    router: state.router
+    success: state.estate.success,
+    error: state.estate.message
   }
   return props
 }

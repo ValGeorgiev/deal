@@ -9,9 +9,11 @@ import {action1, action2} from '../actions/'
 
 import {
   signup,
-  login,
-  addEstateInformation
+  login
 } from './authentication'
+import {
+  addEstateInformation
+} from './addEstate'
 
 const actions = {
   signup,

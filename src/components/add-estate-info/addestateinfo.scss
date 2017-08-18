@@ -2,13 +2,22 @@
 
   .info__wrapper {
     overflow: hidden;
-    height: 460px;
+    height: 570px;
     -webkit-transition-property: height; /* Safari */
     -webkit-transition-duration: 2.5s; /* Safari */
     -webkit-transition-delay: 0.5s; /* Safari */
     transition-property: height;
     transition-duration: 2.5s;
     transition-delay: 0.5s;
+  }
+
+  .estate_type__wrapper {
+
+    margin: 20px 0;
+
+    .type-wrapper {
+      display: inline-block;
+    }
   }
 
   .info__title {

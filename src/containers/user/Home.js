@@ -10,11 +10,6 @@ class Home extends Component {
     super(props)
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-  }
-
-
   render() {
     return (
       <div>

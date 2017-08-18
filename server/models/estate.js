@@ -1,18 +1,25 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+// @TODO: add required: true to the user property
 let EstateSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'User'
+  },
+  estateType: {
+    type: String,
     required: true
+  },
+  additionalType: {
+    type: String
   },
   quadrature: {
     type: Number,
     min: 1,
     default: 1,
-    require: true
-  }
+    required: true
+  },
   floor: {
     type: Number,
     min: 0,
@@ -25,18 +32,18 @@ let EstateSchema = new Schema({
   price: {
     type: Number,
     min: 0,
-    require: true
+    required: true
   },
   currency: {
     type: String,
     enum: ['$', 'лв', '€', '£'],
-    require: true,
+    required: true,
     default: '€'
   },
   buildingType: {
     type: String,
     enum: ['brick', 'panel', 'beamwork']
-  }
+  },
   buildingYear: {
     type: Number,
     min: 1800
@@ -47,4 +54,4 @@ let EstateSchema = new Schema({
   }
 })
 
-module.exports = mongoose.Model('Estate', EstateSchema)
+module.exports = mongoose.model('Estate', EstateSchema)

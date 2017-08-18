@@ -6,6 +6,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 const userApiRoutes = require('./routers/user/userRoute')
+const estateApiRoutes = require('./routers/estate/estateRoute')
 
 const {
   PORT,
@@ -38,6 +39,7 @@ app.use(bodyParser.json())
 
 // routing
 app.use('/api', userApiRoutes.router)
+app.use('/api', estateApiRoutes.router)
 
 app.listen(PORT, () => {
   console.log("Server is started and listen on port 8001")
