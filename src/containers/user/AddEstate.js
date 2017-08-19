@@ -9,19 +9,36 @@ import t from '../../translations'
 class AddEstate extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      activeAddEstateUser: true,
+      activeAddEstateInfo: false,
+      activeAddEstateAddress: false
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps, 'add-estate')
   }
 
+  changeActiveConfig(config) {
+    this.setState(config)
+  }
+
   render() {
+
+    const {
+      activeAddEstateUser,
+      activeAddEstateInfo,
+      activeAddEstateAddress
+    } = this.state
+
     return (
       <div>
         <Header />
-        <AddEstateUser />
-        <AddEstateInfo />
-        <AddEstateAddress />
+        <AddEstateUser active={activeAddEstateUser} change={(config) => this.changeActiveConfig(config)} />
+        <AddEstateInfo active={activeAddEstateInfo} change={(config) => this.changeActiveConfig(config)} />
+        <AddEstateAddress active={activeAddEstateAddress} change={(config) => this.changeActiveConfig(config)} />
         <Footer />
       </div>
     )

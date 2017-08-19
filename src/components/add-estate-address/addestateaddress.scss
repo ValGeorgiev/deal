@@ -1,4 +1,15 @@
 .add-estate-address__wrapper {
+  position: relative;
+
+  .not-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(173, 168, 158, 0.6);
+    content: '';
+  }
 
   .address__wrapper {
     overflow: hidden;

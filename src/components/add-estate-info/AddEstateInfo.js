@@ -57,8 +57,7 @@ class AddEstateInfo extends Component {
   componentWillReceiveProps(nextProps) {
 
     const {
-      success,
-      error
+      success
     } = nextProps
 
     if (success) {
@@ -67,6 +66,10 @@ class AddEstateInfo extends Component {
   }
 
   startAnimation() {
+    const {
+      change
+    } = this.props
+
     this.setState({
       readyClass: true
     })
@@ -74,6 +77,11 @@ class AddEstateInfo extends Component {
     setTimeout(() => {
       this.setState({
         readyState: true
+      })
+      change({
+        activeAddEstateUser: false,
+        activeAddEstateInfo: false,
+        activeAddEstateAddress: true
       })
     }, 2200)
   }
@@ -120,14 +128,18 @@ class AddEstateInfo extends Component {
     } = this.state
 
     const {
-      error
+      error,
+      active
     } = this.props
+
+    let activeClass = active ? '' : 'not-active'
 
     const animationClass = readyClass ? 'start-animation' : ''
 
     return (
       <div className="add-estate-info__wrapper">
         <div className={`${animationClass} info__wrapper`}>
+          <div className={`shallow-block ${activeClass}`} />
           <h3 className='info__title'>Информация за имота</h3>
           <div>
             <div className='estate_type__wrapper'>

@@ -49,11 +49,18 @@ class AddEstateAddress extends Component {
       address
     } = this.state
 
+    const {
+      active
+    } = this.props
+
+    let activeClass = active ? '' : 'not-active'
+
     const animationClass = readyClass ? 'start-animation' : ''
 
     return (
       <div className="add-estate-address__wrapper">
         <div className={`${animationClass} address__wrapper`}>
+          <div className={`shallow-block ${activeClass}`} />
           <h3 className='address__title'>Адрес на имота</h3>
           <div>
             Адрес за сега:

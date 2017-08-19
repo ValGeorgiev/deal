@@ -16,6 +16,10 @@ class AddEstateUser extends Component {
   }
 
   handleLogin() {
+    const {
+      change
+    } = this.props
+
     this.setState({
       readyClass: true
     })
@@ -24,17 +28,29 @@ class AddEstateUser extends Component {
       this.setState({
         readyState: true
       })
+      change({
+        activeAddEstateUser: false,
+        activeAddEstateInfo: true,
+        activeAddEstateAddress: false
+      })
     }, 2200)
   }
 
   render() {
     const { readyState, readyClass } = this.state
 
+    const {
+      active
+    } = this.props
+
+    let activeClass = active ? '' : 'not-active'
+
     const animationClass = readyClass ? 'start-animation' : ''
 
     return (
-      <div className="add-estate-user__wrapper">
+      <div className='add-estate-user__wrapper'>
         <div className={`${animationClass} user__wrapper`}>
+          <div className={`shallow-block ${activeClass}`} />
           <div className='user__login'>
             <h3>Влезте в профила си!</h3>
             <div className='input-wrapper'>

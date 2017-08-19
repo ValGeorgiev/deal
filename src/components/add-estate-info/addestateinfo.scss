@@ -2,20 +2,32 @@
 
   .info__wrapper {
     overflow: hidden;
-    height: 570px;
+    height: 610px;
     -webkit-transition-property: height; /* Safari */
     -webkit-transition-duration: 2.5s; /* Safari */
     -webkit-transition-delay: 0.5s; /* Safari */
     transition-property: height;
     transition-duration: 2.5s;
     transition-delay: 0.5s;
+    position: relative;
+
+    .not-active {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(173, 168, 158, 0.6);
+      content: '';
+    }
   }
 
   .estate_type__wrapper {
-
     margin: 20px 0;
+    text-align: center;
 
     .type-wrapper {
+      width: 14%;
       display: inline-block;
     }
   }
@@ -83,4 +95,60 @@
       text-decoration: underline;
     }
   }
+}
+// @TODO: Refactor animation
+.shallow-block.not-active[open] {
+    animation-name: fadeInUp;
+    animation-duration: 0.5s;
+}
+
+.shallow-block[open] {
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
+}
+
+@keyframes fadeInDown {
+    0% {
+      opacity: 1;
+      background: rgba(173, 168, 158, 0.6);
+    }
+    25% {
+      opacity: 0.75;
+      background: rgba(173, 168, 158, 0.4);
+    }
+    50% {
+      opacity: 0.5;
+      background: rgba(173, 168, 158, 0.3);
+    }
+    75% {
+      opacity: 0.25;
+      background: rgba(173, 168, 158, 0.1);
+    }
+    100% {
+      opacity: 0;
+      background: rgba(173, 168, 158, 0.0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      background: rgba(173, 168, 158, 0.0);
+    }
+    25% {
+      opacity: 0.25;
+      background: rgba(173, 168, 158, 0.1);
+    }
+    50% {
+      opacity: 0.5;
+      background: rgba(173, 168, 158, 0.3);
+    }
+    75% {
+      opacity: 0.75;
+      background: rgba(173, 168, 158, 0.4);
+    }
+    100% {
+      opacity: 1;
+      background: rgba(173, 168, 158, 0.6);
+    }
 }
