@@ -11,13 +11,20 @@ import {
   signup,
   login
 } from './authentication'
+
 import {
   addEstateInformation
 } from './addEstate'
 
+import {
+  getEstates
+} from './getEstates'
+
 const actions = {
   signup,
   login,
-  addEstateInformation
+  addEstateInformation,
+  getEstates
 };
+
 module.exports = actions;

@@ -6,22 +6,9 @@ import { bindActionCreators } from 'redux'
 import './buyestatetypes.scss'
 
 class BuyEstateTypes extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      estateType: 'appartament'
-    }
-  }
-
-  selectType(type) {
-    this.setState({
-      estateType: type
-    })
-  }
 
   returnType(type) {
-    if (type === this.state.estateType) {
+    if (type === this.props.estateType) {
       return 'btn-blue'
     }
     return ''
@@ -29,33 +16,34 @@ class BuyEstateTypes extends Component {
 
   render() {
     const {
-      estateType
-    } = this.state
+      estateType,
+      updateType
+    } = this.props
 
     return (
       <div className="buy-estate-types__wrapper">
         <h3 className='types__title'>Избери тип</h3>
         <div className='estate_type__wrapper'>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('appartament')}`} onClick={() => this.selectType('appartament')}>Апартаменти</button>
+            <button className={`btn ${this.returnType('appartament')}`} onClick={() => updateType('appartament')}>Апартаменти</button>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('house')}`} onClick={() => this.selectType('house')}>Къщи</button>
+            <button className={`btn ${this.returnType('house')}`} onClick={() => updateType('house')}>Къщи</button>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('bussiness')}`} onClick={() => this.selectType('bussiness')}>Бизнес имоти</button>
+            <button className={`btn ${this.returnType('bussiness')}`} onClick={() => updateType('bussiness')}>Бизнес имоти</button>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('hotel')}`} onClick={() => this.selectType('hotel')}>Хотели</button>
+            <button className={`btn ${this.returnType('hotel')}`} onClick={() => updateType('hotel')}>Хотели</button>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('faculty')}`} onClick={() => this.selectType('faculty')}>Производствени помещения</button>
+            <button className={`btn ${this.returnType('faculty')}`} onClick={() => updateType('faculty')}>Производствени помещения</button>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('sports')}`} onClick={() => this.selectType('sports')}>Спортни съоръжения</button>
+            <button className={`btn ${this.returnType('sports')}`} onClick={() => updateType('sports')}>Спортни съоръжения</button>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('field')}`} onClick={() => this.selectType('field')}>Парцели</button>
+            <button className={`btn ${this.returnType('field')}`} onClick={() => updateType('field')}>Парцели</button>
           </div>
         </div>
       </div>

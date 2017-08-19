@@ -1,11 +1,13 @@
 import {
   ADD_ESTATE_INFORMATION,
-  ADD_ESTATE_INFORMATION_ERROR
+  ADD_ESTATE_INFORMATION_ERROR,
+  GET_ESTATES,
+  GET_ESTATES_ERROR
 } from '../actions/const'
 
 
 const initialState = {
-  error: null,
+  message: null,
   success: false
 }
 
@@ -29,6 +31,21 @@ function reducer(state = initialState, action) {
         message
       }
     }
+    case GET_ESTATES: {
+      return {
+        success: true,
+        data: action.payload,
+        nextState
+      }
+    }
+    case GET_ESTATES_ERROR: {
+      return {
+        success: false,
+        message: action.payload,
+        nextState
+      }
+    }
+
     default: {
       return state
     }

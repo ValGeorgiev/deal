@@ -43,6 +43,26 @@ class Estate {
       })
     })
   }
+
+  get(req, res) {
+    const { query } = req
+
+    let data = {
+      estateType: query.type
+    }
+
+    EstateModel.find(data, (err, estates) => {
+      if (!!err) {
+        res.status(500).send({
+          message: err.message
+        })
+      } else {
+        res.status(200).send({
+          estates
+        })
+      }
+    })
+  }
 }
 
 
