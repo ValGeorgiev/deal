@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
 import Footer from '../../components/generics/main-footer/Footer'
 import Header from '../../components/generics/main-header/Header'
-import HomeMap from '../../components/home-map/HomeMap'
-import HomeNavigation from '../../components/home-navigation/HomeNavigation'
+import BuyEstateType from '../../components/buy-estate-types/BuyEstateTypes'
 import t from '../../translations'
 
-class Home extends Component {
+class BuyEstate extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+
+    }
   }
 
+
   render() {
+
     return (
       <div>
         <Header />
-        <HomeNavigation />
-        <HomeMap />
-        Home Container
+        <BuyEstateType />
         <Footer />
       </div>
     )
   }
 }
 
-export default Home
+export default BuyEstate

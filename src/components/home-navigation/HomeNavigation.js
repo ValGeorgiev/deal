@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import t from '../../translations'
 import './homenavigation.scss'
 
@@ -11,16 +12,20 @@ class HomeNavigation extends Component {
     return (
       <div className="home-navigation__wrapper">
         <div className='nav-button__wrapper'>
-          <div className='nav-button'>
-            <img src='http://via.placeholder.com/150x170' />
-            <h2>Купи</h2>
-          </div>
+          <Link to='/buy-estate'>
+            <div className='nav-button'>
+              <img src='http://via.placeholder.com/150x170' />
+              <h2>Купи</h2>
+            </div>
+          </Link>
         </div>
         <div className='nav-button__wrapper'>
-          <div className='nav-button'>
-            <img src='http://via.placeholder.com/150x170' />
-            <h2>Продай</h2>
-          </div>
+          <Link to='/add-estate'>
+            <div className='nav-button'>
+              <img src='http://via.placeholder.com/150x170' />
+              <h2>Продай</h2>
+            </div>
+          </Link>
         </div>
         <div className='nav-button__wrapper'>
           <div className='nav-button'>

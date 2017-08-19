@@ -4,12 +4,15 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
 
 const userApiRoutes = require('./routers/user/userRoute')
+const estateApiRoutes = require('./routers/estate/estateRoute')
 
 const {
   PORT,
-  DATABASE
+  DATABASE,
+  COOKIE_SECRET
 } = require('./config')
 
 mongoose.connect(DATABASE, {
@@ -21,6 +24,8 @@ mongoose.connect(DATABASE, {
     console.log('DataBase is successfully started!')
   }
 })
+
+app.use(cookieParser(COOKIE_SECRET))
 
 app.use(cors({
   origin: 'http://localhost:8000'
@@ -38,6 +43,7 @@ app.use(bodyParser.json())
 
 // routing
 app.use('/api', userApiRoutes.router)
+app.use('/api', estateApiRoutes.router)
 
 app.listen(PORT, () => {
   console.log("Server is started and listen on port 8001")

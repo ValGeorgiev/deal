@@ -11,9 +11,13 @@ import {
   signup,
   login
 } from './authentication'
+import {
+  addEstateInformation
+} from './addEstate'
 
 const actions = {
   signup,
-  login
+  login,
+  addEstateInformation
 };
 module.exports = actions;

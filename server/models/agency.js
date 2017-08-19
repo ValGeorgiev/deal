@@ -5,4 +5,4 @@ let AgencySchema = new Schema({
 
 })
 
-module.exports = mongoose.Model('Agency', AgencySchema)
+module.exports = mongoose.model('Agency', AgencySchema)
