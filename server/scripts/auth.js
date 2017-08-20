@@ -17,9 +17,9 @@ class Auth {
     }, (err, user) => {
       if (!!user) {
         if(user.comparePassword(password) === true) {
-          // res.cookie('uid', user.id, {signed: true})
           return res.status(200).send({
-            success: true
+            success: true,
+            user: user
           })
         } else {
 

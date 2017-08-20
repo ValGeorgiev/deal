@@ -1,0 +1,33 @@
+
+.col-md-100 {
+  display: inline-block;
+  width: 100%;
+}
+
+.col-md-50 {
+  display: inline-block;
+  width: 49%;
+}
+
+.col-lg-100 {
+  display: inline-block;
+  width: 100%;
+}
+
+.col-lg-50 {
+  display: inline-block;
+  width: 49%;
+}
+
+@media screen and (max-width: 759px) {
+
+  .col-xs-100 {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .col-xs-50 {
+    display: inline-block;
+    width: 49%;
+  }
+}

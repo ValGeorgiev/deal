@@ -14,12 +14,14 @@ import routerReducer from './routerReducer'
 import authentication from './authentication'
 import addEstate from './addEstate'
 import getEstate from './getEstate'
+import getUser from './getUser'
 
 const reducers = {
   router: routerReducer,
   authentication,
   addEstate,
-  getEstate
+  getEstate,
+  getUser
 };
 const combined = combineReducers(reducers);
 module.exports = combined;

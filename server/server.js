@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const morgan = require('morgan')
-const cookieParser = require('cookie-parser')
 
 const userApiRoutes = require('./routers/user/userRoute')
 const estateApiRoutes = require('./routers/estate/estateRoute')
@@ -24,8 +23,6 @@ mongoose.connect(DATABASE, {
     console.log('DataBase is successfully started!')
   }
 })
-
-app.use(cookieParser(COOKIE_SECRET))
 
 app.use(cors({
   origin: 'http://localhost:8000'

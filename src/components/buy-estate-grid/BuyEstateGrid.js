@@ -26,7 +26,11 @@ class BuyEstateGrid extends Component {
       } else {
 
         return estatesData.estates.map((estate) => {
-          return <BuyEstateGridItem key={estate._id} estate={estate} />
+          return (
+            <div key={estate._id} className='col-xs-100 col-md-50'>
+              <BuyEstateGridItem estate={estate} />
+            </div>
+          )
         })
       }
     } else {

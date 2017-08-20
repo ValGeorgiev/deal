@@ -27,10 +27,12 @@ function reducer(state = initialState, action) {
       }
     }
     case USER_LOGIN: {
-      const { success_message } = action.payload
+      const { user } = action.payload
+      window.localStorage.setItem('uid', user._id)
       return {
-        nextState,
-        success_message
+        login: true,
+        user: user,
+        nextState
       }
     }
     case USER_LOGIN_ERROR: {

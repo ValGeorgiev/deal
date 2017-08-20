@@ -24,12 +24,17 @@ import {
   getEstateByID
 } from './getEstateByID'
 
+import {
+  getUserByID
+} from './getUser'
+
 const actions = {
   signup,
   login,
   addEstateInformation,
   getEstates,
-  getEstateByID
+  getEstateByID,
+  getUserByID
 }
 
 module.exports = actions
