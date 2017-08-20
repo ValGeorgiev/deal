@@ -38,12 +38,30 @@ class BuyEstate extends Component {
       actions
     } = this.props
 
+    let {
+      estateType
+    } = this.state
+
+    let types = estateType.split(',')
+    let index = types.indexOf(type)
+
+    if (index > -1) {
+      types.splice(index, 1)
+    } else if (type.length > 0) {
+      types.push(type)
+    }
+
+    let stateTypes = types.join(',')
     this.setState({
-      estateType: type
+      estateType: stateTypes
     })
 
+    if (stateTypes[0] === ',') {
+      stateTypes = stateTypes.substr(1)
+    }
+
     actions.getEstates({
-      type
+      type: stateTypes
     })
   }
 

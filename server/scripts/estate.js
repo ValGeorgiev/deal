@@ -47,11 +47,14 @@ class Estate {
   get(req, res) {
     const { query } = req
 
-    let data = {
-      estateType: query.type
-    }
+    let types = query.type ? query.type.split(',') : []
+    console.log(types)
 
-    EstateModel.find(data, (err, estates) => {
+    EstateModel.find({
+      estateType: {
+        $in: types
+      }
+    }, (err, estates) => {
       if (!!err) {
         res.status(500).send({
           message: err.message

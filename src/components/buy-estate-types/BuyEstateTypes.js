@@ -8,7 +8,7 @@ import './buyestatetypes.scss'
 class BuyEstateTypes extends Component {
 
   returnType(type) {
-    if (type === this.props.estateType) {
+    if (this.props.estateType.includes(type)) {
       return 'btn-blue'
     }
     return ''
