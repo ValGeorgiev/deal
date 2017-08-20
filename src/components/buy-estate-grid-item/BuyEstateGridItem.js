@@ -11,9 +11,15 @@ class BuyEstateItem extends Component {
   }
 
   render() {
+    const {
+      estate
+    } = this.props
+
     return (
       <div className="buy-estate-item__wrapper">
-
+        <span>Тип: {estate.estateType} </span>
+        <span>Цена: {estate.price} </span>
+        <span>Кв.: {estate.quadrature} </span>
       </div>
     )
   }

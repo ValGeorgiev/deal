@@ -19,7 +19,7 @@ class BuyEstate extends Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount')
+
     const {
       estateType
     } = this.state

@@ -11,26 +11,40 @@ class BuyEstateGrid extends Component {
     super()
   }
 
-  render() {
-    const {
+  createChildren() {
+     const {
       estatesData
     } = this.props
+
+    if (estatesData && estatesData.estates) {
+      if (estatesData.estates.length === 0) {
+        return (
+          <div>
+            Няма такива имоти!
+          </div>
+        )
+      } else {
+
+        return estatesData.estates.map((estate) => {
+          return <BuyEstateGridItem key={estate._id} estate={estate} />
+        })
+      }
+    } else {
+      return (
+        <div>
+          Loading....
+        </div>
+      )
+    }
+  }
+
+  render() {
 
     return (
       <div className="buy-estate-grid__wrapper">
         <h3 className='grid__title'>Имоти</h3>
         <div className='estate_grid__wrapper'>
-          {estatesData ?
-            estatesData.estates.map((estate) => {
-              return (
-                <div key={estate._id}>
-                  <span>Тип: {estate.estateType} </span>
-                  <span>Цена: {estate.price} </span>
-                  <span>Кв.: {estate.quadrature} </span>
-                </div>
-              )
-            }) : null
-          }
+          {this.createChildren()}
         </div>
       </div>
     )
