@@ -20,11 +20,16 @@ import {
   getEstates
 } from './getEstates'
 
+import {
+  getEstateByID
+} from './getEstateByID'
+
 const actions = {
   signup,
   login,
   addEstateInformation,
-  getEstates
-};
+  getEstates,
+  getEstateByID
+}
 
-module.exports = actions;
+module.exports = actions

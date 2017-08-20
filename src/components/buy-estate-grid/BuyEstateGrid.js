@@ -56,7 +56,7 @@ function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
 
   const props = {
-    estatesData: state.estate.data
+    estatesData: state.getEstate.data
   }
   return props
 }

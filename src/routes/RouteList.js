@@ -3,6 +3,7 @@ import { Route } from 'react-router'
 import Home from '../containers/user/Home'
 import AddEstate from '../containers/user/AddEstate'
 import BuyEstate from '../containers/user/BuyEstate'
+import Estate from '../containers/user/Estate'
 import AdminHome from '../containers/admin/AdminHome'
 
 class RouteList extends Component {
@@ -13,6 +14,7 @@ class RouteList extends Component {
         <Route exact path="/admin" component={AdminHome} />
         <Route exact path="/add-estate" component={AddEstate} />
         <Route exact path="/buy-estate" component={BuyEstate} />
+        <Route exact path="/estate/:type/:id" component={Estate} />
       </div>
     )
   }

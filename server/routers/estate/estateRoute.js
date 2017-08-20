@@ -10,6 +10,10 @@ router.get('/estate/get', (req, res) => {
   Estate.get(req, res)
 })
 
+router.get('/estate/get/:id', (req, res) => {
+  Estate.getEstateByID(req, res)
+})
+
 module.exports = {
   router
 }

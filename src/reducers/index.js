@@ -12,12 +12,14 @@ import { combineReducers } from 'redux';
 
 import routerReducer from './routerReducer'
 import authentication from './authentication'
-import estate from './estate'
+import addEstate from './addEstate'
+import getEstate from './getEstate'
 
 const reducers = {
   router: routerReducer,
   authentication,
-  estate
+  addEstate,
+  getEstate
 };
 const combined = combineReducers(reducers);
 module.exports = combined;

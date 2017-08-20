@@ -30,6 +30,8 @@ export function login (user_data = {}, state) {
   return (dispatch) => {
 
     return Deal.Auth.login(user_data).then((json) => {
+      console.log(json)
+      window.document.cookie
       dispatch({
         payload: json,
         type: USER_LOGIN

@@ -259,8 +259,8 @@ function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
 
   const props = {
-    success: state.estate.success,
-    error: state.estate.message
+    success: state.addEstate.success,
+    error: state.addEstate.message
   }
   return props
 }

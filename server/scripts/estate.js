@@ -48,7 +48,6 @@ class Estate {
     const { query } = req
 
     let types = query.type ? query.type.split(',') : []
-    console.log(types)
 
     EstateModel.find({
       estateType: {
@@ -66,6 +65,25 @@ class Estate {
       }
     })
   }
+
+  getEstateByID(req, res) {
+    const { params } = req
+
+    EstateModel.findOne({
+      _id: params.id
+    }, (err, estate) => {
+      if (!!err) {
+        res.status(500).send({
+          message: err.message
+        })
+      } else {
+        res.status(200).send({
+          estate
+        })
+      }
+    })
+  }
+
 }
 
 

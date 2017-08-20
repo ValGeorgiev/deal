@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import t from '../../translations'
-import { Link } from 'react-router-dom'
 import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import './buyestategriditem.scss'
+import './estatedetails.scss'
 
-class BuyEstateItem extends Component {
-  constructor() {
-    super()
-  }
+class EstateDetails extends Component {
 
   render() {
     const {
@@ -17,12 +13,11 @@ class BuyEstateItem extends Component {
     } = this.props
 
     return (
-      <div className="buy-estate-item__wrapper">
-        <Link to={`/estate/${estate.estateType}/${estate._id}`}>
-          <span>Тип: {estate.estateType} </span>
-          <span>Цена: {estate.price} </span>
-          <span>Кв.: {estate.quadrature} </span>
-        </Link>
+      <div className="estate-details__wrapper">
+        <span>Тип: {estate.estateType}</span>
+        <br/>
+        <span>Цена: {estate.price}</span>
+        <br/>
       </div>
     )
   }
@@ -42,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
-export default connect(mapStateToProps, mapDispatchToProps)(BuyEstateItem)
+export default connect(mapStateToProps, mapDispatchToProps)(EstateDetails)
