@@ -1,0 +1,49 @@
+.buy-estate-item__wrapper {
+  padding-right: 10px;
+  position: relative;
+
+  &.modal {
+    position: initial;
+
+    .all-images-btn {
+      display: none;
+    }
+  }
+
+
+
+  .estate-information {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+  }
+
+  .estate-image {
+    display: inline-block;
+  }
+
+  .item-link {
+    display: block;
+  }
+
+  .all-images-btn {
+    background-color: rgba(20, 20, 42, 0.7);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 5px;
+    left: 125px;
+    cursor: pointer;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 24px;
+      height: 24px;
+      background-image: url('../../images/full-screen-icon.png');
+      background-repeat: no-repeat;
+      top: 2px;
+      left: 2px;
+    }
+  }
+}

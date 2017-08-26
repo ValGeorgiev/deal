@@ -13,7 +13,6 @@ export function getEstates (data = {}, state) {
         type: GET_ESTATES
       })
     }).catch((error) => {
-
       error.then((message) => {
         dispatch({
           payload: message,
