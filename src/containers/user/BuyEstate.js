@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import Footer from '../../components/generics/main-footer/Footer'
 import Header from '../../components/generics/main-header/Header'
 import BuyEstateType from '../../components/buy-estate-types/BuyEstateTypes'
+import EstateRefinements from '../../components/estate-refinements/EstateRefinements'
 import BuyEstateGrid from '../../components/buy-estate-grid/BuyEstateGrid'
 import t from '../../translations'
 
@@ -74,7 +75,10 @@ class BuyEstate extends Component {
       <div>
         <Header />
         <BuyEstateType estateType={estateType} updateType={(type) => this.updateEstateType(type)} />
-        <BuyEstateGrid />
+        <div>
+          <EstateRefinements />
+          <BuyEstateGrid />
+        </div>
         <Footer />
       </div>
     )
