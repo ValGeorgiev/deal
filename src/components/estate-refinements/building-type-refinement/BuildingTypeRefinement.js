@@ -14,7 +14,14 @@ class BuildingTypeRefinement extends Component {
 
     return (
       <div className="building-type__refinement__wrapper">
-        BuildingTypeRefinement
+        <h4>Вид строителство</h4>
+        <select>
+          <option value='brick'>Тухла</option>
+          <option value='panel'>Панел</option>
+          <option value='epk'>ЕПК</option>
+          <option value='gradored'>Градоред</option>
+          <option value='pk'>ПК</option>
+        </select>
       </div>
     )
   }

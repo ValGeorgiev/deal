@@ -97,7 +97,13 @@ class Header extends Component {
   }
 
   render() {
-    let { openLogin, openSignup, loggedUser, user } = this.state
+    let {
+      openLogin,
+      openSignup,
+      loggedUser,
+      user
+    } = this.state
+
     user = _.isEmpty(user) ? this.props.user : user
 
     return (

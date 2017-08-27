@@ -12,8 +12,8 @@
   .modal__wrapper {
     z-index: 9999;
     background: white;
-    position: absolute;
-    top: 15%;
+    position: fixed;
+    top: 7%;
     left: 50%;
     height: auto;
     padding: 10px 20px;
@@ -37,7 +37,7 @@
   }
 
   .modal__background {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;

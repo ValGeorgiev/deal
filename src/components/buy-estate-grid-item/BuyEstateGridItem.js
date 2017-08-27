@@ -29,7 +29,6 @@ class BuyEstateItem extends Component {
   }
 
   closeImageCarousel() {
-    console.log('tesss')
     this.setState({
       openCarousel: false
     })
@@ -52,7 +51,8 @@ class BuyEstateItem extends Component {
           </div>
           <div className='estate-information'>
             <span>Тип: {estate.estateType} </span>
-            <span>Цена: {estate.price} </span>
+            <span>Цена: {estate.price}</span>
+            <span>{estate.currency} </span>
             <span>Кв.: {estate.quadrature} </span>
           </div>
         </Link>

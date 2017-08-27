@@ -12,12 +12,6 @@ class DealModal extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.open) {
-      document.getElementsByTagName('html')[0].classList.add('modal-open')
-    } else {
-      document.getElementsByTagName('html')[0].classList.remove('modal-open')
-    }
-
     this.setState({
       open: nextProps.open
     })

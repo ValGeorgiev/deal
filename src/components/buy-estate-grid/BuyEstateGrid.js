@@ -4,6 +4,7 @@ import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import BuyEstateGridItem from '../buy-estate-grid-item/BuyEstateGridItem'
+import Loading from '../generics/loading/Loading'
 import './buyestategrid.scss'
 
 class BuyEstateGrid extends Component {
@@ -34,11 +35,7 @@ class BuyEstateGrid extends Component {
         })
       }
     } else {
-      return (
-        <div>
-          Loading....
-        </div>
-      )
+      return <Loading />
     }
   }
 

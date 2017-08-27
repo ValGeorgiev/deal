@@ -14,7 +14,21 @@ class QuadratureRefinement extends Component {
 
     return (
       <div className="quadrature__refinement__wrapper">
-        QuadratureRefinement
+        <h4>Квадратура: </h4>
+        <div className='quadrature__inner__wrapper'>
+          <div className='quadrature__from'>
+            <span>От:</span>
+            <button className='btn plus-button'> + </button>
+            <input type='number' />
+            <button className='btn minus-button'> - </button>
+          </div>
+          <div className='quadrature__to'>
+            <span>До:</span>
+            <button className='btn plus-button'> + </button>
+            <input type='number' />
+            <button className='btn minus-button'> - </button>
+          </div>
+        </div>
       </div>
     )
   }

@@ -4,6 +4,14 @@ html, body {
   margin: 0;
 }
 
+html {
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+
 * {
   box-sizing: border-box;
 
