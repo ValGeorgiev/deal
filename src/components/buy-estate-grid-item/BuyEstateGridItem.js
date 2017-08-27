@@ -29,6 +29,7 @@ class BuyEstateItem extends Component {
   }
 
   closeImageCarousel() {
+    console.log('tesss')
     this.setState({
       openCarousel: false
     })

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import t from '../../translations'
+import Carousel from '../generics/carousel/Carousel'
 import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -23,7 +24,12 @@ class ImageModalCarousel extends Component {
 
     return (
       <div className="image-carousel__wrapper">
-
+        <Carousel>
+          <img src='http://via.placeholder.com/595x450' />
+          <img src='http://via.placeholder.com/595x450' />
+          <img src='http://via.placeholder.com/595x450' />
+          <img src='http://via.placeholder.com/595x450' />
+        </Carousel>
         <button className='btn btn-medium btn-dark-blue' onClick={this.closeCarousel}>Close</button>
       </div>
     )
