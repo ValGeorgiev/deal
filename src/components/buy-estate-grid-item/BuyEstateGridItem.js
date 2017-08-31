@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux'
 
 import DealModal from '../generics/deal-modal/DealModal'
 import ImageModalCarousel from '../image-modal-carousel/ImageModalCarousel'
+import FavIcon from '../../images/fav-icon.svg'
+import FavIconFilled from '../../images/fav-icon-filled.png'
 
 import './buyestategriditem.scss'
 
@@ -34,14 +36,25 @@ class BuyEstateItem extends Component {
     })
   }
 
+  addRemoveFavourites(id, isAdded) {
+    if (isAdded) {
+      this.props.actions.removeFromFavourites(id)
+    } else {
+      this.props.actions.addToFavourites(id)
+    }
+  }
+
   render() {
     const {
-      estate
+      estate,
+      user
     } = this.props
 
     const {
       openCarousel
     } = this.state
+
+    const isAddedToFavs = user.favourites ? user.favourites.includes(estate._id) : false
 
     return (
       <div className={`buy-estate-item__wrapper ${openCarousel ? 'modal' : ''}`}>
@@ -58,6 +71,7 @@ class BuyEstateItem extends Component {
         </Link>
         <div onClick={this.openImageCarousel} className='all-images-btn'>
         </div>
+        <img onClick={() => this.addRemoveFavourites(estate._id, isAddedToFavs)} className='favourite-icon' src={isAddedToFavs ? FavIconFilled : FavIcon} />
         <DealModal
           header='Image Carousel'
           open={openCarousel}
@@ -71,11 +85,17 @@ class BuyEstateItem extends Component {
   }
 }
 
+BuyEstateItem.defaultProps = {
+  user: {}
+}
+
 function mapStateToProps(state) {
   // eslint-disable-line no-unused-vars
   /* Populated by react-webpack-redux:reducer */
+  // console.log(state)
 
   const props = {
+    user: state.getUser.user
   }
   return props
 }

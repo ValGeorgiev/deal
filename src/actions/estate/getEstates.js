@@ -1,4 +1,4 @@
-import Deal from '../scripts'
+import Deal from '../../scripts'
 import {
   GET_ESTATES,
   GET_ESTATES_ERROR
@@ -13,6 +13,7 @@ export function getEstates (data = {}, state) {
         type: GET_ESTATES
       })
     }).catch((error) => {
+      console.log(error)
       error.then((message) => {
         dispatch({
           payload: message,

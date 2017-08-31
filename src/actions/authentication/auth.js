@@ -1,4 +1,4 @@
-import Deal from '../scripts'
+import Deal from '../../scripts'
 import {
   USER_SIGN_UP,
   USER_SIGN_UP_ERROR,

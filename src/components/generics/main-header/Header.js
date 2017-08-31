@@ -114,6 +114,8 @@ class Header extends Component {
           loggedUser && user ? (
             <div>
               Здравей, {user.firstName} {user.lastName}
+
+              <Link to='/favourites'>Любими</Link>
             </div>
           ) : (
             <div className="header_wrapper__login-section">

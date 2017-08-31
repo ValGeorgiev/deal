@@ -36,38 +36,39 @@ let UserSchema = new Schema({
   agency: {
     type: Schema.Types.ObjectId,
     ref: 'Agency'
-  }
+  },
+  favourites: [{type: Schema.Types.ObjectId, ref: 'Estate'}]
 })
 
 UserSchema.path('email').validate((name) => {
-    return name.length >= 5 && name.length <= 60
+  return name.length >= 5 && name.length <= 60
 })
 
 UserSchema.path('password').validate((password) => {
-    return password.length > 5 && password.length <= 40
+  return password.length > 5 && password.length <= 100
 })
 
 UserSchema.pre('save', function(next) {
-    const user = this
+  const user = this
 
-    if (!user.isModified('password')) {
-      return next()
+  if (!user.isModified('password')) {
+    return next()
+  }
+
+  bcrypt.hash(user.password, null, null, (err, hash) => {
+    if (err) {
+      return next(err)
     }
 
-    bcrypt.hash(user.password, null, null, (err, hash) => {
-      if (err) {
-        return next(err)
-      }
-
-      user.password = hash
-      next()
-    })
+    user.password = hash
+    next()
+  })
 })
 
 UserSchema.methods.comparePassword = function(password) {
-    const user = this
+  const user = this
 
-    return bcrypt.compareSync(password, user.password)
+  return bcrypt.compareSync(password, user.password)
 }
 
 module.exports = mongoose.model('User', UserSchema)

@@ -10,23 +10,35 @@ import {action1, action2} from '../actions/'
 import {
   signup,
   login
-} from './authentication'
+} from './authentication/auth'
 
 import {
   addEstateInformation
-} from './addEstate'
+} from './estate/addEstate'
 
 import {
   getEstates
-} from './getEstates'
+} from './estate/getEstates'
 
 import {
   getEstateByID
-} from './getEstateByID'
+} from './estate/getEstateByID'
 
 import {
   getUserByID
-} from './getUser'
+} from './user/getUser'
+
+import {
+  addToFavourites
+} from './favourites/addToFavourites'
+
+import {
+  removeFromFavourites
+} from './favourites/removeFromFavourites'
+
+import {
+  getFavouritesEstates
+} from './favourites/getFavouritesEstates'
 
 const actions = {
   signup,
@@ -34,7 +46,10 @@ const actions = {
   addEstateInformation,
   getEstates,
   getEstateByID,
-  getUserByID
+  getUserByID,
+  addToFavourites,
+  removeFromFavourites,
+  getFavouritesEstates
 }
 
 module.exports = actions

@@ -11,17 +11,23 @@
 import { combineReducers } from 'redux';
 
 import routerReducer from './routerReducer'
-import authentication from './authentication'
-import addEstate from './addEstate'
-import getEstate from './getEstate'
-import getUser from './getUser'
+import authentication from './user/auth'
+import addEstate from './estate/addEstate'
+import getEstate from './estate/getEstate'
+import getUser from './user/getUser'
+import addToFavourites from './favourites/addToFavourites'
+import removeFromFavourites from './favourites/removeFromFavourites'
+import getFavourites from './favourites/getFavourites'
 
 const reducers = {
   router: routerReducer,
   authentication,
   addEstate,
   getEstate,
-  getUser
+  getUser,
+  addToFavourites,
+  removeFromFavourites,
+  getFavourites
 };
 const combined = combineReducers(reducers);
 module.exports = combined;

@@ -1,7 +1,8 @@
 import {
   GET_USER_BY_ID,
-  GET_USER_BY_ID_ERROR
-} from '../actions/const'
+  GET_USER_BY_ID_ERROR,
+  GET_USER
+} from '../../actions/const'
 
 const initialState = {
   message: null,
@@ -14,6 +15,13 @@ function reducer(state = initialState, action) {
 
   switch (action.type) {
     case GET_USER_BY_ID: {
+      return {
+        success: true,
+        user: action.payload.user,
+        nextState
+      }
+    }
+    case GET_USER: {
       return {
         success: true,
         user: action.payload.user,

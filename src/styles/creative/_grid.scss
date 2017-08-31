@@ -2,34 +2,7 @@
   display: inline-block;
 }
 
-.col-lg {
-
-  &-100 {
-    width: 100%;
-  }
-
-  &-90 {
-    width: 90.5%
-  }
-
-  &-80 {
-    width: 80.5%
-  }
-
-  &-50 {
-    width: 49%;
-  }
-
-  &-20 {
-    width: 19.5%
-  }
-
-  &-10 {
-    width: 9.5%;
-  }
-}
-
-.col-md {
+.col-xs {
 
   &-100 {
     width: 100%;
@@ -40,12 +13,35 @@
   }
 }
 
+@media screen and (min-width: 760px) {
+  .col-lg {
 
+    &-100 {
+      width: 100%;
+    }
 
+    &-90 {
+      width: 90.5%
+    }
 
-@media screen and (max-width: 759px) {
+    &-80 {
+      width: 80.5%
+    }
 
-  .col-xs {
+    &-50 {
+      width: 49%;
+    }
+
+    &-20 {
+      width: 19.5%
+    }
+
+    &-10 {
+      width: 9.5%;
+    }
+  }
+
+  .col-md {
 
     &-100 {
       width: 100%;

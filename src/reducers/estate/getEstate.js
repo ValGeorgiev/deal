@@ -3,7 +3,7 @@ import {
   GET_ESTATES_ERROR,
   GET_ESTATE_BY_ID,
   GET_ESTATE_BY_ID_ERROR
-} from '../actions/const'
+} from '../../actions/const'
 
 const initialState = {
   message: null,

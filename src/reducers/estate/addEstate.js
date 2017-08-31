@@ -1,7 +1,7 @@
 import {
   ADD_ESTATE_INFORMATION,
   ADD_ESTATE_INFORMATION_ERROR
-} from '../actions/const'
+} from '../../actions/const'
 
 const initialState = {
   message: null,

@@ -7,6 +7,7 @@ const morgan = require('morgan')
 
 const userApiRoutes = require('./routers/user/userRoute')
 const estateApiRoutes = require('./routers/estate/estateRoute')
+const favouritesApiRoutes = require('./routers/favourites/favouritesRoute')
 
 const {
   PORT,
@@ -23,6 +24,7 @@ mongoose.connect(DATABASE, {
     console.log('DataBase is successfully started!')
   }
 })
+mongoose.Promise = global.Promise
 
 app.use(cors({
   origin: 'http://localhost:8000'
@@ -41,6 +43,7 @@ app.use(bodyParser.json())
 // routing
 app.use('/api', userApiRoutes.router)
 app.use('/api', estateApiRoutes.router)
+app.use('/api', favouritesApiRoutes.router)
 
 app.listen(PORT, () => {
   console.log("Server is started and listen on port 8001")

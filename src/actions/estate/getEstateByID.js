@@ -1,4 +1,4 @@
-import Deal from '../scripts'
+import Deal from '../../scripts'
 import {
   GET_ESTATE_BY_ID,
   GET_ESTATE_BY_ID_ERROR
