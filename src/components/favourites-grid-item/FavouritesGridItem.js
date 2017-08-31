@@ -12,10 +12,23 @@ class FavouritesGridItem extends Component {
     super()
   }
 
+  deleteEstateFromFavourites(id) {
+    const {
+      actions
+    } = this.props
+
+    actions.removeFromFavourites(id)
+  }
+
   render() {
     const {
-      estate
+      estate,
+      user
     } = this.props
+
+    if (user.favourites && !user.favourites.includes(estate._id)) {
+      return null
+    }
 
     return (
       <div className='favourites-item__wrapper'>
@@ -30,6 +43,7 @@ class FavouritesGridItem extends Component {
             <span>Кв.: {estate.quadrature} </span>
           </div>
         </Link>
+        <button onClick={() => this.deleteEstateFromFavourites(estate._id)}>Премахни</button>
       </div>
     )
   }
@@ -41,7 +55,7 @@ function mapStateToProps(state) {
   // console.log(state)
 
   const props = {
-
+    user: state.getUser.user
   }
   return props
 }
