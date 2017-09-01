@@ -5,6 +5,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import './addestateinfo.scss'
 
+const ESTATE_TYPES = {
+  appartament: 'appartament',
+  house: 'house',
+  bussiness: 'bussiness',
+  hotel: 'hotel',
+  faculty: 'faculty',
+  sports: 'sports',
+  field: 'field'
+}
+
 class AddEstateInfo extends Component {
   constructor() {
     super()
@@ -20,7 +30,8 @@ class AddEstateInfo extends Component {
       moreInfo: '',
       buildingType: 'brick',
       currency: '€',
-      estateType: 'appartament'
+      estateType: ESTATE_TYPES.appartament,
+      estateInnerType: 'one-room',
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -93,9 +104,12 @@ class AddEstateInfo extends Component {
     })
   }
 
-  selectType(type) {
+  selectType(type, innerType) {
+    console.log(innerType)
+    console.log('inner')
     this.setState({
-      estateType: type
+      estateType: type,
+      estateInnerType: innerType
     })
   }
 
@@ -106,10 +120,106 @@ class AddEstateInfo extends Component {
     return ''
   }
 
+  checkEstateInnerType(type) {
+    console.log(this.state.estateInnerType)
+    if (type === this.state.estateInnerType) {
+      return true
+    }
+    return false
+  }
+
+  selectEstateInnerType(type) {
+    this.setState({
+      estateInnerType: type
+    })
+  }
+
   handleChangeInput(event, type) {
     let object = {}
     object[type] = event.target.value
     this.setState(object)
+  }
+
+  createInnerTypes() {
+    const {
+      estateType
+    } = this.state
+
+    switch(estateType) {
+      case ESTATE_TYPES.appartament: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('one-room')} checked={this.checkEstateInnerType('one-room')} type='radio' value='one-room' name='appartament-type' /> Едностаен </label>
+            <label><input onChange={() => this.selectEstateInnerType('two-rooms')} checked={this.checkEstateInnerType('two-rooms')} type='radio' value='two-rooms' name='appartament-type' /> Двустаен </label>
+            <label><input onChange={() => this.selectEstateInnerType('three-rooms')} checked={this.checkEstateInnerType('three-rooms')} type='radio' value='three-rooms' name='appartament-type' /> Тристаен </label>
+            <label><input onChange={() => this.selectEstateInnerType('four-rooms')} checked={this.checkEstateInnerType('four-rooms')} type='radio' value='four-rooms' name='appartament-type' /> Четиристаен </label>
+            <label><input onChange={() => this.selectEstateInnerType('many-rooms')} checked={this.checkEstateInnerType('many-rooms')} type='radio' value='many-rooms' name='appartament-type' /> Многостаен </label>
+            <label><input onChange={() => this.selectEstateInnerType('maisonette')} checked={this.checkEstateInnerType('maisonette')} type='radio' value='maisonette' name='appartament-type' /> Мезонет </label>
+            <label><input onChange={() => this.selectEstateInnerType('threesonette')} checked={this.checkEstateInnerType('threesonette')} type='radio' value='threesonette' name='appartament-type' /> Тризонет </label>
+            <label><input onChange={() => this.selectEstateInnerType('room')} checked={this.checkEstateInnerType('room')} type='radio' value='room' name='appartament-type' /> Стая </label>
+            <label><input onChange={() => this.selectEstateInnerType('atelier')} checked={this.checkEstateInnerType('atelier')} type='radio' value='atelier' name='appartament-type' /> Ателие </label>
+          </div>
+        )
+      }
+      case ESTATE_TYPES.house: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('one-floor')} checked={this.checkEstateInnerType('one-floor')} type='radio' value='one-floor' name='house-type' /> Едноетажна </label>
+            <label><input onChange={() => this.selectEstateInnerType('two-floors')} checked={this.checkEstateInnerType('two-floors')} type='radio' value='two-floors' name='house-type' /> Двуетажна </label>
+            <label><input onChange={() => this.selectEstateInnerType('three-floors')} checked={this.checkEstateInnerType('three-floors')} type='radio' value='three-floors' name='house-type' /> Триетажна </label>
+            <label><input onChange={() => this.selectEstateInnerType('many-floors')} checked={this.checkEstateInnerType('many-floors')} type='radio' value='many-floors' name='house-type' /> Многоетажна </label>
+            <label><input onChange={() => this.selectEstateInnerType('floor-house')} checked={this.checkEstateInnerType('floor-house')} type='radio' value='floor-house' name='house-type' /> Етаж от къща </label>
+            <label><input onChange={() => this.selectEstateInnerType('semi-detached')} checked={this.checkEstateInnerType('semi-detached')} type='radio' value='semi-detached' name='house-type' /> На калкан </label>
+            <label><input onChange={() => this.selectEstateInnerType('whole-house')} checked={this.checkEstateInnerType('whole-house')} type='radio' value='whole-house' name='house-type' /> Самостоятелна </label>
+          </div>
+        )
+      }
+      case ESTATE_TYPES.hotel: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('spa')} checked={this.checkEstateInnerType('spa')} type='radio' value='spa' name='hotel-type' /> Спа</label>
+            <label><input onChange={() => this.selectEstateInnerType('for-rest')} checked={this.checkEstateInnerType('for-rest')} type='radio' value='for-rest' name='hotel-type' /> Почивни</label>
+          </div>
+        )
+      }
+      case ESTATE_TYPES.bussiness: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('office')} checked={this.checkEstateInnerType('office')} type='radio' value='office' name='bussiness-type' /> Офис </label>
+            <label><input onChange={() => this.selectEstateInnerType('store')} checked={this.checkEstateInnerType('store')} type='radio' value='store' name='bussiness-type' /> Магазин </label>
+            <label><input onChange={() => this.selectEstateInnerType('restaurant')} checked={this.checkEstateInnerType('restaurant')} type='radio' value='restaurant' name='bussiness-type' /> Ресторант </label>
+          </div>
+        )
+      }
+      case ESTATE_TYPES.sports: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('fitness')} checked={this.checkEstateInnerType('fitness')} type='radio' value='fitness' name='sports-type' /> Фитнес зала </label>
+            <label><input onChange={() => this.selectEstateInnerType('gym')} checked={this.checkEstateInnerType('gym')} type='radio' value='gym' name='sports-type' /> Салон </label>
+            <label><input onChange={() => this.selectEstateInnerType('pool')} checked={this.checkEstateInnerType('pool')} type='radio' value='pool' name='sports-type' /> Басейн </label>
+            <label><input onChange={() => this.selectEstateInnerType('sport-field')} checked={this.checkEstateInnerType('sport-field')} type='radio' value='sport-field' name='sports-type' /> Игрище </label>
+          </div>
+        )
+      }
+      case ESTATE_TYPES.faculty: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('warehouse')} checked={this.checkEstateInnerType('warehouse')} type='radio' value='warehouse' name='faculty-type' /> Склад</label>
+            <label><input onChange={() => this.selectEstateInnerType('faculty')} checked={this.checkEstateInnerType('faculty')} type='radio' value='faculty' name='faculty-type' /> Завод</label>
+            <label><input onChange={() => this.selectEstateInnerType('saloon')} checked={this.checkEstateInnerType('saloon')} type='radio' value='saloon' name='faculty-type' /> Салон</label>
+          </div>
+        )
+      }
+      case ESTATE_TYPES.field: {
+        return (
+          <div>
+            <label><input onChange={() => this.selectEstateInnerType('land')} checked={this.checkEstateInnerType('land')} type='radio' value='land' name='field-type' /> Земеделска земя</label>
+            <label><input onChange={() => this.selectEstateInnerType('home-building')} checked={this.checkEstateInnerType('home-building')} type='radio' value='home-building' name='field-type' /> За жилищно строителство</label>
+            <label><input onChange={() => this.selectEstateInnerType('faculty-building')} checked={this.checkEstateInnerType('faculty-building')} type='radio' value='faculty-building' name='field-type' /> За промишлено строителство</label>
+          </div>
+        )
+      }
+    }
   }
 
   render() {
@@ -144,26 +254,29 @@ class AddEstateInfo extends Component {
           <div>
             <div className='estate_type__wrapper'>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('appartament')}`} onClick={() => this.selectType('appartament')}>Апартаменти</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.appartament)}`} onClick={() => this.selectType('appartament', 'one-room')}>Апартаменти</button>
               </div>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('house')}`} onClick={() => this.selectType('house')}>Къщи</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.house)}`} onClick={() => this.selectType('house', 'one-floor')}>Къщи</button>
               </div>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('bussiness')}`} onClick={() => this.selectType('bussiness')}>Бизнес имоти</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.bussiness)}`} onClick={() => this.selectType('bussiness', 'office')}>Бизнес имоти</button>
               </div>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('hotel')}`} onClick={() => this.selectType('hotel')}>Хотели</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.hotel)}`} onClick={() => this.selectType('hotel', 'spa')}>Хотели</button>
               </div>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('faculty')}`} onClick={() => this.selectType('faculty')}>Производствени помещения</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.faculty)}`} onClick={() => this.selectType('faculty', 'warehouse')}>Производствени помещения</button>
               </div>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('sports')}`} onClick={() => this.selectType('sports')}>Спортни съоръжения</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.sports)}`} onClick={() => this.selectType('sports', 'fitness')}>Спортни съоръжения</button>
               </div>
               <div className='type-wrapper'>
-                <button className={`btn ${this.returnType('field')}`} onClick={() => this.selectType('field')}>Парцели</button>
+                <button className={`btn ${this.returnType(ESTATE_TYPES.field)}`} onClick={() => this.selectType('field', 'land')}>Парцели</button>
               </div>
+            </div>
+            <div className='more-type__wrapper'>
+              {this.createInnerTypes()}
             </div>
             <div className='floor__wrapper'>
               <div className='input-wrapper'>

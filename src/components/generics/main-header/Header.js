@@ -115,7 +115,7 @@ class Header extends Component {
             <div>
               Здравей, {user.firstName} {user.lastName}
 
-              <Link to='/favourites'>Любими</Link>
+              <Link to='/favourites'>Любими {user.favourites.length}</Link>
             </div>
           ) : (
             <div className="header_wrapper__login-section">
@@ -160,7 +160,7 @@ const mapStateToProps = (state) => {
 
   return {
     login: state.authentication.login,
-    user: state.authentication.user || state.getUser.user
+    user: state.getUser.user
   }
 }
 

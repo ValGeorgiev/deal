@@ -54,7 +54,7 @@ class BuyEstateItem extends Component {
       openCarousel
     } = this.state
 
-    const isAddedToFavs = user.favourites ? user.favourites.includes(estate._id) : false
+    const isAddedToFavs = user && user.favourites ? user.favourites.includes(estate._id) : false
 
     return (
       <div className={`buy-estate-item__wrapper ${openCarousel ? 'modal' : ''}`}>

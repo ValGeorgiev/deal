@@ -35,7 +35,7 @@ class FavouritesGrid extends Component {
         })
       }
     } else {
-      return <Loading />
+      return <Loading row />
     }
   }
 

@@ -1,6 +1,5 @@
 const UserModel = require('../models/user')
 const EstateModel = require('../models/estate')
-const _ = require('lodash')
 
 class Favourites {
   constructor() {
@@ -98,7 +97,7 @@ class Favourites {
     UserModel.findOne({
       _id: uid
     }).populate('favourites').exec((error, user) => {
-      console.log(user)
+
       if (!!error || !user) {
         res.status(400).send({
           error

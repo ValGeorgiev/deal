@@ -34,3 +34,9 @@ select {
   cursor: pointer;
 
 }
+
+input[type='radio'], input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+
+}
