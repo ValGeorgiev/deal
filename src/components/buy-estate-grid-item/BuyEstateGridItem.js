@@ -44,6 +44,12 @@ class BuyEstateItem extends Component {
     }
   }
 
+  createFavouritesButton(estate, isAddedToFavs) {
+    return !!this.props.user ? (
+      <img onClick={() => this.addRemoveFavourites(estate._id, isAddedToFavs)} className='favourite-icon' src={isAddedToFavs ? FavIconFilled : FavIcon} />
+    ) : null
+  }
+
   render() {
     const {
       estate,
@@ -71,7 +77,7 @@ class BuyEstateItem extends Component {
         </Link>
         <div onClick={this.openImageCarousel} className='all-images-btn'>
         </div>
-        <img onClick={() => this.addRemoveFavourites(estate._id, isAddedToFavs)} className='favourite-icon' src={isAddedToFavs ? FavIconFilled : FavIcon} />
+        {this.createFavouritesButton(estate, isAddedToFavs)}
         <DealModal
           header='Image Carousel'
           open={openCarousel}

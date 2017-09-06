@@ -29,6 +29,10 @@ import {
 } from './user/getUser'
 
 import {
+  logout
+} from './user/logout'
+
+import {
   addToFavourites
 } from './favourites/addToFavourites'
 
@@ -40,6 +44,10 @@ import {
   getFavouritesEstates
 } from './favourites/getFavouritesEstates'
 
+import {
+  addCategory
+} from './category/addCategory'
+
 const actions = {
   signup,
   login,
@@ -49,7 +57,9 @@ const actions = {
   getUserByID,
   addToFavourites,
   removeFromFavourites,
-  getFavouritesEstates
+  getFavouritesEstates,
+  addCategory,
+  logout
 }
 
 module.exports = actions

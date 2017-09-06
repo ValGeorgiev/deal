@@ -3,12 +3,14 @@ import t from '../../translations'
 import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link, withRouter } from 'react-router-dom'
+import { buildQuery } from '../../libs/deal-query'
 import './buyestatetypes.scss'
 
 class BuyEstateTypes extends Component {
 
   returnType(type) {
-    if (this.props.estateType.includes(type)) {
+    if (this.props.location.search.includes(type)) {
       return 'btn-blue'
     }
     return ''
@@ -16,8 +18,7 @@ class BuyEstateTypes extends Component {
 
   render() {
     const {
-      estateType,
-      updateType
+      location
     } = this.props
 
     return (
@@ -25,25 +26,39 @@ class BuyEstateTypes extends Component {
         <h3 className='types__title'>Избери тип</h3>
         <div className='estate_type__wrapper'>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('appartament')}`} onClick={() => updateType('appartament')}>Апартаменти</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'appartament')}`}>
+              <button className={`btn ${this.returnType('appartament')}`}>Апартаменти</button>
+            </Link>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('house')}`} onClick={() => updateType('house')}>Къщи</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'house')}`}>
+              <button className={`btn ${this.returnType('house')}`} >Къщи</button>
+            </Link>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('bussiness')}`} onClick={() => updateType('bussiness')}>Бизнес имоти</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'bussiness')}`}>
+              <button className={`btn ${this.returnType('bussiness')}`} >Бизнес имоти</button>
+            </Link>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('hotel')}`} onClick={() => updateType('hotel')}>Хотели</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'hotel')}`}>
+              <button className={`btn ${this.returnType('hotel')}`} >Хотели</button>
+            </Link>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('faculty')}`} onClick={() => updateType('faculty')}>Производствени помещения</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'faculty')}`}>
+              <button className={`btn ${this.returnType('faculty')}`} >Производствени помещения</button>
+            </Link>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('sports')}`} onClick={() => updateType('sports')}>Спортни съоръжения</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'sports')}`}>
+              <button className={`btn ${this.returnType('sports')}`} >Спортни съоръжения</button>
+            </Link>
           </div>
           <div className='type-wrapper'>
-            <button className={`btn ${this.returnType('field')}`} onClick={() => updateType('field')}>Парцели</button>
+            <Link to={`buy-estate${buildQuery(location.search, 'type', 'field')}`}>
+              <button className={`btn ${this.returnType('field')}`} >Парцели</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -65,4 +80,4 @@ function mapDispatchToProps(dispatch) {
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
-export default connect(mapStateToProps, mapDispatchToProps)(BuyEstateTypes)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BuyEstateTypes))

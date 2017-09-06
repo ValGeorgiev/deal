@@ -105,8 +105,7 @@ class AddEstateInfo extends Component {
   }
 
   selectType(type, innerType) {
-    console.log(innerType)
-    console.log('inner')
+
     this.setState({
       estateType: type,
       estateInnerType: innerType
@@ -121,7 +120,7 @@ class AddEstateInfo extends Component {
   }
 
   checkEstateInnerType(type) {
-    console.log(this.state.estateInnerType)
+
     if (type === this.state.estateInnerType) {
       return true
     }

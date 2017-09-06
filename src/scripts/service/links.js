@@ -13,3 +13,5 @@ export const GET_USER_BY_ID_LINK = `${SERVER_HTTP_URL}api/user/get/`
 export const ADD_TO_FAVOURITES_LINK = `${SERVER_HTTP_URL}api/favourites/add`
 export const REMOVE_FROM_FAVOURITES_LINK = `${SERVER_HTTP_URL}api/favourites/remove`
 export const GET_FAVOURITES_ESTATES_LINK = `${SERVER_HTTP_URL}api/favourites/get`
+
+export const ADMIN_ADD_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/add/category`

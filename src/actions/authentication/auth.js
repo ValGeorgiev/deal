@@ -6,13 +6,17 @@ import {
   USER_LOGIN_ERROR
 } from './const'
 
+import {
+  GET_USER
+} from '../user/const'
+
 export function signup (user_data = {}, state) {
   return (dispatch) => {
 
     return Deal.Auth.signup(user_data).then((json) => {
       dispatch({
         payload: json,
-        type: USER_SIGN_UP
+        type: GET_USER
       })
     }).catch((error) => {
 
@@ -32,7 +36,7 @@ export function login (user_data = {}, state) {
     return Deal.Auth.login(user_data).then((json) => {
       dispatch({
         payload: json,
-        type: USER_LOGIN
+        type: GET_USER
       })
     }).catch((error) => {
 

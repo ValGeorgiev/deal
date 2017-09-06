@@ -18,6 +18,7 @@ import getUser from './user/getUser'
 import addToFavourites from './favourites/addToFavourites'
 import removeFromFavourites from './favourites/removeFromFavourites'
 import getFavourites from './favourites/getFavourites'
+import category from './category/category'
 
 const reducers = {
   router: routerReducer,
@@ -27,7 +28,8 @@ const reducers = {
   getUser,
   addToFavourites,
   removeFromFavourites,
-  getFavourites
+  getFavourites,
+  category
 };
 const combined = combineReducers(reducers);
 module.exports = combined;

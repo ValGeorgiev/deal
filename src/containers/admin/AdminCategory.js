@@ -4,7 +4,7 @@ import AdminNavigation from '../../components/admin/admin-navigation/AdminNaviga
 
 import t from '../../translations'
 
-class AdminHome extends Component {
+class AdminCategory extends Component {
   constructor(props) {
     super(props)
   }
@@ -20,4 +20,4 @@ class AdminHome extends Component {
   }
 }
 
-export default AdminHome
+export default AdminCategory

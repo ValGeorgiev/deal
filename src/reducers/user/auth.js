@@ -28,7 +28,6 @@ function reducer(state = initialState, action) {
     }
     case USER_LOGIN: {
       const { user } = action.payload
-      window.localStorage.setItem('uid', user._id)
       return {
         login: true,
         user: user,

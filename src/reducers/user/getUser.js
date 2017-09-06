@@ -1,7 +1,8 @@
 import {
   GET_USER_BY_ID,
   GET_USER_BY_ID_ERROR,
-  GET_USER
+  GET_USER,
+  LOGOUT_USER
 } from '../../actions/const'
 
 const initialState = {
@@ -22,10 +23,27 @@ function reducer(state = initialState, action) {
       }
     }
     case GET_USER: {
+      if (!action.payload) {
+        return {
+          user: null,
+          nextState
+        }
+      }
+
+      const user = action.payload.user
+      window.localStorage.setItem('uid', user._id)
+
       return {
         success: true,
-        user: action.payload.user,
+        user: user,
         nextState
+      }
+    }
+    case LOGOUT_USER: {
+
+      return {
+        nextState,
+        user: null
       }
     }
     case GET_USER_BY_ID_ERROR: {

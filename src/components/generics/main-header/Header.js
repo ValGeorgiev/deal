@@ -22,11 +22,12 @@ class Header extends Component {
 
     this.openLogin = this.openLogin.bind(this)
     this.openSignup = this.openSignup.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.login) {
+    if (nextProps.user) {
       this.closeLogin()
 
       this.setState({
@@ -56,6 +57,15 @@ class Header extends Component {
         loggedUser: false
       })
     })
+  }
+
+  logout() {
+    const {
+      actions
+    } = this.props
+
+    window.localStorage.clear()
+    actions.logout()
   }
 
   openLogin() {
@@ -116,6 +126,7 @@ class Header extends Component {
               Здравей, {user.firstName} {user.lastName}
 
               <Link to='/favourites'>Любими {user.favourites.length}</Link>
+              <button onClick={this.logout}>Изход</button>
             </div>
           ) : (
             <div className="header_wrapper__login-section">
@@ -159,7 +170,6 @@ Header.defaultProps = {
 const mapStateToProps = (state) => {
 
   return {
-    login: state.authentication.login,
     user: state.getUser.user
   }
 }

@@ -9,6 +9,7 @@ import PriceRefinement from './price-refinement/PriceRefinement'
 import FloorRefinement from './floor-refinement/FloorRefinement'
 import BuildingYearRefinement from './building-year-refinement/BuildingYearRefinement'
 import BuildingTypeRefinement from './building-type-refinement/BuildingTypeRefinement'
+import InnerTypeRefinement from './inner-type-refinement/InnerTypeRefinement'
 import './estaterefinements.scss'
 
 class EstateRefinements extends Component {
@@ -20,6 +21,7 @@ class EstateRefinements extends Component {
 
     return (
       <div className="estate-refinements__wrapper col col-lg-20">
+        <InnerTypeRefinement />
         <PriceRefinement />
         <QuadratureRefinement />
         <FloorRefinement />

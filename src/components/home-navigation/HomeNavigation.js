@@ -12,7 +12,7 @@ class HomeNavigation extends Component {
     return (
       <div className="home-navigation__wrapper">
         <div className='nav-button__wrapper'>
-          <Link to='/buy-estate'>
+          <Link to='/buy-estate?type=appartament'>
             <div className='nav-button'>
               <img src='http://via.placeholder.com/150x170' />
               <h2>Купи</h2>

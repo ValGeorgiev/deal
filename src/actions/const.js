@@ -29,6 +29,10 @@ import {
   GET_USER
 } from './user/const'
 
+import {
+  ADMIN_ADD_CATEGORY
+} from './category/const'
+
 export {
   USER_SIGN_UP,
   USER_SIGN_UP_ERROR,
