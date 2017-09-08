@@ -1,5 +1,9 @@
 import {
-  ADMIN_ADD_CATEGORY
+  ADMIN_ADD_CATEGORY,
+  ADMIN_GET_CATEGORIES,
+  ADMIN_GET_CATEGORY,
+  ADMIN_DELETE_CATEGORY,
+  ADMIN_UPDATE_CATEGORY
 } from '../../actions/const'
 
 const initialState = {
@@ -18,7 +22,30 @@ function reducer(state = initialState, action) {
         nextState
       }
     }
-
+    case ADMIN_GET_CATEGORIES: {
+      return {
+        nextState,
+        categories: action.payload.categories
+      }
+    }
+    case ADMIN_GET_CATEGORY: {
+      return {
+        nextState,
+        category: action.payload.category
+      }
+    }
+    case ADMIN_DELETE_CATEGORY: {
+      return {
+        nextState,
+        categories: action.payload.categories
+      }
+    }
+    case ADMIN_UPDATE_CATEGORY: {
+      return {
+        nextState,
+        category: action.payload.category
+      }
+    }
     default: {
       return state
     }

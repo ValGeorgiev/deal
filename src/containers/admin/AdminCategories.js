@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import AdminHeader from '../../components/generics/admin-header/AdminHeader'
 import AdminNavigation from '../../components/admin/admin-navigation/AdminNavigation'
+import Categories from '../../components/admin/categories/Categories'
 
 import t from '../../translations'
 
@@ -24,6 +25,7 @@ class AdminCategories extends Component {
       <div>
         <AdminHeader />
         <AdminNavigation />
+        <Categories />
       </div>
     )
   }
@@ -47,4 +49,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminCategories)
-

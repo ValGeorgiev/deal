@@ -70,6 +70,78 @@ class Category {
       }
     }
   }
+
+  getAll(req, res) {
+    CategoryModel.find({}).catch((error) => {
+      res.status(500).send(error)
+    }).then((categories) => {
+      res.status(200).send({
+        categories
+      })
+    })
+  }
+
+  getCategoryByID(req, res) {
+    const {
+      id
+    } = req.params
+
+    CategoryModel.findOne({
+      _id: id
+    }).catch((error) => {
+      res.status(500).send(error)
+    }).then((category) => {
+      res.status(200).send({
+        category
+      })
+    })
+  }
+
+  deleteCategoryByID(req, res) {
+    const {
+      id
+    } = req.params
+
+    CategoryModel.remove({
+      _id: id
+    }).catch((error) => {
+      res.status(500).send(error)
+    }).then(() => {
+      this.getAll(req, res)
+    })
+  }
+
+  updateCategory(req, res) {
+    const {
+      id
+    } = req.params
+
+    const {
+      _id,
+      name,
+      value,
+      online
+    } = req.body
+
+    CategoryModel.findOne({
+      _id: _id
+    }).catch((error) => {
+      res.status(500).send(error)
+    }).then((category) => {
+      category.name = name
+      category.value = value
+      category.online = online
+
+      category.save((error, cat) => {
+        if (error) {
+          return res.status(500).send(error)
+        }
+        return res.status(200).send({
+          category: cat
+        })
+      })
+    })
+  }
 }
 
 module.exports = new Category()

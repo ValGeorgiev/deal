@@ -94,8 +94,6 @@ class AddCategory extends Component {
       refinements
     } = this.state
 
-    console.log(innerCategories)
-
     return (
       <div className='add-category add-category__wrapper'>
         <div>

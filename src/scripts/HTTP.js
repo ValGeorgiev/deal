@@ -18,9 +18,40 @@ class HTTP {
     })
   }
 
+  put(url, body) {
+    let _body = JSON.stringify(body)
+
+    return fetch(url, {
+      method: 'PUT',
+      body: _body,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      return {
+        json: res.json(),
+        ok: res.ok
+      }
+    })
+  }
+
   get(url) {
     return fetch(url, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      return {
+        json: res.json(),
+        ok: res.ok
+      }
+    })
+  }
+
+  delete(url) {
+    return fetch(url, {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       }

@@ -12,6 +12,10 @@ let CategorySchema = new Schema({
   value: {
     type: String,
     required: true
+  },
+  online: {
+    type: Boolean,
+    default: true
   }
 })
 

@@ -48,6 +48,22 @@ import {
   addCategory
 } from './category/addCategory'
 
+import {
+  getCategories
+} from './category/getCategories'
+
+import {
+  getCategory
+} from './category/getCategory'
+
+import {
+  deleteCategory
+} from './category/deleteCategory'
+
+import {
+  updateCategoryData
+} from './category/updateCategoryData'
+
 const actions = {
   signup,
   login,
@@ -59,6 +75,10 @@ const actions = {
   removeFromFavourites,
   getFavouritesEstates,
   addCategory,
+  getCategories,
+  getCategory,
+  deleteCategory,
+  updateCategoryData,
   logout
 }
 

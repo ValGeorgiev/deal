@@ -37,7 +37,10 @@ let UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Agency'
   },
-  favourites: [{type: Schema.Types.ObjectId, ref: 'Estate'}]
+  favourites: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Estate'
+  }]
 })
 
 UserSchema.path('email').validate((name) => {

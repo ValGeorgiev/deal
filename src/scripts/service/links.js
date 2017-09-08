@@ -15,3 +15,8 @@ export const REMOVE_FROM_FAVOURITES_LINK = `${SERVER_HTTP_URL}api/favourites/rem
 export const GET_FAVOURITES_ESTATES_LINK = `${SERVER_HTTP_URL}api/favourites/get`
 
 export const ADMIN_ADD_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/add/category`
+export const ADMIN_GET_CATEGORIES_LINK = `${SERVER_HTTP_URL}api/admin/categories`
+export const ADMIN_GET_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/category/`
+export const ADMIN_DELETE_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/category/`
+export const ADMIN_UPDATE_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/category/`
+
