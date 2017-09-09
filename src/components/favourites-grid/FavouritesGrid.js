@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import t from '../../translations'
 import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import FavouritesGridItem from '../favourites-grid-item/FavouritesGridItem'
 import Loading from '../generics/loading/Loading'
 import './favouritesgrid.scss'
@@ -13,11 +12,12 @@ class FavouritesGrid extends Component {
   }
 
   createChildren() {
-     const {
+    const {
       favourites
     } = this.props
 
     if (favourites) {
+
       if (favourites.length === 0) {
         return (
           <div>
@@ -52,9 +52,7 @@ class FavouritesGrid extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
+const mapStateToProps = (state) => {
 
   const props = {
     favourites: state.getFavourites.favourites
@@ -62,11 +60,4 @@ function mapStateToProps(state) {
   return props
 }
 
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
-  const actions = ACTIONS
-  const actionMap = { actions: bindActionCreators(actions, dispatch) }
-  return actionMap
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FavouritesGrid)
+export default connect(mapStateToProps)(FavouritesGrid)

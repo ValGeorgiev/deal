@@ -1,4 +1,5 @@
 let User = require('../models/user')
+const uuid = require('shortid')
 
 class Auth {
   constructor() {
@@ -54,7 +55,8 @@ class Auth {
           email: email,
           firstName: name,
           lastName: familyName,
-          password: password
+          password: password,
+          favID: uuid.generate()
         })
 
         newUser.save((err, _user) => {

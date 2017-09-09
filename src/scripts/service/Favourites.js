@@ -35,11 +35,10 @@ class Favourites {
     })
   }
 
-  get() {
-    const uid = window.localStorage.getItem('uid')
+  get(id) {
 
     return new Promise((resolve, reject) => {
-      HTTP.get(HTTP.addParameters(GET_FAVOURITES_ESTATES_LINK, { uid })).then(({ json, ok }) => {
+      HTTP.get(HTTP.addParameters(GET_FAVOURITES_ESTATES_LINK, { id })).then(({ json, ok }) => {
         if (ok) {
           resolve(json)
         } else {

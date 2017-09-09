@@ -18,6 +18,7 @@ class AdminCategories extends Component {
       actions
     } = this.props
 
+    actions.getCategories()
   }
 
   render() {
@@ -31,21 +32,11 @@ class AdminCategories extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
+const mapDispatchToProps = (dispatch) => {
 
-  const props = {
-
-  }
-  return props
-}
-
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminCategories)
+export default connect(null, mapDispatchToProps)(AdminCategories)

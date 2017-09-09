@@ -16,10 +16,11 @@ class Favourites extends Component {
   componentWillMount() {
 
     const {
-      actions
+      actions,
+      match
     } = this.props
 
-    actions.getFavouritesEstates()
+    actions.getFavouritesEstates(match.params.favouritesid)
   }
 
   render() {
@@ -34,19 +35,11 @@ class Favourites extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
-  const props = {
+const mapDispatchToProps = (dispatch) => {
 
-  }
-  return props
-}
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Favourites)
 
+export default connect(null, mapDispatchToProps)(Favourites)

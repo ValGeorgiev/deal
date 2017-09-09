@@ -7,7 +7,7 @@ export function updateCategoryData (data = {}, state) {
   return (dispatch) => {
 
     return Deal.Category.update(data).then((json) => {
-      console.log(json)
+
       dispatch({
         payload: json,
         type: ADMIN_UPDATE_CATEGORY

@@ -12,14 +12,6 @@ class Refinements extends Component {
     super()
   }
 
-  componentWillMount() {
-    const {
-      actions
-    } = this.props
-
-    actions.getRefinements()
-  }
-
   createRefinements() {
     const {
       refinements

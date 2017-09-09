@@ -58,9 +58,7 @@ Estate.defaultProps = {
   estate: {}
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
+const mapStateToProps = (state) => {
 
   const props = {
     estatesData: state.getEstate.data,
@@ -69,8 +67,8 @@ function mapStateToProps(state) {
   return props
 }
 
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
+const mapDispatchToProps = (dispatch) => {
+
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap

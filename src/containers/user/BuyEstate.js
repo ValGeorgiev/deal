@@ -56,11 +56,11 @@ class BuyEstate extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
+const mapDispatchToProps = (dispatch) => {
+
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
-export default withRouter(connect(null, mapDispatchToProps)(BuyEstate))
 
+export default withRouter(connect(null, mapDispatchToProps)(BuyEstate))

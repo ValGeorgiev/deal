@@ -31,7 +31,10 @@ function reducer(state = initialState, action) {
       }
 
       const user = action.payload.user
-      window.localStorage.setItem('uid', user._id)
+
+      if (!window.localStorage.getItem('uid')) {
+        window.localStorage.setItem('uid', user._id)
+      }
 
       return {
         success: true,

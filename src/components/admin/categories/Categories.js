@@ -12,14 +12,6 @@ class Categories extends Component {
     super()
   }
 
-  componentWillMount() {
-    const {
-      actions
-    } = this.props
-
-    actions.getCategories()
-  }
-
   createCategories() {
     const {
       categories

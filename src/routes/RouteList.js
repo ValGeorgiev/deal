@@ -22,7 +22,7 @@ class RouteList extends Component {
         <Route exact path="/buy-estate" component={BuyEstate} />
         <Route exact path="/estate/:type/:id" component={Estate} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/favourites" component={Favourites} />
+        <Route exact path="/favourites/:favouritesid" component={Favourites} />
         <Route exact path="/admin" component={AdminHome} />
         <Route exact path="/admin/add-category" component={AdminAddCategory} />
         <Route exact path="/admin/categories" component={AdminCategories} />

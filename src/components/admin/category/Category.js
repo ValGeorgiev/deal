@@ -12,15 +12,6 @@ class Category extends Component {
     super()
   }
 
-  componentWillMount() {
-    const {
-      actions,
-      categoryID
-    } = this.props
-
-    actions.getCategory(categoryID)
-  }
-
   updateCategoryStatus(online) {
     const {
       actions,

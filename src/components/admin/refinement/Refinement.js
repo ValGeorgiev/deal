@@ -12,15 +12,6 @@ class Refinement extends Component {
     super()
   }
 
-  componentWillMount() {
-    const {
-      actions,
-      refinementID
-    } = this.props
-
-    actions.getRefinement(refinementID)
-  }
-
   updateRefinementStatus(online) {
     const {
       actions,

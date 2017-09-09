@@ -14,9 +14,15 @@ class AdminNavigation extends PureComponent {
 
     return (
       <div className='admin-navigation'>
-        <Link to='/admin/add-category'>Add Category</Link>
-        <Link to='/admin/categories'>Show all categories</Link>
-        <Link to='/admin/refinements'>Show all refinements</Link>
+        <div className='nav'>
+          <Link to='/admin/add-category'>Add Category</Link>
+        </div>
+        <div className='nav'>
+          <Link to='/admin/categories'>Show all categories</Link>
+        </div>
+        <div className='nav'>
+          <Link to='/admin/refinements'>Show all refinements</Link>
+        </div>
       </div>
     )
   }

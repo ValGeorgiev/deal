@@ -125,7 +125,7 @@ class Header extends Component {
             <div>
               Здравей, {user.firstName} {user.lastName}
 
-              <Link to='/favourites'>Любими {user.favourites.length}</Link>
+              <Link to={`/favourites/${user.favID}`}>Любими {user.favourites.length}</Link>
               <button onClick={this.logout}>Изход</button>
             </div>
           ) : (

@@ -18,6 +18,7 @@ class AdminRefinements extends Component {
       actions
     } = this.props
 
+    actions.getRefinements()
   }
 
   render() {
@@ -31,22 +32,12 @@ class AdminRefinements extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
-
-  const props = {
-
-  }
-  return props
-}
-
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   /* Populated by react-webpack-redux:action */
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminRefinements)
+export default connect(null, mapDispatchToProps)(AdminRefinements)
 

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import t from '../../translations'
-import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import BuyEstateGridItem from '../buy-estate-grid-item/BuyEstateGridItem'
 import Loading from '../generics/loading/Loading'
 import './buyestategrid.scss'
@@ -52,9 +50,7 @@ class BuyEstateGrid extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
+const mapStateToProps = (state) => {
 
   const props = {
     estatesData: state.getEstate.data
@@ -62,11 +58,5 @@ function mapStateToProps(state) {
   return props
 }
 
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
-  const actions = ACTIONS
-  const actionMap = { actions: bindActionCreators(actions, dispatch) }
-  return actionMap
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BuyEstateGrid)
+export default connect(mapStateToProps)(BuyEstateGrid)

@@ -32,16 +32,16 @@ class EstateRefinements extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
+// @TODO we will need this functions when categories/refinements are ready
+const mapStateToProps = (state) => {
 
   const props = {
   }
   return props
 }
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
+
+const mapDispatchToProps = (dispatch) => {
+
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap

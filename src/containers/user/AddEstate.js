@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-
 import Footer from '../../components/generics/main-footer/Footer'
 import Header from '../../components/generics/main-header/Header'
 import AddEstateUser from '../../components/add-estate-user/AddEstateUser'
@@ -52,9 +49,7 @@ AddEstate.defaultProps = {
   user: {}
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
+const mapStateToProps = (state) => {
 
   const props = {
     user: state.authentication.user || state.getUser.user
@@ -62,13 +57,4 @@ function mapStateToProps(state) {
   return props
 }
 
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
-  const actions = ACTIONS
-  const actionMap = { actions: bindActionCreators(actions, dispatch) }
-  return actionMap
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddEstate)
-
-
+export default connect(mapStateToProps)(AddEstate)

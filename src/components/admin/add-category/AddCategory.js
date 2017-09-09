@@ -140,12 +140,6 @@ class AddCategory extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   const actions = ACTIONS
   const actionMap = {
@@ -168,4 +162,4 @@ function initializeArrayWithObjects(count) {
   return array
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCategory)
+export default connect(null, mapDispatchToProps)(AddCategory)

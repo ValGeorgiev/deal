@@ -37,10 +37,14 @@ class BuyEstateItem extends Component {
   }
 
   addRemoveFavourites(id, isAdded) {
+    const {
+      actions
+    } = this.props
+
     if (isAdded) {
-      this.props.actions.removeFromFavourites(id)
+      actions.removeFromFavourites(id)
     } else {
-      this.props.actions.addToFavourites(id)
+      actions.addToFavourites(id)
     }
   }
 
@@ -95,20 +99,19 @@ BuyEstateItem.defaultProps = {
   user: {}
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
-  // console.log(state)
+const mapStateToProps = (state) => {
 
   const props = {
     user: state.getUser.user
   }
   return props
 }
-function mapDispatchToProps(dispatch) {
+
+const mapDispatchToProps = (dispatch) => {
   /* Populated by react-webpack-redux:action */
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(BuyEstateItem)

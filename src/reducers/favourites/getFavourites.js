@@ -12,6 +12,16 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_FAVOURITES_ESTATES: {
       let favourites = action.payload.favourites
+
+      if (action.payload.user) {
+        let user = action.payload.user
+        return {
+          nextState,
+          favourites,
+          user
+        }
+      }
+
       return {
         nextState,
         favourites

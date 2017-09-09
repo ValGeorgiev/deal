@@ -52,50 +52,80 @@ class Favourites {
       uid
     } = req.body
 
-    EstateModel.findOne({
-      _id: id
-    }).catch((error) => {
-      res.status(400).send({
-        success: false,
-        error
+    // EstateModel.findOne({
+    //   _id: id
+    // }).catch((error) => {
+    //   res.status(400).send({
+    //     success: false,
+    //     error
+    //   })
+    // }).then((estate) => {
+    // UserModel.findOne({
+    //   _id: uid
+    // }).catch((error) => {
+    //   res.status(400).send({
+    //     success: false,
+    //     error
+    //   })
+    // }).then((user) => {
+    //   let favourites = user.favourites
+
+    //   user.favourites = favourites.filter((estateID) => {
+    //     return estateID.toString() !== id
+    //   })
+
+    //   user.save().catch((error) => {
+    //     res.status(400).send({
+    //       success: false,
+    //       error
+    //     })
+    //   }).then((user) => {
+    //     res.send({
+    //       success: true,
+    //       favourites: user.favourites
+    //     })
+    //   })
+    // })
+
+    UserModel.findOne({
+      _id: uid
+    }).populate('favourites').exec((error, user) => {
+      if (error) {
+        return res.status(400).send({
+          success: false,
+          error
+        })
+      }
+
+      let favourites = user.favourites
+
+      user.favourites = favourites.filter((estate) => {
+        return estate.id !== id
       })
-    }).then((estate) => {
-      UserModel.findOne({
-        _id: uid
-      }).catch((error) => {
+
+      user.save().catch((error) => {
         res.status(400).send({
           success: false,
           error
         })
       }).then((user) => {
-        let favourites = user.favourites
-
-        user.favourites = favourites.filter((estateID) => {
-          return estateID.toString() !== estate.id
-        })
-
-        user.save().catch((error) => {
-          res.status(400).send({
-            success: false,
-            error
-          })
-        }).then((user) => {
-          res.send({
-            success: true,
-            user
-          })
+        res.send({
+          success: true,
+          favourites: user.favourites,
+          user
         })
       })
+
     })
   }
 
   get(req, res) {
     const {
-      uid
+      id
     } = req.query
 
     UserModel.findOne({
-      _id: uid
+      favID: id
     }).populate('favourites').exec((error, user) => {
 
       if (!!error || !user) {

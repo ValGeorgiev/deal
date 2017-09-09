@@ -3,10 +3,10 @@ import {
   GET_FAVOURITES_ESTATES
 } from './const'
 
-export function getFavouritesEstates () {
+export function getFavouritesEstates (id = '') {
   return (dispatch) => {
 
-    return Deal.Favourites.get().then((json) => {
+    return Deal.Favourites.get(id).then((json) => {
       dispatch({
         payload: json,
         type: GET_FAVOURITES_ESTATES

@@ -26,10 +26,6 @@ class FavouritesGridItem extends Component {
       user
     } = this.props
 
-    if (user.favourites && !user.favourites.includes(estate._id)) {
-      return null
-    }
-
     return (
       <div className='favourites-item__wrapper'>
         <Link className='item-link' to={`/estate/${estate.estateType}/${estate._id}`}>
@@ -43,26 +39,27 @@ class FavouritesGridItem extends Component {
             <span>Кв.: {estate.quadrature} </span>
           </div>
         </Link>
-        <button onClick={() => this.deleteEstateFromFavourites(estate._id)}>Премахни</button>
+        { user ? (
+            <button onClick={() => this.deleteEstateFromFavourites(estate._id)}>Премахни</button>
+          ) : null
+        }
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
-  // console.log(state)
+const mapStateToProps = (state) => {
 
   const props = {
     user: state.getUser.user
   }
   return props
 }
-function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
+const mapDispatchToProps = (dispatch) => {
+
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(FavouritesGridItem)

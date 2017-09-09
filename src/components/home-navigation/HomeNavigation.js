@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import t from '../../translations'
 import './homenavigation.scss'
 
-class HomeNavigation extends Component {
+class HomeNavigation extends PureComponent {
   constructor() {
     super()
   }

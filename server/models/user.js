@@ -37,6 +37,13 @@ let UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Agency'
   },
+  favID: {
+    type: String,
+    required: true,
+    index: {
+      unique: true
+    }
+  },
   favourites: [{
     type: Schema.Types.ObjectId,
     ref: 'Estate'
