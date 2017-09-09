@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 import * as ACTIONS from '../../../actions'
 import t from '../../../translations'
 
-import './categories.scss'
+import './refinements.scss'
 
-class Categories extends Component {
+class Refinements extends Component {
   constructor() {
     super()
   }
@@ -17,52 +17,52 @@ class Categories extends Component {
       actions
     } = this.props
 
-    actions.getCategories()
+    actions.getRefinements()
   }
 
-  createCategories() {
+  createRefinements() {
     const {
-      categories
+      refinements
     } = this.props
 
-    return categories.map((cat) => {
+    return refinements.map((ref) => {
       return (
-        <div className='category' key={cat._id}>
-          <Link to={`/admin/category/${cat._id}`}>
-            {cat.name}
+        <div className='refinement' key={ref._id}>
+          <Link to={`/admin/refinement/${ref._id}`}>
+            {ref.name}
           </Link>
-          <button className='btn' onClick={() => this.deleteCategory(cat._id)}>Delete</button>
+          <button className='btn' onClick={() => this.deleteRefinement(ref._id)}>Delete</button>
         </div>
       )
     })
   }
 
-  deleteCategory(id) {
+  deleteRefinement(id) {
     const {
       actions
     } = this.props
 
-    actions.deleteCategory(id)
+    actions.deleteRefinement(id)
   }
 
   render() {
 
     return (
-      <div className='categories categories__wrapper'>
-        {this.createCategories()}
+      <div className='refinements refinements__wrapper'>
+        {this.createRefinements()}
       </div>
     )
   }
 }
 
-Categories.defaultProps = {
-  categories: []
+Refinements.defaultProps = {
+  refinements: []
 }
 
 const mapStateToProps = (state) => {
 
   return {
-    categories: state.category.categories
+    refinements: state.category.refinements
   }
 }
 
@@ -75,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
   return actionMap
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categories)
+export default connect(mapStateToProps, mapDispatchToProps)(Refinements)

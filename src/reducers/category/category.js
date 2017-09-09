@@ -3,7 +3,11 @@ import {
   ADMIN_GET_CATEGORIES,
   ADMIN_GET_CATEGORY,
   ADMIN_DELETE_CATEGORY,
-  ADMIN_UPDATE_CATEGORY
+  ADMIN_UPDATE_CATEGORY,
+  ADMIN_GET_REFINEMENTS,
+  ADMIN_GET_REFINEMENT,
+  ADMIN_DELETE_REFINEMENT,
+  ADMIN_UPDATE_REFINEMENT
 } from '../../actions/const'
 
 const initialState = {
@@ -44,6 +48,30 @@ function reducer(state = initialState, action) {
       return {
         nextState,
         category: action.payload.category
+      }
+    }
+    case ADMIN_GET_REFINEMENTS: {
+      return {
+        nextState,
+        refinements: action.payload.refinements
+      }
+    }
+    case ADMIN_GET_REFINEMENT: {
+      return {
+        nextState,
+        refinement: action.payload.refinement
+      }
+    }
+    case ADMIN_DELETE_REFINEMENT: {
+      return {
+        nextState,
+        refinements: action.payload.refinements
+      }
+    }
+    case ADMIN_UPDATE_REFINEMENT: {
+      return {
+        nextState,
+        refinement: action.payload.refinement
       }
     }
     default: {

@@ -64,6 +64,22 @@ import {
   updateCategoryData
 } from './category/updateCategoryData'
 
+import {
+  getRefinements
+} from './category/getRefinements'
+
+import {
+  getRefinement
+} from './category/getRefinement'
+
+import {
+  deleteRefinement
+} from './category/deleteRefinement'
+
+import {
+  updateRefinementData
+} from './category/updateRefinementData'
+
 const actions = {
   signup,
   login,
@@ -79,6 +95,10 @@ const actions = {
   getCategory,
   deleteCategory,
   updateCategoryData,
+  getRefinements,
+  getRefinement,
+  deleteRefinement,
+  updateRefinementData,
   logout
 }
 

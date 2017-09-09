@@ -10,6 +10,8 @@ import AdminHome from '../containers/admin/AdminHome'
 import AdminAddCategory from '../containers/admin/AdminAddCategory'
 import AdminCategory from '../containers/admin/AdminCategory'
 import AdminCategories from '../containers/admin/AdminCategories'
+import AdminRefinement from '../containers/admin/AdminRefinement'
+import AdminRefinements from '../containers/admin/AdminRefinements'
 
 class RouteList extends Component {
   render() {
@@ -25,6 +27,8 @@ class RouteList extends Component {
         <Route exact path="/admin/add-category" component={AdminAddCategory} />
         <Route exact path="/admin/categories" component={AdminCategories} />
         <Route exact path="/admin/category/:categoryid" component={AdminCategory} />
+        <Route exact path="/admin/refinements" component={AdminRefinements} />
+        <Route exact path="/admin/refinement/:refinementid" component={AdminRefinement} />
       </div>
     )
   }

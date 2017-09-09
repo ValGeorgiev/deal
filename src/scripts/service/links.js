@@ -20,3 +20,8 @@ export const ADMIN_GET_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/category/`
 export const ADMIN_DELETE_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/category/`
 export const ADMIN_UPDATE_CATEGORY_LINK = `${SERVER_HTTP_URL}api/admin/category/`
 
+export const ADMIN_GET_REFINEMENTS_LINK = `${SERVER_HTTP_URL}api/admin/refinements`
+export const ADMIN_GET_REFINEMENT_LINK = `${SERVER_HTTP_URL}api/admin/refinement/`
+export const ADMIN_DELETE_REFINEMENT_LINK = `${SERVER_HTTP_URL}api/admin/refinement/`
+export const ADMIN_UPDATE_REFINEMENT_LINK = `${SERVER_HTTP_URL}api/admin/refinement/`
+
