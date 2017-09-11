@@ -14,7 +14,6 @@ class HomeNavigation extends PureComponent {
         <div className='nav-button__wrapper'>
           <Link to='/buy-estate?type=appartament'>
             <div className='nav-button'>
-              <img src='http://via.placeholder.com/150x170' />
               <h2>Купи</h2>
             </div>
           </Link>
@@ -22,14 +21,12 @@ class HomeNavigation extends PureComponent {
         <div className='nav-button__wrapper'>
           <Link to='/add-estate'>
             <div className='nav-button'>
-              <img src='http://via.placeholder.com/150x170' />
               <h2>Продай</h2>
             </div>
           </Link>
         </div>
         <div className='nav-button__wrapper'>
           <div className='nav-button'>
-            <img src='http://via.placeholder.com/150x170' />
             <h2>Още</h2>
           </div>
         </div>

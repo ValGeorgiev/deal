@@ -6,9 +6,6 @@ import HomeNavigation from '../../components/home-navigation/HomeNavigation'
 import t from '../../translations'
 
 class Home extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
@@ -16,6 +13,7 @@ class Home extends Component {
         <Header />
         <HomeNavigation />
         <HomeMap />
+        <div id='map' />
         Home Container
         <Footer />
       </div>

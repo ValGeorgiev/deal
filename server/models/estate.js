@@ -11,6 +11,11 @@ let EstateSchema = new Schema({
     type: String,
     required: true
   },
+  sale: {
+    type: String,
+    enum: ['sale', 'rent'],
+    default: 'sale'
+  },
   additionalType: {
     type: String
   },
