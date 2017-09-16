@@ -1,0 +1,20 @@
+.home-map_wrapper {
+  position: relative;
+
+  path {
+    cursor: pointer;
+  }
+
+  #map-name {
+    display: none;
+    padding: 5px 10px;
+    color: #14141C;
+    border: 1px solid #1C4278;
+    background-color: #FAF7F8;
+
+    &.active {
+      display: inline-block;
+      position: absolute;
+    }
+  }
+}

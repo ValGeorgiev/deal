@@ -13,7 +13,6 @@ class Home extends Component {
         <Header />
         <HomeNavigation />
         <HomeMap />
-        <div id='map' />
         Home Container
         <Footer />
       </div>
