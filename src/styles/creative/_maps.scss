@@ -3,6 +3,15 @@
 
   path {
     cursor: pointer;
+    fill: #1C4278;
+
+    &#selected {
+      fill: #2EB5DE
+    }
+
+    &.active {
+      fill: #EDF0EB;
+    }
   }
 
   #map-name {

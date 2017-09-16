@@ -1,0 +1,22 @@
+.home-map-buttons {
+
+  &__wrapper {
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding-left: 50px;
+  }
+
+  &__region {
+    height: 30px;
+  }
+
+  &__buttons {
+    margin: 10px 0;
+
+    div {
+      margin: 10px 0;
+    }
+  }
+}
