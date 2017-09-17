@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-import Footer from '../../components/generics/main-footer/Footer'
-import EstateDetails from '../../components/estate-details/EstateDetails'
-import Header from '../../components/generics/main-header/Header'
-import t from '../../translations'
+import Footer from 'components/generics/main-footer/Footer'
+import EstateDetails from 'components/estate-details/EstateDetails'
+import Header from 'components/generics/main-header/Header'
+import t from 'translations'
 import _ from 'lodash'
 
 class Estate extends Component {
@@ -20,18 +19,18 @@ class Estate extends Component {
 
   componentWillMount() {
     const {
-      estatesData,
+      estates,
       match,
       actions
     } = this.props
 
-    if (estatesData && estatesData.estates && estatesData.estates.length > 0) {
-      let length = estatesData.estates.length
+    if (estates && estates.length > 0) {
+      let length = estates.length
 
       for (let i = 0; i < length; i++) {
-        if (estatesData.estates[i]._id === match.params.id) {
+        if (estates[i]._id === match.params.id) {
           this.setState({
-            estate: estatesData.estates[i]
+            estate: estates[i]
           })
           break;
         }
@@ -61,8 +60,8 @@ Estate.defaultProps = {
 const mapStateToProps = (state) => {
 
   const props = {
-    estatesData: state.getEstate.data,
-    estate: state.getEstate.estate
+    estates: state.estate.estates,
+    estate: state.estate.estate
   }
   return props
 }

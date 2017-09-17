@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Footer from '../../components/generics/main-footer/Footer'
-import Header from '../../components/generics/main-header/Header'
-import AddEstateUser from '../../components/add-estate-user/AddEstateUser'
-import AddEstateInfo from '../../components/add-estate-info/AddEstateInfo'
-import AddEstateAddress from '../../components/add-estate-address/AddEstateAddress'
-import t from '../../translations'
+import Footer from 'components/generics/main-footer/Footer'
+import Header from 'components/generics/main-header/Header'
+import AddEstateUser from 'components/add-estate-user/AddEstateUser'
+import AddEstateInfo from 'components/add-estate-info/AddEstateInfo'
+import AddEstateAddress from 'components/add-estate-address/AddEstateAddress'
+import t from 'translations'
 
 class AddEstate extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ AddEstate.defaultProps = {
 const mapStateToProps = (state) => {
 
   const props = {
-    user: state.authentication.user || state.getUser.user
+    user: state.user.user
   }
   return props
 }

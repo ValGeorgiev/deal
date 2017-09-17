@@ -1,6 +1,4 @@
-(() => {
-
-
+function initMaps() {
   const WIDTH = 560
   const HEIGHT = 380
 
@@ -72,6 +70,8 @@
       .on('click', function({ properties }) {
         chooseRegion(this, properties)
       })
-  });
+  })
+}
 
-})()
+
+

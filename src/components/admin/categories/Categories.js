@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
-
+import * as ACTIONS from 'actions'
+import t from 'translations'
 import './categories.scss'
 
 class Categories extends Component {
@@ -19,11 +18,11 @@ class Categories extends Component {
 
     return categories.map((cat) => {
       return (
-        <div className='category' key={cat._id}>
+        <div className='categories__item' key={cat._id}>
           <Link to={`/admin/category/${cat._id}`}>
             {cat.name}
           </Link>
-          <button className='btn' onClick={() => this.deleteCategory(cat._id)}>Delete</button>
+          <button className='btn' onClick={() => this.deleteCategory(cat._id)}>X</button>
         </div>
       )
     })

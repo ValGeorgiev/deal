@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Login from '../auth/login/Login'
-import t from '../../translations'
+import t from 'translations'
 import './addestateuser.scss'
 
 class AddEstateUser extends Component {

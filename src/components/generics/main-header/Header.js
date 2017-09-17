@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
+import * as ACTIONS from 'actions'
+import t from 'translations'
 import DealModal from '../deal-modal/DealModal'
-import Signup from '../../auth/signup/Signup'
-import Login from '../../auth/login/Login'
-import { overwriteLocalStorage } from '../../../scripts/storage'
+import Signup from 'components/auth/signup/Signup'
+import Login from 'components/auth/login/Login'
+import { overwriteLocalStorage } from 'scripts/storage'
 import './header.scss'
 
 class Header extends Component {
@@ -114,18 +114,25 @@ class Header extends Component {
       user
     } = this.state
 
+    let {
+      favourites
+    } = this.props
+
     user = _.isEmpty(user) ? this.props.user : user
+
+    if (!favourites && user.favourites) {
+      favourites = user.favourites
+    }
 
     return (
       <div className="header_wrapper">
         <Link to='/'>Logo</Link>
-
         {
           loggedUser && user ? (
             <div>
               Здравей, {user.firstName} {user.lastName}
 
-              <Link to={`/favourites/${user.favID}`}>Любими {user.favourites.length}</Link>
+              <Link to={`/favourites/${user.favID}`}>Любими {favourites.length}</Link>
               <button onClick={this.logout}>Изход</button>
             </div>
           ) : (
@@ -164,13 +171,16 @@ class Header extends Component {
 }
 
 Header.defaultProps = {
-  user: {}
+  user: {
+    favourites: []
+  }
 }
 
 const mapStateToProps = (state) => {
 
   return {
-    user: state.getUser.user
+    user: state.user.user,
+    favourites: state.favourites.favourites
   }
 }
 

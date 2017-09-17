@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import t from '../../../translations'
+import t from 'translations'
 import DealModal from '../deal-modal/DealModal'
-import Signup from '../../auth/signup/Signup'
-import Login from '../../auth/login/Login'
+import Signup from 'components/auth/signup/Signup'
+import Login from 'components/auth/login/Login'
 import './adminheader.scss'
 
 class AdminHeader extends Component {

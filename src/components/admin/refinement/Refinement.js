@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
+import * as ACTIONS from 'actions'
+import t from 'translations'
 import _ from 'lodash'
 
 import './refinement.scss'
 
 class Refinement extends Component {
-  constructor() {
-    super()
-  }
 
   updateRefinementStatus(online) {
     const {

@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import * as ACTIONS from '../../actions/'
+import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { withRouter } from 'react-router-dom'
-import Footer from 'components/generics/main-footer/Footer'
-import Header from 'components/generics/main-header/Header'
+import AdminHeader from 'components/generics/admin-header/AdminHeader'
+import AdminNavigation from 'components/admin/admin-navigation/AdminNavigation'
 import BuyEstateType from 'components/buy-estate-types/BuyEstateTypes'
 import EstateRefinements from 'components/estate-refinements/EstateRefinements'
-import BuyEstateGrid from 'components/buy-estate-grid/BuyEstateGrid'
+import Estates from 'components/admin/estates/Estates'
 import { getQuery } from 'libs/deal-query'
 import t from 'translations'
 
-class BuyEstate extends Component {
+class AdminEstates extends Component {
   constructor(props) {
     super(props)
   }
@@ -42,13 +41,13 @@ class BuyEstate extends Component {
 
     return (
       <div>
-        <Header />
-        <BuyEstateType link='buy-estate' />
+        <AdminHeader />
+        <AdminNavigation />
+        <BuyEstateType link='estates' />
         <div>
           <EstateRefinements estateType={null}/>
-          <BuyEstateGrid />
+          <Estates />
         </div>
-        <Footer />
       </div>
     )
   }
@@ -61,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
   return actionMap
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(BuyEstate))
+export default connect(null, mapDispatchToProps)(AdminEstates)

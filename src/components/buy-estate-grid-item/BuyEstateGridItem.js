@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import t from '../../translations'
+import t from 'translations'
 import { Link } from 'react-router-dom'
-import * as ACTIONS from '../../actions/'
+import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-import DealModal from '../generics/deal-modal/DealModal'
+import DealModal from 'components/generics/deal-modal/DealModal'
 import ImageModalCarousel from '../image-modal-carousel/ImageModalCarousel'
-import FavIcon from '../../images/fav-icon.svg'
-import FavIconFilled from '../../images/fav-icon-filled.png'
+import FavIcon from 'images/fav-icon.svg'
+import FavIconFilled from 'images/fav-icon-filled.png'
 
 import './buyestategriditem.scss'
 
@@ -102,7 +101,7 @@ BuyEstateItem.defaultProps = {
 const mapStateToProps = (state) => {
 
   const props = {
-    user: state.getUser.user
+    user: state.user.user
   }
   return props
 }

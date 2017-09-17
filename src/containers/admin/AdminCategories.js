@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import * as ACTIONS from '../../actions/'
+import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import AdminHeader from '../../components/generics/admin-header/AdminHeader'
-import AdminNavigation from '../../components/admin/admin-navigation/AdminNavigation'
-import Categories from '../../components/admin/categories/Categories'
-
-import t from '../../translations'
+import AdminHeader from 'components/generics/admin-header/AdminHeader'
+import AdminNavigation from 'components/admin/admin-navigation/AdminNavigation'
+import Categories from 'components/admin/categories/Categories'
+import t from 'translations'
 
 class AdminCategories extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentWillMount() {
     const {

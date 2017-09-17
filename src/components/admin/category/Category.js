@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
+import * as ACTIONS from 'actions'
+import t from 'translations'
 import _ from 'lodash'
-
 import './category.scss'
 
 class Category extends Component {
-  constructor() {
-    super()
-  }
 
   updateCategoryStatus(online) {
     const {

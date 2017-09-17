@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import t from '../../../translations'
+import t from 'translations'
 import './buildingyearrefinement.scss'
 
 class BuildingYearRefinement extends PureComponent {

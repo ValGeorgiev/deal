@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import t from 'translations'
 import { connect } from 'react-redux'
-import BuyEstateGridItem from '../buy-estate-grid-item/BuyEstateGridItem'
+import EstatesItem from '../estates-item/EstatesItem'
 import Loading from 'components/generics/loading/Loading'
-import './buyestategrid.scss'
+import './estates.scss'
 
-class BuyEstateGrid extends Component {
+class Estates extends Component {
   constructor() {
     super()
   }
@@ -27,7 +27,7 @@ class BuyEstateGrid extends Component {
         return estates.map((estate) => {
           return (
             <div key={estate._id} className='col col-xs-100 col-md-50'>
-              <BuyEstateGridItem estate={estate} />
+              <EstatesItem estate={estate} />
             </div>
           )
         })
@@ -59,4 +59,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(BuyEstateGrid)
+export default connect(mapStateToProps)(Estates)

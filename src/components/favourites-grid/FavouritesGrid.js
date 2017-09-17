@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import t from '../../translations'
-import * as ACTIONS from '../../actions/'
+import t from 'translations'
+import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
 import FavouritesGridItem from '../favourites-grid-item/FavouritesGridItem'
-import Loading from '../generics/loading/Loading'
+import Loading from 'components/generics/loading/Loading'
 import './favouritesgrid.scss'
 
 class FavouritesGrid extends Component {
@@ -55,7 +55,7 @@ class FavouritesGrid extends Component {
 const mapStateToProps = (state) => {
 
   const props = {
-    favourites: state.getFavourites.favourites
+    favourites: state.favourites.favourites
   }
   return props
 }

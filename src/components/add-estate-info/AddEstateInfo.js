@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import t from '../../translations'
-import * as ACTIONS from '../../actions/'
+import t from 'translations'
+import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import './addestateinfo.scss'
@@ -68,15 +68,16 @@ class AddEstateInfo extends Component {
   componentWillReceiveProps(nextProps) {
 
     const {
-      success
+      error
     } = nextProps
 
-    if (success) {
+    if (error) {
       this.startAnimation()
     }
   }
 
   startAnimation() {
+    console.log('test')
     const {
       change
     } = this.props
@@ -367,12 +368,9 @@ class AddEstateInfo extends Component {
 }
 
 function mapStateToProps(state) {
-  // eslint-disable-line no-unused-vars
-  /* Populated by react-webpack-redux:reducer */
 
   const props = {
-    success: state.addEstate.success,
-    error: state.addEstate.message
+    error: state.estate.message
   }
   return props
 }

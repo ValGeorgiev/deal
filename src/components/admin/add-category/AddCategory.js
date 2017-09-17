@@ -1,8 +1,7 @@
 import React, { Component, PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
+import * as ACTIONS from 'actions'
 import _ from 'lodash'
 
 import './addcategory.scss'
@@ -27,8 +26,6 @@ class InputWrapper extends PureComponent {
     )
   }
 }
-
-
 
 class AddCategory extends Component {
   constructor() {

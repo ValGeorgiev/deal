@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
+import * as ACTIONS from 'actions'
+import t from 'translations'
 
 import './signup.scss'
 
@@ -169,8 +169,7 @@ class Signup extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    _error: state.authentication.message,
-    success: state.authentication.success_message
+    _error: state.user.message
   }
 }
 

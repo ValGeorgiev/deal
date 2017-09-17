@@ -3,15 +3,12 @@ import * as ACTIONS from '../../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Footer from '../../components/generics/main-footer/Footer'
-import Header from '../../components/generics/main-header/Header'
-import FavouritesGrid from '../../components/favourites-grid/FavouritesGrid'
-import t from '../../translations'
+import Footer from 'components/generics/main-footer/Footer'
+import Header from 'components/generics/main-header/Header'
+import FavouritesGrid from 'components/favourites-grid/FavouritesGrid'
+import t from 'translations'
 
 class Favourites extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentWillMount() {
 

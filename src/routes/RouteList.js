@@ -12,6 +12,7 @@ import AdminCategory from '../containers/admin/AdminCategory'
 import AdminCategories from '../containers/admin/AdminCategories'
 import AdminRefinement from '../containers/admin/AdminRefinement'
 import AdminRefinements from '../containers/admin/AdminRefinements'
+import AdminEstates from '../containers/admin/AdminEstates'
 
 class RouteList extends Component {
   render() {
@@ -29,6 +30,7 @@ class RouteList extends Component {
         <Route exact path="/admin/category/:categoryid" component={AdminCategory} />
         <Route exact path="/admin/refinements" component={AdminRefinements} />
         <Route exact path="/admin/refinement/:refinementid" component={AdminRefinement} />
+        <Route exact path="/admin/estates" component={AdminEstates} />
       </div>
     )
   }

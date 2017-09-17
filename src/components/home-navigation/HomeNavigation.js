@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
-import t from '../../translations'
+import t from 'translations'
 import './homenavigation.scss'
 
 class HomeNavigation extends PureComponent {

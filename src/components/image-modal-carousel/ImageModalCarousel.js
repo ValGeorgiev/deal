@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import t from '../../translations'
-import Carousel from '../generics/carousel/Carousel'
+import t from 'translations'
+import Carousel from 'components/generics/carousel/Carousel'
 import './imagemodalcarousel.scss'
 
 class ImageModalCarousel extends Component {

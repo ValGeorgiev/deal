@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import t from '../../../translations'
+import t from 'translations'
 import './quadraturerefinement.scss'
 
 class QuadratureRefinement extends Component {

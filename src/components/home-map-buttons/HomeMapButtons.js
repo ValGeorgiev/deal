@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './homemapbuttons.scss'
 
 class HomeMapButtons extends Component {
@@ -26,12 +27,12 @@ class HomeMapButtons extends Component {
         <span className='home-map-buttons__region'>{region}</span>
         <input id='map-region' className='hide' onChange={(event) => this.changeRegion(event)} />
         <div className='home-map-buttons__buttons'>
-          <div>
+          <Link to='/buy-estate?type=appartament'>
             <button className='btn btn-medium'>Купи</button>
-          </div>
-          <div>
+          </Link>
+          <Link to='/buy-estate?type=appartament'>
             <button className='btn btn-medium'>Наеми</button>
-          </div>
+          </Link>
         </div>
       </div>
     )

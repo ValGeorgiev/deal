@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import * as ACTIONS from '../../actions/'
+import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import AdminHeader from '../../components/generics/admin-header/AdminHeader'
-import AdminNavigation from '../../components/admin/admin-navigation/AdminNavigation'
-import Refinements from '../../components/admin/refinements/Refinements'
-
-import t from '../../translations'
+import AdminHeader from 'components/generics/admin-header/AdminHeader'
+import AdminNavigation from 'components/admin/admin-navigation/AdminNavigation'
+import Refinements from 'components/admin/refinements/Refinements'
+import t from 'translations'
 
 class AdminRefinements extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentWillMount() {
     const {
@@ -33,7 +29,7 @@ class AdminRefinements extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  /* Populated by react-webpack-redux:action */
+
   const actions = ACTIONS
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap

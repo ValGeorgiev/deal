@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
-import * as ACTIONS from '../../../actions'
-import t from '../../../translations'
+import * as ACTIONS from 'actions'
+import t from 'translations'
 
 import './refinements.scss'
 
 class Refinements extends Component {
-  constructor() {
-    super()
-  }
 
   createRefinements() {
     const {
@@ -19,11 +16,11 @@ class Refinements extends Component {
 
     return refinements.map((ref) => {
       return (
-        <div className='refinement' key={ref._id}>
+        <div className='refinements__item' key={ref._id}>
           <Link to={`/admin/refinement/${ref._id}`}>
             {ref.name}
           </Link>
-          <button className='btn' onClick={() => this.deleteRefinement(ref._id)}>Delete</button>
+          <button className='btn' onClick={() => this.deleteRefinement(ref._id)}>X</button>
         </div>
       )
     })
