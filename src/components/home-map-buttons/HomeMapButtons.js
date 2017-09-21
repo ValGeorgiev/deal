@@ -15,6 +15,7 @@ class HomeMapButtons extends Component {
     this.setState({
       region: event.target.value
     })
+    window.localStorage.setItem('mname', event.target.value)
   }
 
   render() {

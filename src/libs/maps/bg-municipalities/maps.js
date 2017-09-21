@@ -1,9 +1,10 @@
-function initVidinMap(city) {
+function initMunicipalitiesMap(city, classname, nameID, selectedID) {
+  console.log(__BG_MUNICIPALITIES__)
   const _city = window.__BG_MUNICIPALITIES__[city]
   const WIDTH = _city.width
   const HEIGHT = _city.height
 
-  const svg = d3.select('#vidin').append('svg')
+  const svg = d3.select(classname).append('svg')
     .attr('width', WIDTH)
     .attr('height', HEIGHT)
 
@@ -16,7 +17,7 @@ function initVidinMap(city) {
 
 
   function changeTitle(that, name = '', className = '', active = '') {
-    let nameElement = document.getElementById('vidin-map-name')
+    let nameElement = document.getElementById(nameID)
 
     nameElement.textContent = name
     nameElement.className = className
@@ -26,14 +27,16 @@ function initVidinMap(city) {
 
   function setNameStyling() {
     let event = window.event
-    let elStyle = document.getElementById('vidin-map-name').style
-    elStyle.top = `${event.clientY + 400}px`
-    elStyle.left = `${event.clientX}px`
+    let elStyle = document.getElementById(nameID).style
+
+    //@TODO: refactor mouse coordinates
+    elStyle.top = `${event.clientY - 200}px`
+    elStyle.left = `${event.clientX - 200}px`
   }
 
   function chooseRegion(that, { name }) {
     let event = new Event('input', { bubbles: true })
-    let elem = document.getElementById('map-region')
+    let elem = document.getElementById(selectedID)
 
     if (elem.value === name) {
       elem.value = ''

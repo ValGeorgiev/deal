@@ -3,12 +3,10 @@ import t from 'translations'
 import { connect } from 'react-redux'
 import BuyEstateGridItem from '../buy-estate-grid-item/BuyEstateGridItem'
 import Loading from 'components/generics/loading/Loading'
+import MunicipalityMap from '../municipality-map/MunicipalityMap'
 import './buyestategrid.scss'
 
 class BuyEstateGrid extends Component {
-  constructor() {
-    super()
-  }
 
   createChildren() {
      const {
@@ -43,6 +41,7 @@ class BuyEstateGrid extends Component {
       <div className="buy-estate-grid__wrapper col col-lg-80">
         <h3 className='grid__title'>Имоти</h3>
         <div className='estate_grid__wrapper'>
+          <MunicipalityMap />
           {this.createChildren()}
         </div>
       </div>

@@ -10,7 +10,6 @@ class Home extends Component {
 
   componentDidMount() {
     initMaps()
-    // initVidinMap('lovech')
   }
 
   render() {

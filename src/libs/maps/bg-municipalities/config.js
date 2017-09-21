@@ -3,7 +3,7 @@ window.__BG_MUNICIPALITIES__ = {
     translate: [-5200, 11800],
     scale: 13600,
     width: 350,
-    height: 500
+    height: 400
   },
   'sofia': {
     translate: [-5400, 11400],
