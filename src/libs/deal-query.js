@@ -23,7 +23,7 @@ class DealQuery {
     for (let i = 0; i < queryArrayLength; i++) {
 
       let queryKeyValue = queryArray[i].split('=')
-      queryBuilder[queryKeyValue[0]] = queryKeyValue[1]
+      queryBuilder[queryKeyValue[0]] = decodeURIComponent(queryKeyValue[1])
     }
 
     return queryBuilder

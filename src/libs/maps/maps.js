@@ -1,4 +1,4 @@
-function initMaps() {
+function initMaps(chooseRegion) {
   const WIDTH = 560
   const HEIGHT = 380
 
@@ -28,28 +28,6 @@ function initMaps() {
     let elStyle = document.getElementById('map-name').style
     elStyle.top = `${event.clientY - 50}px`
     elStyle.left = `${event.clientX}px`
-  }
-
-  function chooseRegion(that, { name }) {
-    let event = new Event('input', { bubbles: true })
-    let elem = document.getElementById('map-region')
-
-    if (elem.value === name) {
-      elem.value = ''
-      d3.select(that).attr('id', '')
-    } else {
-      let selected = document.getElementById('selected')
-
-      if (selected !== null) {
-        selected.id = ''
-      }
-
-      elem.value = name
-      d3.select(that).attr('id', 'selected')
-    }
-
-    event.simulated = true
-    elem.dispatchEvent(event)
   }
 
   d3.json('/libs/maps/bg.json', (json) => { // loads JSON file

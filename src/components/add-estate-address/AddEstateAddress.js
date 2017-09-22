@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import t from 'translations'
+import GoogleMap from '../google-map/GoogleMap'
+import HomeMap from '../home-map/HomeMap'
 import './addestateaddress.scss'
 
 class AddEstateAddress extends Component {
@@ -9,12 +11,41 @@ class AddEstateAddress extends Component {
     this.state = {
       readyState: false,
       readyClass: false,
-      address: ''
+      address: '',
+      region: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
     this.updateAddress = this.updateAddress.bind(this)
+  }
+
+  selectRegion(that, { name }) {
+    const {
+      region
+    } = this.state
+
+    if (region === name) {
+      d3.select(that).attr('id', '')
+      this.setState({
+        region: ''
+      })
+    } else {
+      let selected = document.getElementById('selected')
+
+      if (selected !== null) {
+        selected.id = ''
+      }
+
+      this.setState({
+        region: name
+      })
+      d3.select(that).attr('id', 'selected')
+    }
+  }
+
+  componentDidMount() {
+    initMaps(this.selectRegion.bind(this))
   }
 
   handleSubmit() {
@@ -46,7 +77,8 @@ class AddEstateAddress extends Component {
     const {
       readyState,
       readyClass,
-      address
+      address,
+      region
     } = this.state
 
     const {
@@ -63,8 +95,8 @@ class AddEstateAddress extends Component {
           <div className={`shallow-block ${activeClass}`} />
           <h3 className='address__title'>Адрес на имота</h3>
           <div>
-            Адрес за сега:
-            <input type='text' onChange={this.updateAddress} value={address} />
+            <HomeMap />
+            <GoogleMap region={region} />
           </div>
           <div className='address-btn__wrapper'>
             <button onClick={this.handleSubmit} className='btn btn-big btn-blue'>Продължи</button>

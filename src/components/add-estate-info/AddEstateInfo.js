@@ -52,17 +52,17 @@ class AddEstateInfo extends Component {
     } = this.state
 
 
-    this.props.actions.addEstateInformation({
-      quadrature,
-      buildingYear,
-      moreInfo,
-      floor,
-      allFloors,
-      price,
-      buildingType,
-      currency,
-      estateType
-    })
+    // this.props.actions.addEstateInformation({
+    //   quadrature,
+    //   buildingYear,
+    //   moreInfo,
+    //   floor,
+    //   allFloors,
+    //   price,
+    //   buildingType,
+    //   currency,
+    //   estateType
+    // })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -71,13 +71,12 @@ class AddEstateInfo extends Component {
       error
     } = nextProps
 
-    if (error) {
+    if (true || error) {
       this.startAnimation()
     }
   }
 
   startAnimation() {
-    console.log('test')
     const {
       change
     } = this.props

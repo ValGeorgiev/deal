@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import config from 'config'
+import { withRouter } from 'react-router-dom'
+import { parseQuery } from 'libs/deal-query'
 import './municipalitymap.scss'
 
 const MAP_CLASS = 'municipality-map__map'
@@ -9,8 +11,8 @@ const MAP_SELECTED_ID = 'municipality-map__selected'
 class MunicipalityMap extends Component {
 
   componentDidMount() {
-    const municipality = window.localStorage.getItem('mname')
-    initMunicipalitiesMap(config[municipality], `.${MAP_CLASS}`, MAP_NAME_ID, MAP_SELECTED_ID)
+    const query = parseQuery(this.props.location.search)
+    initMunicipalitiesMap(config[query['city']], `.${MAP_CLASS}`, MAP_NAME_ID, MAP_SELECTED_ID)
   }
 
   render() {
@@ -21,11 +23,11 @@ class MunicipalityMap extends Component {
 
         </span>
         <span id={MAP_NAME_ID} />
-        <span id={MAP_SELECTED_ID} className='hide' />
+        <input id={MAP_SELECTED_ID} className='hide' />
         <div className={MAP_CLASS} />
       </div>
     )
   }
 }
 
-export default MunicipalityMap
+export default withRouter(MunicipalityMap)

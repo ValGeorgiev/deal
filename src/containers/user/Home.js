@@ -7,18 +7,53 @@ import HomeNavigation from 'components/home-navigation/HomeNavigation'
 import t from 'translations'
 
 class Home extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      region: ''
+    }
+  }
+
+  selectRegion(that, { name }) {
+    const {
+      region
+    } = this.state
+
+    if (region === name) {
+      d3.select(that).attr('id', '')
+      this.setState({
+        region: ''
+      })
+    } else {
+      let selected = document.getElementById('selected')
+
+      if (selected !== null) {
+        selected.id = ''
+      }
+
+      this.setState({
+        region: name
+      })
+      d3.select(that).attr('id', 'selected')
+    }
+  }
 
   componentDidMount() {
-    initMaps()
+    initMaps(this.selectRegion.bind(this))
   }
 
   render() {
+    const {
+      region
+    } = this.state
+
     return (
       <div>
         <Header />
         <HomeNavigation />
         <HomeMap />
-        <HomeMapButtons />
+        <HomeMapButtons name={region} />
         Home Container
         <Footer />
       </div>

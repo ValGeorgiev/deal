@@ -1,6 +1,9 @@
 function initMunicipalitiesMap(city, classname, nameID, selectedID) {
-  console.log(__BG_MUNICIPALITIES__)
   const _city = window.__BG_MUNICIPALITIES__[city]
+
+  if (!_city) {
+    return
+  }
   const WIDTH = _city.width
   const HEIGHT = _city.height
 
@@ -37,6 +40,8 @@ function initMunicipalitiesMap(city, classname, nameID, selectedID) {
   function chooseRegion(that, { name }) {
     let event = new Event('input', { bubbles: true })
     let elem = document.getElementById(selectedID)
+    console.log(elem.value)
+    console.log(name)
 
     if (elem.value === name) {
       elem.value = ''

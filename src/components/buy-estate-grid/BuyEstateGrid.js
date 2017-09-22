@@ -40,7 +40,7 @@ class BuyEstateGrid extends Component {
     return (
       <div className="buy-estate-grid__wrapper col col-lg-80">
         <h3 className='grid__title'>Имоти</h3>
-        <div className='estate_grid__wrapper'>
+        <div className='buy-estate-grid__grid'>
           <MunicipalityMap />
           {this.createChildren()}
         </div>

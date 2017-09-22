@@ -3,35 +3,20 @@ import { Link } from 'react-router-dom'
 import './homemapbuttons.scss'
 
 class HomeMapButtons extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      region: ''
-    }
-  }
-
-  changeRegion(event) {
-    this.setState({
-      region: event.target.value
-    })
-    window.localStorage.setItem('mname', event.target.value)
-  }
 
   render() {
     const {
-      region
-    } = this.state
+      name
+    } = this.props
 
     return (
       <div className='home-map-buttons__wrapper'>
-        <span className='home-map-buttons__region'>{region}</span>
-        <input id='map-region' className='hide' onChange={(event) => this.changeRegion(event)} />
+        <span className='home-map-buttons__region'>{name}</span>
         <div className='home-map-buttons__buttons'>
-          <Link to='/buy-estate?type=appartament'>
+          <Link to={`/buy-estate?type=appartament&city=${name}`}>
             <button className='btn btn-medium'>Купи</button>
           </Link>
-          <Link to='/buy-estate?type=appartament'>
+          <Link to={`/buy-estate?type=appartament&city=${name}`}>
             <button className='btn btn-medium'>Наеми</button>
           </Link>
         </div>
