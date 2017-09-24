@@ -31,8 +31,16 @@ function reducer(state = initialState, action) {
       }
     }
     case GET_ESTATES: {
+      let estates = nextState.estates || []
+
+      if (action.payload.lazyLoad) {
+        return {
+          estates: [...estates, ...action.payload.json.estates],
+          nextState
+        }
+      }
       return {
-        estates: action.payload.estates,
+        estates: action.payload.json.estates,
         nextState
       }
     }

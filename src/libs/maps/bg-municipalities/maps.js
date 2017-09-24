@@ -1,4 +1,4 @@
-function initMunicipalitiesMap(city, classname, nameID, selectedID) {
+function initMunicipalitiesMap(city, classname, nameID, selectedID, chooseRegion) {
   const _city = window.__BG_MUNICIPALITIES__[city]
 
   if (!_city) {
@@ -35,30 +35,6 @@ function initMunicipalitiesMap(city, classname, nameID, selectedID) {
     //@TODO: refactor mouse coordinates
     elStyle.top = `${event.clientY - 200}px`
     elStyle.left = `${event.clientX - 200}px`
-  }
-
-  function chooseRegion(that, { name }) {
-    let event = new Event('input', { bubbles: true })
-    let elem = document.getElementById(selectedID)
-    console.log(elem.value)
-    console.log(name)
-
-    if (elem.value === name) {
-      elem.value = ''
-      d3.select(that).attr('id', '')
-    } else {
-      let selected = document.getElementById('selected')
-
-      if (selected !== null) {
-        selected.id = ''
-      }
-
-      elem.value = name
-      d3.select(that).attr('id', 'selected')
-    }
-
-    event.simulated = true
-    elem.dispatchEvent(event)
   }
 
   let url = `/libs/maps/bg-municipalities/${city}.json`

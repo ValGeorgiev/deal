@@ -26,8 +26,8 @@ function initMaps(chooseRegion) {
   function setNameStyling() {
     let event = window.event
     let elStyle = document.getElementById('map-name').style
-    elStyle.top = `${event.clientY - 50}px`
-    elStyle.left = `${event.clientX}px`
+    elStyle.top = `${event.clientY - 100}px`
+    elStyle.left = `${event.clientX - 150}px`
   }
 
   d3.json('/libs/maps/bg.json', (json) => { // loads JSON file

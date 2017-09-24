@@ -1,10 +1,58 @@
-.header_wrapper {
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px solid black;
-  margin-bottom: 20px;
+.header {
 
-  .header_wrapper__login-section {
+  &__wrapper {
+    width: 100%;
+    height: 65px;
+    padding: 5px;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__fav {
+    height: 55px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0 10px;
+
+    &-icon {
+      margin-top: 6px;
+      width: 37px;
+    }
+
+    &-counter {
+      position: absolute;
+      left: 14px;
+      top: -2px;
+      font-size: 18px;
+      font-weight: 700;
+
+      &.large-number {
+        left: 10px;
+        top: -4px;
+      }
+    }
+  }
+
+  &__auth {
+    float: right;
+    height: 55px;
+    line-height: 55px;
+
+    &__message {
+      display: inline-block;
+      font-size: 18px;
+
+      .names {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__login-section {
     float: right;
     margin: 5px 10px;
     font-size: 19px;

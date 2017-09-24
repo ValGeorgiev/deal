@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import * as ACTIONS from '../../actions/'
+import * as ACTIONS from 'actions'
+import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
@@ -14,6 +15,11 @@ import t from 'translations'
 class BuyEstate extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      count: 10,
+      start: 0
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,12 +27,24 @@ class BuyEstate extends Component {
       actions
     } = this.props
 
+    const {
+      start,
+      count
+    } = this.state
+
     actions.getEstates({
-      type: getQuery(nextProps.location.search)
+      type: getQuery(nextProps.location.search),
+      count,
+      start
     })
   }
 
   componentWillMount() {
+
+    const {
+      start,
+      count
+    } = this.state
 
     const {
       actions,
@@ -34,8 +52,63 @@ class BuyEstate extends Component {
     } = this.props
 
     actions.getEstates({
-      type: getQuery(location.search)
+      type: getQuery(location.search),
+      count,
+      start
     })
+  }
+
+  handleScroll() {
+    let flag = true
+    let gridWrapper = ReactDOM.findDOMNode(this.refs.grid)
+
+    window.addEventListener('scroll', () => {
+      let yScroll = window.pageYOffset + window.innerHeight
+      // console.log(yScroll)
+      // console.log(gridWrapper.offsetHeight)
+      // console.log('-----------')
+      if (flag && yScroll >= gridWrapper.offsetHeight) {
+        // console.log('wtf')
+        // console.log(this.state.start)
+        // console.log(this.state.count)
+        // console.log('++++++++++++=')
+        flag = false
+        this.loadMoreProducts(() => {
+          flag = true
+        })
+      }
+
+    })
+  }
+
+  loadMoreProducts(callback) {
+    const {
+      count,
+      start
+    } = this.state
+
+    const {
+      actions,
+      location
+    } = this.props
+
+    let newStart = start + count
+
+    this.setState({
+      start: newStart
+    })
+
+    actions.getEstates({
+      type: getQuery(location.search),
+      count,
+      start: newStart
+    }, true).then(() => {
+      callback()
+    })
+  }
+
+  componentDidMount() {
+    this.handleScroll()
   }
 
   render() {
@@ -44,7 +117,7 @@ class BuyEstate extends Component {
       <div>
         <Header />
         <BuyEstateType link='buy-estate' />
-        <div>
+        <div ref='grid'>
           <EstateRefinements estateType={null}/>
           <BuyEstateGrid />
         </div>

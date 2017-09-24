@@ -13,7 +13,7 @@ export function getUserByID (id = '', state) {
         type: GET_USER_BY_ID
       })
     }).catch((error) => {
-
+      console.log(error)
       error.then((message) => {
         dispatch({
           payload: message,

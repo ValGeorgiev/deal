@@ -1,15 +1,20 @@
 .home-map-buttons {
 
   &__wrapper {
-    margin-top: 20px;
+    margin: 40px 0 0 40px;
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    padding-left: 50px;
+    width: 450px;
+    height: 320px;
+    background-color: #EDF0EB;
+    border-radius: 15px;
+    padding: 15px 5px;
   }
 
-  &__region {
-    height: 30px;
+  &__city, &__region {
+    display: inline-block;
+    margin: 0 5px;
   }
 
   &__buttons {
@@ -20,4 +25,15 @@
       margin: 10px 0;
     }
   }
+
+  &__name {
+    font-size: 22px;
+    line-height: 25px;
+    display: inline-block;
+    height: 25px;
+  }
+}
+
+.home-content {
+  text-align: center;
 }

@@ -4,12 +4,15 @@ import {
   GET_ESTATES_ERROR
 } from './const'
 
-export function getEstates (data = {}, state) {
+export function getEstates (data = {}, lazyLoad = false) {
   return (dispatch) => {
 
-    return Deal.Estate.get(data).then((json) => {
+    return Deal.Estate.fetch(data).then((json) => {
       dispatch({
-        payload: json,
+        payload: {
+          json,
+          lazyLoad
+        },
         type: GET_ESTATES
       })
     }).catch((error) => {

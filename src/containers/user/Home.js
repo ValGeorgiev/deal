@@ -11,18 +11,24 @@ class Home extends Component {
     super()
 
     this.state = {
+      city: '',
       region: ''
     }
   }
 
-  selectRegion(that, { name }) {
+  selectRegion(that, selectedCity) {
     const {
+      city,
       region
     } = this.state
 
-    if (region === name) {
+    let name = selectedCity.name || ''
+    let municipality = selectedCity.region || ''
+
+    if (city === name) {
       d3.select(that).attr('id', '')
       this.setState({
+        city: '',
         region: ''
       })
     } else {
@@ -33,7 +39,8 @@ class Home extends Component {
       }
 
       this.setState({
-        region: name
+        city: name,
+        region: municipality
       })
       d3.select(that).attr('id', 'selected')
     }
@@ -45,6 +52,7 @@ class Home extends Component {
 
   render() {
     const {
+      city,
       region
     } = this.state
 
@@ -52,9 +60,10 @@ class Home extends Component {
       <div>
         <Header />
         <HomeNavigation />
-        <HomeMap />
-        <HomeMapButtons name={region} />
-        Home Container
+        <div className='home-content'>
+          <HomeMap />
+          <HomeMapButtons name={city} region={region} />
+        </div>
         <Footer />
       </div>
     )

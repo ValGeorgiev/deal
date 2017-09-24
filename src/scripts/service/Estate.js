@@ -20,8 +20,9 @@ class Estate {
     })
   }
 
-  get(data) {
+  fetch(data) {
     return new Promise((resolve, reject) => {
+
       HTTP.get(HTTP.addParameters(GET_ESTATES_LINK, data)).then(({ json, ok }) => {
         if (ok) {
           resolve(json)

@@ -44,17 +44,26 @@ class Estate {
     })
   }
 
-  get(req, res) {
+  fetch(req, res) {
     const { query } = req
 
     let types = query.type ? query.type.split(',') : []
+    let count = query.count ? parseInt(query.count) : 10
+    let start = query.start ? parseInt(query.start) : 0
+    let maxq = query.maxq ? parseInt(query.maxq) + 1 : 15000
+    let minq = query.minq ? parseInt(query.minq) - 1 : 0
 
     EstateModel.find({
       estateType: {
         $in: types
+      },
+      quadrature: {
+        $gt: minq,
+        $lt: maxq
       }
-    }, (err, estates) => {
+    }).skip(start).limit(count).exec((err, estates) => {
       if (!!err) {
+        console.log(err)
         res.status(500).send({
           message: err.message
         })

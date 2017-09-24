@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import DealModal from 'components/generics/deal-modal/DealModal'
 import ImageModalCarousel from '../image-modal-carousel/ImageModalCarousel'
+import EstateMainImage from '../estate/estate-main-image/EstateMainImage'
 import FavIcon from 'images/fav-icon.svg'
 import FavIconFilled from 'images/fav-icon-filled.png'
 
@@ -69,7 +70,7 @@ class BuyEstateItem extends Component {
       <div className={`buy-estate-item__wrapper ${openCarousel ? 'modal' : ''}`}>
         <Link className='item-link' to={`/estate/${estate.estateType}/${estate._id}`}>
           <div className='estate-image'>
-            <img src='http://via.placeholder.com/150x140' />
+            <EstateMainImage image='http://via.placeholder.com/150x140' />
           </div>
           <div className='estate-information'>
             <span>Тип: {estate.estateType} </span>

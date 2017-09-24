@@ -7,7 +7,7 @@ router.post('/estate/add', (req, res) => {
 })
 
 router.get('/estate/get', (req, res) => {
-  Estate.get(req, res)
+  Estate.fetch(req, res)
 })
 
 router.get('/estate/get/:id', (req, res) => {

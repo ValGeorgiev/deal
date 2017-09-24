@@ -21,40 +21,39 @@ class BuyEstateTypes extends Component {
 
     return (
       <div className="buy-estate-types__wrapper">
-        <h3 className='types__title'>Избери тип</h3>
         <div className='estate_type__wrapper'>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'appartament')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'appartament', true)}`}>
               <button className={`btn ${this.returnType('appartament')}`}>Апартаменти</button>
             </Link>
           </div>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'house')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'house', true)}`}>
               <button className={`btn ${this.returnType('house')}`} >Къщи</button>
             </Link>
           </div>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'bussiness')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'bussiness', true)}`}>
               <button className={`btn ${this.returnType('bussiness')}`} >Бизнес имоти</button>
             </Link>
           </div>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'hotel')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'hotel', true)}`}>
               <button className={`btn ${this.returnType('hotel')}`} >Хотели</button>
             </Link>
           </div>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'faculty')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'faculty', true)}`}>
               <button className={`btn ${this.returnType('faculty')}`} >Производствени помещения</button>
             </Link>
           </div>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'sports')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'sports', true)}`}>
               <button className={`btn ${this.returnType('sports')}`} >Спортни съоръжения</button>
             </Link>
           </div>
           <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'field')}`}>
+            <Link to={`${link}${buildQuery(location.search, 'type', 'field', true)}`}>
               <button className={`btn ${this.returnType('field')}`} >Парцели</button>
             </Link>
           </div>

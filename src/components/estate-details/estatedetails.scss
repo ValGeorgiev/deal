@@ -1,0 +1,25 @@
+.estate-details {
+
+  &__wrapper {
+    padding: 10px 20px;
+  }
+
+  &__left-col {
+    display: inline-block;
+    border: 1px solid black;
+  }
+
+  &__right-col {
+    padding-left: 15px;
+    vertical-align: top;
+    display: inline-block;
+    height: 700px;
+    width: 300px;
+    border: 1px solid black;
+  }
+
+  &__info {
+    height: 200px;
+    border: 1px solid black;
+  }
+}

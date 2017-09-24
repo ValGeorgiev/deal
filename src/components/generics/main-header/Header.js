@@ -117,53 +117,63 @@ class Header extends Component {
     let {
       favourites
     } = this.props
+    let favClass = ''
 
     user = _.isEmpty(user) ? this.props.user : user
 
     if (!favourites && user.favourites) {
       favourites = user.favourites
+      favClass = favourites.length > 9 ? ' large-number' : ''
     }
 
     return (
-      <div className="header_wrapper">
-        <Link to='/'>Logo</Link>
-        {
-          loggedUser && user ? (
-            <div>
-              Здравей, {user.firstName} {user.lastName}
+      <div className="header__wrapper">
+        <Link className='header__logo' to='/'><img src='/images/deal-logo.png' /></Link>
+        <div className='header__auth'>
+          {
+            loggedUser && user ? (
+              <div>
+                <p className='header__auth__message'>
+                  Здравей,
+                  <span className='names'> {user.firstName} {user.lastName} </span>
+                </p>
 
-              <Link to={`/favourites/${user.favID}`}>Любими {favourites.length}</Link>
-              <button onClick={this.logout}>Изход</button>
-            </div>
-          ) : (
-            <div className="header_wrapper__login-section">
-              <a className="header_wrapper__login-section__login" onClick={this.openLogin} href="javascript:void(0);">
-                {t('login')}
-              </a>
-              <DealModal
-                header={t('login.title')}
-                open={openLogin}
-                size='medium'
-                onClose={() => this.closeLogin()}
-              >
-                <Login openSignup={() => this.closeLoginOpenSignup()} />
-              </DealModal>
+                <Link className='header__fav' to={`/favourites/${user.favID}`}>
+                  <img className='header__fav-icon' src='/images/favorite-heart.svg' />
+                  <span className={`header__fav-counter${favClass}`}>{favourites.length}</span>
+                </Link>
+                <button onClick={this.logout}>Изход</button>
+              </div>
+            ) : (
+              <div className="header__login-section">
+                <a className="header__login-section__login" onClick={this.openLogin} href="javascript:void(0);">
+                  {t('login')}
+                </a>
+                <DealModal
+                  header={t('login.title')}
+                  open={openLogin}
+                  size='medium'
+                  onClose={() => this.closeLogin()}
+                >
+                  <Login openSignup={() => this.closeLoginOpenSignup()} />
+                </DealModal>
 
-              <a className="header_wrapper__login-section__signup" onClick={this.openSignup} href="javascript:void(0);">
-                {t('sign.up')}
-              </a>
-              <DealModal
-                header={t('sign.up.title')}
-                open={openSignup}
-                size='medium'
-                onClose={() => this.closeSignup()}
-              >
-                <Signup openLogin={() => this.closeSignupOpenLogin()} />
-              </DealModal>
-            </div>
-          )
+                <a className="header_wrapper__login-section__signup" onClick={this.openSignup} href="javascript:void(0);">
+                  {t('sign.up')}
+                </a>
+                <DealModal
+                  header={t('sign.up.title')}
+                  open={openSignup}
+                  size='medium'
+                  onClose={() => this.closeSignup()}
+                >
+                  <Signup openLogin={() => this.closeSignupOpenLogin()} />
+                </DealModal>
+              </div>
+            )
 
-        }
+          }
+        </div>
 
       </div>
     )

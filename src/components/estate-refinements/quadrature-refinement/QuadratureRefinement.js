@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import t from 'translations'
+import { withRouter } from 'react-router-dom'
+import { buildQuery, removeParams, parseQuery } from 'libs/deal-query'
 import './quadraturerefinement.scss'
 
 class QuadratureRefinement extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    let query = parseQuery(props.location.search)
+
     this.state = {
-      quadratureFrom: '',
-      quadratureTo: ''
+      quadratureFrom: query.minq || '',
+      quadratureTo: query.maxq || ''
     }
 
     this.increaseFromQuadrature = this.increaseFromQuadrature.bind(this)
@@ -29,16 +34,20 @@ class QuadratureRefinement extends Component {
       quadrature.quadratureFrom = quadratureFrom + 10
     }
 
+    quadrature.quadratureTo = quadratureTo
     if (quadrature.quadratureFrom >= quadratureTo) {
       quadrature.quadratureTo = quadrature.quadratureFrom + 10
     }
 
     this.setState(quadrature)
+    this.changeRefinement(quadrature)
+
   }
 
   increaseToQuadrature() {
     const {
-      quadratureTo
+      quadratureTo,
+      quadratureFrom
     } = this.state
     let newQuadrature = null
 
@@ -51,11 +60,17 @@ class QuadratureRefinement extends Component {
     this.setState({
       quadratureTo: newQuadrature
     })
+    this.changeRefinement({
+      quadratureTo: newQuadrature,
+      quadratureFrom
+    })
+
   }
 
   decreaseFromQuadrature() {
     const {
-      quadratureFrom
+      quadratureFrom,
+      quadratureTo
     } = this.state
 
     let newQuadrature = null
@@ -71,6 +86,11 @@ class QuadratureRefinement extends Component {
     this.setState({
       quadratureFrom: newQuadrature
     })
+    this.changeRefinement({
+      quadratureFrom: newQuadrature,
+      quadratureTo
+    })
+
   }
 
   decreaseToQuadrature() {
@@ -82,13 +102,13 @@ class QuadratureRefinement extends Component {
     let quadrature = {}
 
     if (quadratureTo === '') {
-      return;
+      return
     } else if (quadratureTo === 10) {
       quadrature.quadratureTo = ''
     } else {
       quadrature.quadratureTo = quadratureTo - 10
     }
-
+    quadrature.quadratureFrom = quadratureFrom
     if (quadrature.quadratureTo <= quadratureFrom) {
       if (quadratureFrom === 10 || quadratureFrom === '') {
         quadrature.quadratureFrom = ''
@@ -98,6 +118,50 @@ class QuadratureRefinement extends Component {
     }
 
     this.setState(quadrature)
+    this.changeRefinement(quadrature)
+  }
+
+  changeRefinement({ quadratureFrom, quadratureTo}) {
+    const {
+      history,
+      location
+    } = this.props
+
+    let maxQuery = buildQuery(decodeURIComponent(location.search), 'maxq', quadratureTo)
+    let minQuery = buildQuery(maxQuery, 'minq', quadratureFrom)
+
+    history.push(`${location.pathname}${minQuery}`)
+  }
+
+  changeQuadratureFrom(event) {
+    const {
+      quadratureTo
+    } = this.state
+    let quadrature = {}
+    quadrature.quadratureFrom = parseInt(event.target.value)
+    quadrature.quadratureTo = quadratureTo
+
+    if (quadrature.quadratureTo <= quadrature.quadratureFrom) {
+      quadrature.quadratureTo =  quadrature.quadratureFrom + 10
+    }
+    this.setState(quadrature)
+    this.changeRefinement(quadrature)
+  }
+
+  changeQuadratureTo(event) {
+    const {
+      quadratureFrom
+    } = this.state
+    let quadrature = {}
+    quadrature.quadratureTo = parseInt(event.target.value)
+    quadrature.quadratureFrom = quadratureFrom
+
+    if (quadrature.quadratureTo <= quadrature.quadratureFrom) {
+      quadrature.quadratureFrom = quadrature.quadratureTo <= 10 ? '' : quadrature.quadratureTo - 10
+    }
+
+    this.setState(quadrature)
+    this.changeRefinement(quadrature)
   }
 
   render() {
@@ -113,13 +177,13 @@ class QuadratureRefinement extends Component {
           <div className='quadrature__from'>
             <span>От:</span>
             <button onClick={this.decreaseFromQuadrature} className='btn minus-button'> - </button>
-            <input value={quadratureFrom} type='number' />
+            <input value={quadratureFrom} type='number' onChange={(event) => this.changeQuadratureFrom(event)} />
             <button onClick={this.increaseFromQuadrature} className='btn plus-button'> + </button>
           </div>
           <div className='quadrature__to'>
             <span>До:</span>
             <button onClick={this.decreaseToQuadrature} className='btn minus-button'> - </button>
-            <input value={quadratureTo} type='number' />
+            <input value={quadratureTo} type='number' onChange={(event) => this.changeQuadratureTo(event)} />
             <button onClick={this.increaseToQuadrature} className='btn plus-button'> + </button>
           </div>
         </div>
@@ -128,4 +192,4 @@ class QuadratureRefinement extends Component {
   }
 }
 
-export default QuadratureRefinement
+export default withRouter(QuadratureRefinement)

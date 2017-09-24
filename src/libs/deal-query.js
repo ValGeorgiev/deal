@@ -64,12 +64,12 @@ class DealQuery {
     return queryString
   }
 
-  buildQuery(query, key, value) {
+  buildQuery(query, key, value, addValues = false) {
     if (!query || query === '') {
       return `?${key}=${value}`
     }
 
-    if (query.includes(`${key}=`)) {
+    if (addValues && query.includes(`${key}=`)) {
       let queryBuilder = this.parseQuery(query)
       queryBuilder = this.addParam(queryBuilder, key, value)
 

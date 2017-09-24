@@ -5,7 +5,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "BLG",
-        "name": "Благоевград"
+        "name": "Благоевград",
+        "region": "Област Благоевград"
       },
       "geometry": {
         "type": "Polygon",
@@ -819,7 +820,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "LOV",
-        "name": "Ловеч"
+        "name": "Ловеч",
+        "region": "Област Ловеч"
       },
       "geometry": {
         "type": "Polygon",
@@ -2009,7 +2011,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "DOB",
-        "name": "Добрич"
+        "name": "Добрич",
+        "region": "Област Добрич"
       },
       "geometry": {
         "type": "Polygon",
@@ -2839,7 +2842,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "SLV",
-        "name": "Сливен"
+        "name": "Сливен",
+        "region": "Област Сливен"
       },
       "geometry": {
         "type": "Polygon",
@@ -3885,7 +3889,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "KRZ",
-        "name": "Кърджали"
+        "name": "Кърджали",
+        "region": "Област Кърджали"
       },
       "geometry": {
         "type": "Polygon",
@@ -5111,7 +5116,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "VAR",
-        "name": "Варна"
+        "name": "Варна",
+        "region": "Област Варна"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -6179,7 +6185,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "GAB",
-        "name": "Габрово"
+        "name": "Габрово",
+        "region": "Област Габрово"
       },
       "geometry": {
         "type": "Polygon",
@@ -7191,7 +7198,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "BGS",
-        "name": "Бургас"
+        "name": "Бургас",
+        "region": "Област Бургас"
       },
       "geometry": {
         "type": "Polygon",
@@ -9493,7 +9501,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "PAZ",
-        "name": "Пазарджик"
+        "name": "Пазарджик",
+        "region": "Област Пазарджик"
       },
       "geometry": {
         "type": "Polygon",
@@ -10319,7 +10328,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "VID",
-        "name": "Видин"
+        "name": "Видин",
+        "region": "Област Видин"
       },
       "geometry": {
         "type": "Polygon",
@@ -10769,7 +10779,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "SML",
-        "name": "Смолян"
+        "name": "Смолян",
+        "region": "Област Смолян"
       },
       "geometry": {
         "type": "Polygon",
@@ -11819,7 +11830,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "TGV",
-        "name": "Търговище"
+        "name": "Търговище",
+        "region": "Област Търговище"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -15147,7 +15159,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "VTR",
-        "name": "Велико Търново"
+        "name": "Велико Търново",
+        "region": "Област Велико Търново"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -16467,7 +16480,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "SLS",
-        "name": "Силистра"
+        "name": "Силистра",
+        "region": "Област Силистра"
       },
       "geometry": {
         "type": "Polygon",
@@ -17137,7 +17151,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "SZR",
-        "name": "Стара Загора"
+        "name": "Стара Загора",
+        "region": "Област Стара Загора"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -18311,7 +18326,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "HKV",
-        "name": "Хасково"
+        "name": "Хасково",
+        "region": "Област Хасково"
       },
       "geometry": {
         "type": "Polygon",
@@ -19777,7 +19793,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "SHU",
-        "name": "Шумен"
+        "name": "Шумен",
+        "region": "Област Шумен"
       },
       "geometry": {
         "type": "Polygon",
@@ -20711,7 +20728,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "JAM",
-        "name": "Ямбол"
+        "name": "Ямбол",
+        "region": "Област Ямбол"
       },
       "geometry": {
         "type": "Polygon",
@@ -22127,7 +22145,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "VRC",
-        "name": "Враца"
+        "name": "Враца",
+        "region": "Област Враца"
       },
       "geometry": {
         "type": "Polygon",
@@ -23093,7 +23112,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "PDV",
-        "name": "Пловдив"
+        "name": "Пловдив",
+        "region": "Област Пловдив"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -24273,7 +24293,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "PER",
-        "name": "Перник"
+        "name": "Перник",
+        "region": "Област Перник"
       },
       "geometry": {
         "type": "Polygon",
@@ -25237,7 +25258,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "PVN",
-        "name": "Плевен"
+        "name": "Плевен",
+        "region": "Област Плевен"
       },
       "geometry": {
         "type": "Polygon",
@@ -25891,7 +25913,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "MON",
-        "name": "Монтана"
+        "name": "Монтана",
+        "region": "Област Монтана"
       },
       "geometry": {
         "type": "Polygon",
@@ -26673,7 +26696,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "KNL",
-        "name": "Кюстендил"
+        "name": "Кюстендил",
+        "region": "Област Кюстендил"
       },
       "geometry": {
         "type": "Polygon",
@@ -27455,7 +27479,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "RSE",
-        "name": "Русе"
+        "name": "Русе",
+        "region": "Област Русе"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -28039,7 +28064,8 @@
       "type": "Feature",
       "properties": {
         "nuts3": "RAZ",
-        "name": "Разград"
+        "name": "Разград",
+        "region": "Област Разград"
       },
       "geometry": {
         "type": "Polygon",

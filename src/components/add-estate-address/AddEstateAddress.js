@@ -9,14 +9,11 @@ class AddEstateAddress extends Component {
     super()
 
     this.state = {
-      readyState: false,
-      readyClass: false,
       address: '',
       region: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleEdit = this.handleEdit.bind(this)
     this.updateAddress = this.updateAddress.bind(this)
   }
 
@@ -49,22 +46,7 @@ class AddEstateAddress extends Component {
   }
 
   handleSubmit() {
-    this.setState({
-      readyClass: true
-    })
 
-    setTimeout(() => {
-      this.setState({
-        readyState: true
-      })
-    }, 2200)
-  }
-
-  handleEdit() {
-    this.setState({
-      readyClass: false,
-      readyState: false
-    })
   }
 
   updateAddress(event) {
@@ -75,8 +57,6 @@ class AddEstateAddress extends Component {
 
   render() {
     const {
-      readyState,
-      readyClass,
       address,
       region
     } = this.state
@@ -87,11 +67,9 @@ class AddEstateAddress extends Component {
 
     let activeClass = active ? '' : 'not-active'
 
-    const animationClass = readyClass ? 'start-animation' : ''
-
     return (
       <div className="add-estate-address__wrapper">
-        <div className={`${animationClass} address__wrapper`}>
+        <div className='address__wrapper'>
           <div className={`shallow-block ${activeClass}`} />
           <h3 className='address__title'>Адрес на имота</h3>
           <div>
@@ -102,12 +80,6 @@ class AddEstateAddress extends Component {
             <button onClick={this.handleSubmit} className='btn btn-big btn-blue'>Продължи</button>
           </div>
         </div>
-        {!!readyState ? (
-          <div className='ready-state'>
-            <p>Адресът е записан! Продължете със следващата стъпка!</p>
-            <span onClick={this.handleEdit}>Промени</span>
-          </div> ) : null
-        }
       </div>
     )
   }
