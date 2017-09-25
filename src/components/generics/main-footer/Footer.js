@@ -60,7 +60,7 @@ class Footer extends PureComponent {
           <div className='footer__more'>
             <h3>Още</h3>
             <Link to='/'>Ръководство за покупко-продажба</Link>
-            <Link to='/'>Топ Агенции</Link>
+            <Link to='/'>Топ Брокери</Link>
             <Link to='/'>Фрийлансъри</Link>
             <Link to='/'>Строителни фирми</Link>
           </div>

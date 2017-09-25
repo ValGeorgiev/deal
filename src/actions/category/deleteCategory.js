@@ -1,4 +1,4 @@
-import Deal from '../../scripts'
+import Deal from 'scripts'
 import {
   ADMIN_DELETE_CATEGORY
 } from './const'

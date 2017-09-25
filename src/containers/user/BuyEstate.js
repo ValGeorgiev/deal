@@ -20,6 +20,8 @@ class BuyEstate extends Component {
       count: 10,
       start: 0
     }
+
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -93,7 +95,7 @@ class BuyEstate extends Component {
     } = this.props
 
     let newStart = start + count
-
+    console.log(' set state again ')
     this.setState({
       start: newStart
     })
@@ -108,6 +110,7 @@ class BuyEstate extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount')
     this.handleScroll()
   }
 

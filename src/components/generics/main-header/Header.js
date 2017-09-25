@@ -17,12 +17,15 @@ class Header extends Component {
       openLogin: false,
       openSignup: false,
       loggedUser: false,
-      user: {}
+      user: {},
+      openSettings: 'hide'
     }
 
     this.openLogin = this.openLogin.bind(this)
     this.openSignup = this.openSignup.bind(this)
     this.logout = this.logout.bind(this)
+    this.openSettings = this.openSettings.bind(this)
+    this.closeSettings = this.closeSettings.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -106,12 +109,25 @@ class Header extends Component {
     })
   }
 
+  openSettings() {
+    this.setState({
+      openSettings: ''
+    })
+  }
+
+  closeSettings() {
+    this.setState({
+      openSettings: 'hide'
+    })
+  }
+
   render() {
     let {
       openLogin,
       openSignup,
       loggedUser,
-      user
+      user,
+      openSettings
     } = this.state
 
     let {
@@ -133,16 +149,31 @@ class Header extends Component {
           {
             loggedUser && user ? (
               <div>
+                <Link className='header__fav' to={`/favourites/${user.favID}`}>
+                  <img className='header__fav-icon' src='/images/favorite-heart.svg' />
+                  <span className={`header__fav-counter${favClass}`}>{favourites.length}</span>
+                </Link>
+
                 <p className='header__auth__message'>
                   Здравей,
                   <span className='names'> {user.firstName} {user.lastName} </span>
                 </p>
 
-                <Link className='header__fav' to={`/favourites/${user.favID}`}>
-                  <img className='header__fav-icon' src='/images/favorite-heart.svg' />
-                  <span className={`header__fav-counter${favClass}`}>{favourites.length}</span>
-                </Link>
-                <button onClick={this.logout}>Изход</button>
+                <div className='header__settings'>
+                  <img onClick={this.openSettings} className='icon' src='/images/settings.svg' />
+                  <div className={`${openSettings} settings__wrapper`}>
+                    <div className='settings__item'>
+                      <Link to='/profile'>Профил</Link>
+                    </div>
+                    <div className='settings__item'>
+                      <Link to='/profile'>Създай агенция</Link>
+                    </div>
+                    <div className='settings__item'>
+                      <span className='settings__logout' onClick={this.logout}>Изход</span>
+                    </div>
+                  </div>
+                </div>
+                <div onClick={this.closeSettings} className={`settings__background ${openSettings}`}/>
               </div>
             ) : (
               <div className="header__login-section">
@@ -157,6 +188,7 @@ class Header extends Component {
                 >
                   <Login openSignup={() => this.closeLoginOpenSignup()} />
                 </DealModal>
+
 
                 <a className="header_wrapper__login-section__signup" onClick={this.openSignup} href="javascript:void(0);">
                   {t('sign.up')}

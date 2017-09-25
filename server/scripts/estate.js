@@ -2,7 +2,7 @@ let EstateModel = require('../models/estate')
 
 class Estate {
   constructor() {
-
+    this.ESTATE_TYPES = ['appartament', 'house', 'bussiness', 'hotel', 'faculty', 'sports', 'field']
   }
 
   add(req, res) {
@@ -47,7 +47,7 @@ class Estate {
   fetch(req, res) {
     const { query } = req
 
-    let types = query.type ? query.type.split(',') : []
+    let types = query.type ? query.type.split(',') : this.ESTATE_TYPES
     let count = query.count ? parseInt(query.count) : 10
     let start = query.start ? parseInt(query.start) : 0
     let maxq = query.maxq ? parseInt(query.maxq) + 1 : 15000
