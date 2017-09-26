@@ -2,12 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Slider from 'react-slick'
 import BuyEstateGridItem from 'components/buy-estate-grid-item/BuyEstateGridItem'
+import { NextArrow, PrevArrow } from 'components/generics/carousel/Arrows'
+import './homecarousel.scss'
 
 class HomeCarousel extends Component {
 
   createChilren(estates) {
-    return estates.map((estate) => {
-      return <BuyEstateGridItem key={estate._id} estate={estate} />
+    return estates.map((estate, index) => {
+      return (
+        <div key={`${estate._id}`-`${index}`} className='col col-xs-50 col-md-33 col-lg-20'>
+          <BuyEstateGridItem estate={estate} />
+        </div>
+      )
     })
   }
 
@@ -16,8 +22,32 @@ class HomeCarousel extends Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      arrows: true,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      responsive: [ {
+        breakpoint: 862,
+        settings: {
+          slidesToShow: 2
+        }
+      }, {
+        breakpoint: 552,
+        settings: {
+          slidesToShow: 1
+        }
+      }, {
+        breakpoint: 1224,
+        settings: {
+          slidesToShow: 3
+        }
+      }, {
+        breakpoint: 100000,
+        settings: {
+          slidesToShow: 5
+        }
+      } ]
     }
 
     const {
@@ -29,9 +59,11 @@ class HomeCarousel extends Component {
     }
 
     return (
-      <Slider {...settings}>
-        { this.createChilren(estates) }
-      </Slider>
+      <div className='home-carousel__wrapper'>
+        <Slider {...settings}>
+          { this.createChilren(estates) }
+        </Slider>
+      </div>
     );
   }
 }

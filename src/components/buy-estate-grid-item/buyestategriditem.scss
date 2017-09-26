@@ -1,7 +1,11 @@
 .buy-estate-item__wrapper {
-  padding-right: 10px;
+  margin: 0 10px 20px;
   position: relative;
-  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(20,20,28,0.5);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(20,20,28,0.5);
+  box-shadow: 0px 0px 20px 0px rgba(20,20,28,0.5);
 
   &.modal {
     position: initial;
@@ -12,15 +16,9 @@
   }
 
   .estate-information {
-    display: inline-block;
     vertical-align: top;
     margin-left: 10px;
-  }
-
-  .estate-image {
-    display: inline-block;
-    width: 150px;
-    height: 140px;
+    height: 110px;
   }
 
   .item-link {
@@ -32,8 +30,8 @@
     width: 24px;
     height: 24px;
     position: absolute;
-    bottom: 5px;
-    left: 125px;
+    bottom: 115px;
+    right: 15px;
     cursor: pointer;
 
     &:after {

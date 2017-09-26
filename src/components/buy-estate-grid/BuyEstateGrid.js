@@ -24,7 +24,7 @@ class BuyEstateGrid extends Component {
 
         return estates.map((estate, index) => {
           return (
-            <div key={`${estate._id}-${index}`} className='col col-xs-100 col-md-50'>
+            <div key={`${estate._id}-${index}`} className='col col-xs-50 col-md-33'>
               <BuyEstateGridItem estate={estate} />
             </div>
           )
@@ -38,7 +38,7 @@ class BuyEstateGrid extends Component {
   render() {
 
     return (
-      <div className="buy-estate-grid__wrapper col col-lg-80">
+      <div className="buy-estate-grid__wrapper col col-lg-70">
         <h3 className='grid__title'>Имоти</h3>
         <div className='buy-estate-grid__grid'>
           <MunicipalityMap />

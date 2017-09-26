@@ -20,7 +20,7 @@ class EstateRefinements extends Component {
   render() {
 
     return (
-      <div className="estate-refinements__wrapper col col-lg-20">
+      <div className="estate-refinements__wrapper col col-lg-30">
         <InnerTypeRefinement />
         <PriceRefinement />
         <QuadratureRefinement />

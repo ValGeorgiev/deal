@@ -69,14 +69,12 @@ class BuyEstateItem extends Component {
     return (
       <div className={`buy-estate-item__wrapper ${openCarousel ? 'modal' : ''}`}>
         <Link className='item-link' to={`/estate/${estate.estateType}/${estate._id}`}>
-          <div className='estate-image'>
-            <EstateMainImage image='http://via.placeholder.com/150x140' />
-          </div>
+          <EstateMainImage image='http://via.placeholder.com/150x140' />
           <div className='estate-information'>
-            <span>Тип: {estate.estateType} </span>
-            <span>Цена: {estate.price}</span>
+            <span>{estate.estateType}</span>
+            <span>{estate.price}</span>
             <span>{estate.currency} </span>
-            <span>Кв.: {estate.quadrature} </span>
+            <span>{estate.quadrature} </span>
           </div>
         </Link>
         <div onClick={this.openImageCarousel} className='all-images-btn'>
