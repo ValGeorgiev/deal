@@ -1,0 +1,17 @@
+.profile {
+
+  &-images {
+    position: relative;
+  }
+
+  &-cover {
+
+
+    &__wrapper {
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

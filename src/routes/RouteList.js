@@ -5,6 +5,7 @@ import AddEstate from '../containers/user/AddEstate'
 import BuyEstate from '../containers/user/BuyEstate'
 import Estate from '../containers/user/Estate'
 import Profile from '../containers/user/Profile'
+import PublicProfile from '../containers/user/PublicProfile'
 import Favourites from '../containers/user/Favourites'
 import AdminHome from '../containers/admin/AdminHome'
 import AdminAddCategory from '../containers/admin/AdminAddCategory'
@@ -23,6 +24,7 @@ class RouteList extends Component {
         <Route exact path="/buy-estate" component={BuyEstate} />
         <Route exact path="/estate/:type/:id" component={Estate} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile/:id" component={PublicProfile} />
         <Route exact path="/favourites/:favouritesid" component={Favourites} />
         <Route exact path="/admin" component={AdminHome} />
         <Route exact path="/admin/add-category" component={AdminAddCategory} />

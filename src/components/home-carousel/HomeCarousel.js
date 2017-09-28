@@ -10,7 +10,7 @@ class HomeCarousel extends Component {
   createChilren(estates) {
     return estates.map((estate, index) => {
       return (
-        <div key={`${estate._id}`-`${index}`} className='col col-xs-50 col-md-33 col-lg-20'>
+        <div key={estate._id} className='col col-xs-50 col-md-33 col-lg-20'>
           <BuyEstateGridItem estate={estate} />
         </div>
       )
@@ -64,7 +64,7 @@ class HomeCarousel extends Component {
           { this.createChilren(estates) }
         </Slider>
       </div>
-    );
+    )
   }
 }
 

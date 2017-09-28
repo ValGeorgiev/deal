@@ -24,6 +24,15 @@
   }
 }
 
+.public-profile__estates {
+  vertical-align: top;
+  padding-top: 20px;
+
+  .grid__title {
+    display: none;
+  }
+}
+
 
 @keyframes loading {
   0% {

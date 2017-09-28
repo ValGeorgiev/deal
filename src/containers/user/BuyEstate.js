@@ -122,7 +122,9 @@ class BuyEstate extends Component {
         <BuyEstateType link='buy-estate' />
         <div ref='grid'>
           <EstateRefinements estateType={null}/>
-          <BuyEstateGrid />
+          <div className='col col-lg-70 col-xs-100'>
+            <BuyEstateGrid />
+          </div>
         </div>
         <Footer />
       </div>

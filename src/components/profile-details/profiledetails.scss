@@ -1,0 +1,40 @@
+.profile-details {
+
+  &__wrapper {
+    margin-left: 40px;
+  }
+
+  &__type {
+    font-size: 17px;
+    color: #14141C;
+    margin-bottom: 20px;
+  }
+
+  &__email {
+
+    font-size: 20px;
+
+    .email {
+      font-weight: 700;
+    }
+  }
+}
+
+.public-profile {
+
+  &__profile {
+    padding-bottom: 30px;
+    margin: 10px 0;
+
+    .profile-details {
+
+      &__wrapper {
+        margin: 0;
+      }
+
+      &__email {
+        margin: 0;
+      }
+    }
+  }
+}
