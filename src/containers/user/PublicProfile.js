@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as ACTIONS from 'actions'
 import { bindActionCreators } from 'redux'
@@ -32,12 +33,14 @@ class PublicProfile extends Component {
       <div>
         <Header />
         <div className='public-profile__profile col col-xs-100 col-md-30 col-lg-33'>
-          <ProfileImage />
-          <ProfileName name={`${user.firstName} ${user.lastName}`} />
+          <Link to='/profile'>
+            <ProfileImage />
+            <ProfileName name={`${user.firstName} ${user.lastName}`} />
+          </Link>
           <ProfileDetails user={user} />
         </div>
         <div className='public-profile__estates col col-xs-100 col-md-70 col-lg-66'>
-          <BuyEstateGrid />
+          <BuyEstateGrid favourite={false} />
         </div>
         <Footer />
       </div>

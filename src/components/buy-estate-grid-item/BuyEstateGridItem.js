@@ -49,7 +49,16 @@ class BuyEstateItem extends Component {
   }
 
   createFavouritesButton(estate, isAddedToFavs) {
-    return !!this.props.user ? (
+    const {
+      favourite,
+      user
+    } = this.props
+
+    if (!favourite) {
+      return null
+    }
+
+    return !!user ? (
       <img onClick={() => this.addRemoveFavourites(estate._id, isAddedToFavs)} className='favourite-icon' src={isAddedToFavs ? FavIconFilled : FavIcon} />
     ) : null
   }
@@ -94,7 +103,9 @@ class BuyEstateItem extends Component {
 }
 
 BuyEstateItem.defaultProps = {
-  user: {}
+  user: {},
+  estate: {},
+  favourite: true
 }
 
 const mapStateToProps = (state) => {

@@ -10,7 +10,8 @@ class BuyEstateGrid extends Component {
 
   createChildren() {
      const {
-      estates
+      estates,
+      favourite
     } = this.props
 
     if (estates) {
@@ -25,7 +26,7 @@ class BuyEstateGrid extends Component {
         return estates.map((estate, index) => {
           return (
             <div key={`${estate._id}-${index}`} className='col col-xs-50 col-md-33'>
-              <BuyEstateGridItem estate={estate} />
+              <BuyEstateGridItem estate={estate} favourite={favourite} />
             </div>
           )
         })
@@ -47,6 +48,11 @@ class BuyEstateGrid extends Component {
       </div>
     )
   }
+}
+
+BuyEstateGrid.defaultProps = {
+  estates: [],
+  favourite: true
 }
 
 const mapStateToProps = (state) => {
