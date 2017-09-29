@@ -7,6 +7,8 @@ import Estate from '../containers/user/Estate'
 import Profile from '../containers/user/Profile'
 import PublicProfile from '../containers/user/PublicProfile'
 import Favourites from '../containers/user/Favourites'
+import CreateAgency from '../containers/user/CreateAgency'
+
 import AdminHome from '../containers/admin/AdminHome'
 import AdminAddCategory from '../containers/admin/AdminAddCategory'
 import AdminCategory from '../containers/admin/AdminCategory'
@@ -26,6 +28,8 @@ class RouteList extends Component {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profile/:id" component={PublicProfile} />
         <Route exact path="/favourites/:favouritesid" component={Favourites} />
+        <Route exact path="/create/agency" component={CreateAgency} />
+
         <Route exact path="/admin" component={AdminHome} />
         <Route exact path="/admin/add-category" component={AdminAddCategory} />
         <Route exact path="/admin/categories" component={AdminCategories} />

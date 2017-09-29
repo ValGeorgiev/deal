@@ -166,7 +166,7 @@ class Header extends Component {
                       <Link to='/profile'>Профил</Link>
                     </div>
                     <div className='settings__item'>
-                      <Link to='/profile'>Създай агенция</Link>
+                      <Link to='/create/agency'>Създай агенция</Link>
                     </div>
                     <div className='settings__item'>
                       <span className='settings__logout' onClick={this.logout}>Изход</span>

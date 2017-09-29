@@ -10,30 +10,42 @@ class HomeMapButtons extends Component {
       region
     } = this.props
 
-    name = name || 'Избери район!'
+    let isChoosen = !!name
 
     return (
       <div className='home-map-buttons__wrapper'>
-        <div className='home-map-buttons__city'>
-          <span className='home-map-buttons__name'>{name}</span>
-          <div className='home-map-buttons__buttons'>
-            <Link to={`/buy-estate?type=appartament&city=${name}`}>
-              <button className='btn btn-medium'>Купи</button>
-            </Link>
-            <Link to={`/buy-estate?type=appartament&city=${name}`}>
-              <button className='btn btn-medium'>Наеми</button>
-            </Link>
-          </div>
-        </div>
+        {
+          !isChoosen ? (
+            <div className='home-map-buttons__city'>
+              <div className='home-map-buttons__buttons'>
+                <Link to='/buy-estate?type=appartament&city=all'>
+                  <button className='btn btn-big'>Търси в цялата страна</button>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className='home-map-buttons__city'>
+              <span className='home-map-buttons__name'>{name}</span>
+              <div className='home-map-buttons__buttons'>
+                <Link to={`/buy-estate?type=appartament&city=${name}`}>
+                  <button className='btn btn-medium btn-blue'>Купи</button>
+                </Link>
+                <Link to={`/buy-estate?type=appartament&city=${name}`}>
+                  <button className='btn btn-medium btn-blue'>Наеми</button>
+                </Link>
+              </div>
+            </div>
+          )
+        }
         {region ? (
             <div className='home-map-buttons__region'>
               <span className='home-map-buttons__name'>{region}</span>
               <div className='home-map-buttons__buttons'>
                 <Link to={`/buy-estate?type=appartament&city=${name}`}>
-                  <button className='btn btn-medium'>Купи</button>
+                  <button className='btn btn-medium btn-blue'>Купи</button>
                 </Link>
                 <Link to={`/buy-estate?type=appartament&city=${name}`}>
-                  <button className='btn btn-medium'>Наеми</button>
+                  <button className='btn btn-medium btn-blue'>Наеми</button>
                 </Link>
               </div>
             </div>
