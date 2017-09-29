@@ -5,6 +5,37 @@ import BuyEstateGridItem from 'components/buy-estate-grid-item/BuyEstateGridItem
 import { NextArrow, PrevArrow } from 'components/generics/carousel/Arrows'
 import './homecarousel.scss'
 
+const CAROUSEL_SETTINGS = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  arrows: true,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  responsive: [ {
+    breakpoint: 862,
+    settings: {
+      slidesToShow: 2
+    }
+  }, {
+    breakpoint: 552,
+    settings: {
+      slidesToShow: 1
+    }
+  }, {
+    breakpoint: 1224,
+    settings: {
+      slidesToShow: 3
+    }
+  }, {
+    breakpoint: 100000,
+    settings: {
+      slidesToShow: 5
+    }
+  } ]
+}
 class HomeCarousel extends Component {
 
   createChilren(estates) {
@@ -18,37 +49,6 @@ class HomeCarousel extends Component {
   }
 
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      arrows: true,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-      responsive: [ {
-        breakpoint: 862,
-        settings: {
-          slidesToShow: 2
-        }
-      }, {
-        breakpoint: 552,
-        settings: {
-          slidesToShow: 1
-        }
-      }, {
-        breakpoint: 1224,
-        settings: {
-          slidesToShow: 3
-        }
-      }, {
-        breakpoint: 100000,
-        settings: {
-          slidesToShow: 5
-        }
-      } ]
-    }
 
     const {
       estates
@@ -60,7 +60,7 @@ class HomeCarousel extends Component {
 
     return (
       <div className='home-carousel__wrapper'>
-        <Slider {...settings}>
+        <Slider {...CAROUSEL_SETTINGS}>
           { this.createChilren(estates) }
         </Slider>
       </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import t from 'translations'
-import Carousel from 'components/generics/carousel/Carousel'
 import './imagemodalcarousel.scss'
 
 class ImageModalCarousel extends Component {
@@ -21,12 +20,10 @@ class ImageModalCarousel extends Component {
 
     return (
       <div className="image-carousel__wrapper">
-        <Carousel>
-          <img src='http://via.placeholder.com/595x450' />
-          <img src='http://via.placeholder.com/595x450' />
-          <img src='http://via.placeholder.com/595x450' />
-          <img src='http://via.placeholder.com/595x450' />
-        </Carousel>
+        <img src='http://via.placeholder.com/595x450' />
+        <img src='http://via.placeholder.com/595x450' />
+        <img src='http://via.placeholder.com/595x450' />
+        <img src='http://via.placeholder.com/595x450' />
         <button className='btn btn-medium btn-dark-blue' onClick={this.closeCarousel}>Close</button>
       </div>
     )

@@ -1,5 +1,12 @@
 .estate-details {
 
+  &__images {
+
+    .slick-track {
+      height: 462px;
+    }
+  }
+
   &__wrapper {
     padding: 10px 20px;
   }
