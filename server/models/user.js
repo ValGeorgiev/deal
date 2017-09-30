@@ -24,10 +24,18 @@ let UserSchema = new Schema({
     type: String,
     required: true
   },
+  phone: {
+    type: String
+  },
   role: {
     type: String,
     enum: ['user', 'admin'],
     default: 'user'
+  },
+  userType: {
+    type: String,
+    enum: ['private', 'freelancer', 'broker', 'agency'],
+    default: 'private'
   },
   isAgency: {
     type: Boolean,

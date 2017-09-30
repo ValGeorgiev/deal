@@ -8,6 +8,7 @@ import configureStore from './stores'
 import createHistory from 'history/createBrowserHistory'
 import { Route } from 'react-router'
 import { ConnectedRouter, routerMiddleware, push } from 'react-router-redux'
+import ScrollToTop from 'components/generics/scroll-to-top/ScrollToTop'
 
 //Create the browser history
 const history = createHistory()
@@ -23,7 +24,9 @@ ReactDOM.render(
   <AppContainer>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </ConnectedRouter>
     </Provider>
   </AppContainer>,

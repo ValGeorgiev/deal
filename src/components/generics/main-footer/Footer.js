@@ -52,8 +52,8 @@ class Footer extends PureComponent {
 
           <div className='footer__create'>
             <h3>Създай</h3>
-            <Link to='/'>Агенция</Link>
-            <Link to='/'>Фрийлансър портфолио</Link>
+            <Link to='/create/agency'>Агенция</Link>
+            <Link to='/create/freelancer'>Фрийлансър портфолио</Link>
             <Link to='/'>Строителна фирма</Link>
           </div>
 
