@@ -5,6 +5,8 @@ import Header from 'components/generics/main-header/Header'
 import FreelancerAddImage from 'components/freelancer/add-image/FreelancerAddImage'
 import FreelancerAddDetails from 'components/freelancer/add-details/FreelancerAddDetails'
 import FreelancerAddInformation from 'components/freelancer/add-information/FreelancerAddInformation'
+import FreelancerMoreDetails from 'components/freelancer/more-details/FreelancerMoreDetails'
+import FreelancerAddButton from 'components/freelancer/add-button/FreelancerAddButton'
 
 class CreateFreelancer extends Component {
 
@@ -18,7 +20,9 @@ class CreateFreelancer extends Component {
         <Header />
         <FreelancerAddImage user={user} />
         <FreelancerAddDetails user={user} />
+        <FreelancerMoreDetails user={user} />
         <FreelancerAddInformation />
+        <FreelancerAddButton />
         <Footer />
       </div>
     )

@@ -2,36 +2,6 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import './freelanceradddetails.scss'
 
-class FreelancerMoreDetails extends Component {
-
-  render() {
-    const {
-      user
-    } = this.props
-
-    return (
-      <div>
-        <span>Допълнителни данни: </span>
-        {user && !user.phone ? (
-            <div className='input-wrapper'>
-              <label htmlFor='freelancer-tel'>Телефон:</label>
-              <input id='freelancer-tel' type='tel' />
-            </div>
-          ) : null
-        }
-        <div className='input-wrapper'>
-          <label htmlFor='freelancer-price'>Цена:</label>
-          <input id='freelancer-price' type='text' />
-        </div>
-      </div>
-    )
-  }
-}
-
-FreelancerMoreDetails.defaultProps = {
-  user: {}
-}
-
 class FreelancerAddDetails extends Component {
 
   render() {
@@ -42,49 +12,51 @@ class FreelancerAddDetails extends Component {
 
     if (_.isEmpty(user)) {
       return (
-        <div className='add-details__wrapper'>
+        <div className='add-details__wrapper col col-xs-100 col-lg-50'>
           <h2>Лични данни:</h2>
-          <div className='input-wrapper'>
-            <label htmlFor='freelancer-name'>Име:</label>
-            <input id='freelancer-name' type='text' />
+          <div>
+            <div className='input-wrapper'>
+              <label htmlFor='freelancer-name'>Име:</label>
+              <input id='freelancer-name' type='text' />
+            </div>
+            <div className='input-wrapper'>
+              <label htmlFor='freelancer-lastname'>Фамилия:</label>
+              <input id='freelancer-lastname' type='text' />
+            </div>
+            <div className='input-wrapper'>
+              <label htmlFor='freelancer-email'>Email:</label>
+              <input id='freelancer-email' type='email' />
+            </div>
+            <div className='input-wrapper'>
+              <label htmlFor='freelancer-tel'>Телефон:</label>
+              <input id='freelancer-tel' type='tel' />
+            </div>
           </div>
-          <div className='input-wrapper'>
-            <label htmlFor='freelancer-lastname'>Фамилия:</label>
-            <input id='freelancer-lastname' type='text' />
-          </div>
-          <div className='input-wrapper'>
-            <label htmlFor='freelancer-email'>Email:</label>
-            <input id='freelancer-email' type='email' />
-          </div>
-          <div className='input-wrapper'>
-            <label htmlFor='freelancer-tel'>Телефон:</label>
-            <input id='freelancer-tel' type='tel' />
-          </div>
-          <FreelancerMoreDetails />
         </div>
       )
     }
 
 
     return (
-      <div className='add-details__wrapper'>
+      <div className='add-details__wrapper col col-xs-100 col-md-50 col-lg-50'>
         <h2>Лични данни:</h2>
-        <div>
-          <div>
-            <span>Име и фамилия: </span> <span>{`${user.firstName} ${user.lastName}`}</span>
+        <div className='add-details__ready-data'>
+          <div className='item'>
+            <span className='label'>Име и фамилия: </span>
+            <span className='value'>{`${user.firstName} ${user.lastName}`}</span>
           </div>
-          <div>
-            <span>Email: </span> <span>{user.email}</span>
+          <div className='item'>
+            <span className='label'>Email: </span>
+            <span className='value'>{user.email}</span>
           </div>
           {user.phone ? (
-              <div>
-                <span>Телефон: </span> <span>{user.phone}</span>
+              <div className='item'>
+                <span className='label'>Телефон: </span>
+                <span className='value'>{user.phone}</span>
               </div>
             ) : null
           }
         </div>
-        <FreelancerMoreDetails user={user} />
-
       </div>
     )
   }

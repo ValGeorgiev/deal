@@ -1,0 +1,27 @@
+.add-details {
+
+  &__wrapper {
+    vertical-align: top;
+  }
+
+  &__ready-data {
+    background-color: #EDF0EB;
+    border-radius: 10px;
+    padding: 10px 20px;
+
+    .item {
+      margin: 10px 0;
+
+      .label {
+        font-size: 17px;
+      }
+
+      .value {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 700;
+        color: #14141C;
+      }
+    }
+  }
+}

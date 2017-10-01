@@ -6,11 +6,9 @@ class FreelancerAddInformation extends Component {
   render() {
 
     return (
-      <div className='add-information__wrapper'>
-        <span>Опишете услугата, която предоставяте:</span>
-        <div>
-          <textarea />
-        </div>
+      <div className='add-information__wrapper col col-xs-100'>
+        <p className='add-information__label'>Опишете услугата, която предоставяте:</p>
+        <textarea className='add-information__value' />
       </div>
     )
   }

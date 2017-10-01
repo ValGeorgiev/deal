@@ -169,6 +169,9 @@ class Header extends Component {
                       <Link to='/create/agency'>Създай агенция</Link>
                     </div>
                     <div className='settings__item'>
+                      <Link to='/create/freelancer'>Фрийлансър</Link>
+                    </div>
+                    <div className='settings__item'>
                       <span className='settings__logout' onClick={this.logout}>Изход</span>
                     </div>
                   </div>
