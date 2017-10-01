@@ -144,13 +144,13 @@ class Header extends Component {
 
     return (
       <div className="header__wrapper">
-        <Link className='header__logo' to='/'><img src='/images/deal-logo.png' /></Link>
+        <Link className='header__logo' to='/'><img src='/static/deal-logo.png' /></Link>
         <div className='header__auth'>
           {
             loggedUser && user ? (
               <div>
                 <Link className='header__fav' to={`/favourites/${user.favID}`}>
-                  <img className='header__fav-icon' src='/images/favorite-heart.svg' />
+                  <img className='header__fav-icon' src='/static/favorite-heart.svg' />
                   <span className={`header__fav-counter${favClass}`}>{favourites.length}</span>
                 </Link>
 
@@ -160,7 +160,7 @@ class Header extends Component {
                 </p>
 
                 <div className='header__settings'>
-                  <img onClick={this.openSettings} className='icon' src='/images/settings.svg' />
+                  <img onClick={this.openSettings} className='icon' src='/static/settings.svg' />
                   <div className={`${openSettings} settings__wrapper`}>
                     <div className='settings__item'>
                       <Link to='/profile'>Профил</Link>

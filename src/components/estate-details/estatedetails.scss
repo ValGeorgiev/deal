@@ -3,12 +3,17 @@
   &__images {
 
     .slick-track {
-      height: 462px;
+      height: auto;
+
+      img {
+        margin: 0 3px;
+        width: 100%;
+      }
     }
   }
 
   &__wrapper {
-    padding: 10px 20px;
+    padding: 10px 50px;
   }
 
   &__left-col {

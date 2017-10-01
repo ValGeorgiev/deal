@@ -7,8 +7,8 @@ import { bindActionCreators } from 'redux'
 import DealModal from 'components/generics/deal-modal/DealModal'
 import ImageModalCarousel from '../image-modal-carousel/ImageModalCarousel'
 import EstateMainImage from '../estate/estate-main-image/EstateMainImage'
-import FavIcon from 'images/fav-icon.svg'
-import FavIconFilled from 'images/fav-icon-filled.png'
+import FavIcon from 'static/fav-icon.svg'
+import FavIconFilled from 'static/fav-icon-filled.png'
 
 import './buyestategriditem.scss'
 
