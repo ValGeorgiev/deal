@@ -18,7 +18,7 @@ class HomeMapButtons extends Component {
           !isChoosen ? (
             <div className='home-map-buttons__city'>
               <div className='home-map-buttons__buttons'>
-                <Link to='/buy-estate?type=appartament&city=all'>
+                <Link to='/buy-estate?type=apartament&city=all'>
                   <button className='btn btn-big'>Търси в цялата страна</button>
                 </Link>
               </div>
@@ -27,10 +27,10 @@ class HomeMapButtons extends Component {
             <div className='home-map-buttons__city'>
               <span className='home-map-buttons__name'>{name}</span>
               <div className='home-map-buttons__buttons'>
-                <Link to={`/buy-estate?type=appartament&city=${name}`}>
+                <Link to={`/buy-estate?type=apartament&city=${name}`}>
                   <button className='btn btn-medium btn-blue'>Купи</button>
                 </Link>
-                <Link to={`/buy-estate?type=appartament&city=${name}`}>
+                <Link to={`/buy-estate?type=apartament&city=${name}`}>
                   <button className='btn btn-medium btn-blue'>Наеми</button>
                 </Link>
               </div>
@@ -41,10 +41,10 @@ class HomeMapButtons extends Component {
             <div className='home-map-buttons__region'>
               <span className='home-map-buttons__name'>{region}</span>
               <div className='home-map-buttons__buttons'>
-                <Link to={`/buy-estate?type=appartament&city=${name}`}>
+                <Link to={`/buy-estate?type=apartament&city=${name}`}>
                   <button className='btn btn-medium btn-blue'>Купи</button>
                 </Link>
-                <Link to={`/buy-estate?type=appartament&city=${name}`}>
+                <Link to={`/buy-estate?type=apartament&city=${name}`}>
                   <button className='btn btn-medium btn-blue'>Наеми</button>
                 </Link>
               </div>

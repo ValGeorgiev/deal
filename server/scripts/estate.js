@@ -2,7 +2,7 @@ let EstateModel = require('../models/estate')
 
 class Estate {
   constructor() {
-    this.ESTATE_TYPES = ['appartament', 'house', 'bussiness', 'hotel', 'faculty', 'sports', 'field']
+    this.ESTATE_TYPES = ['apartament', 'house', 'bussiness', 'hotel', 'faculty', 'sports', 'field']
   }
 
   add(req, res) {

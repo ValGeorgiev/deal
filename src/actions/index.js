@@ -53,6 +53,10 @@ import {
 } from './category/getCategories'
 
 import {
+  getOnlineCategories
+} from './category/getOnlineCategories'
+
+import {
   getCategory
 } from './category/getCategory'
 
@@ -99,7 +103,8 @@ const actions = {
   getRefinement,
   deleteRefinement,
   updateRefinementData,
-  logout
+  logout,
+  getOnlineCategories
 }
 
 module.exports = actions

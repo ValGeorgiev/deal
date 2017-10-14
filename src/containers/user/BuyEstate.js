@@ -53,6 +53,9 @@ class BuyEstate extends Component {
       location
     } = this.props
 
+    actions.getOnlineCategories()
+    // actions.get()
+
     actions.getEstates({
       type: getQuery(location.search),
       count,
@@ -66,14 +69,8 @@ class BuyEstate extends Component {
 
     window.addEventListener('scroll', () => {
       let yScroll = window.pageYOffset + window.innerHeight
-      // console.log(yScroll)
-      // console.log(gridWrapper.offsetHeight)
-      // console.log('-----------')
+
       if (flag && yScroll >= gridWrapper.offsetHeight) {
-        // console.log('wtf')
-        // console.log(this.state.start)
-        // console.log(this.state.count)
-        // console.log('++++++++++++=')
         flag = false
         this.loadMoreProducts(() => {
           flag = true

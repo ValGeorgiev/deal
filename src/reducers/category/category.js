@@ -7,7 +7,8 @@ import {
   ADMIN_GET_REFINEMENTS,
   ADMIN_GET_REFINEMENT,
   ADMIN_DELETE_REFINEMENT,
-  ADMIN_UPDATE_REFINEMENT
+  ADMIN_UPDATE_REFINEMENT,
+  GET_ONLINE_CATEGORIES
 } from '../../actions/const'
 
 const initialState = {
@@ -72,6 +73,14 @@ function reducer(state = initialState, action) {
       return {
         nextState,
         refinement: action.payload.refinement
+      }
+    }
+    case GET_ONLINE_CATEGORIES: {
+      console.log('test1212')
+      console.log(action.payload.categories)
+      return {
+        nextState,
+        categories: action.payload.categories
       }
     }
     default: {

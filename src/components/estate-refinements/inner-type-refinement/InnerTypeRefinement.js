@@ -4,7 +4,7 @@ import './innertyperefinement.scss'
 
 // @TODO delete this when categories/refinements are ready
 const ESTATE_TYPES = {
-  appartament: 'appartament',
+  apartament: 'apartament',
   house: 'house',
   bussiness: 'bussiness',
   hotel: 'hotel',
@@ -18,13 +18,13 @@ class InnerTypeRefinement extends Component {
     super()
   }
 
-  createChildren(type = ESTATE_TYPES.appartament) {
+  createChildren(type = ESTATE_TYPES.apartament) {
 
     switch(type) {
-      case ESTATE_TYPES.appartament: {
+      case ESTATE_TYPES.apartament: {
         return (
           <div>
-            appartament
+            apartament
           </div>
         )
       }

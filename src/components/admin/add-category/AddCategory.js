@@ -12,6 +12,7 @@ class AddCategory extends Component {
 
     this.state = {
       categoryName: '',
+      categoryLabel: '',
       innerCategories: [],
       innerValues: [],
       refinements: [],
@@ -37,9 +38,19 @@ class AddCategory extends Component {
 
     if (init) {
 
-      _categories.push(<InputWrapper key={0} inputChange={(event, position) => this.changeInput('innerValues', event.target.value, position)} position={0} checkboxChange={(event, position) => this.changeCheckbox('innerValues', event.target.checked, position)} indicator='0:' inputClass='add-category__inner_categories_0' />)
+      _categories.push(
+        <InputWrapper
+          key={0}
+          inputChange={(event, position) => this.changeInput('innerValues', event.target.value, position)}
+          labelChange={(event, position) => this.changeLabel('innerValues', event.target.value, position)}
+          position={0}
+          checkboxChange={(event, position) => this.changeCheckbox('innerValues', event.target.checked, position)}
+          inputClass='add-category__inner_categories_0'
+        />)
+
       _categoriesValues.push({
         value: '',
+        label: '',
         online: false
       })
 
@@ -49,9 +60,19 @@ class AddCategory extends Component {
       })
     } else {
 
-      _categories.push(<InputWrapper key={_categories.length} inputChange={(event, position) => this.changeInput('innerValues', event.target.value, position)} position={_categories.length} checkboxChange={(event, position) => this.changeCheckbox('innerValues', event.target.checked, position)} indicator={`${_categories.length}:`} inputClass={`add-category__inner_categories_${_categories.length}`} />)
+      _categories.push(
+        <InputWrapper
+          key={_categories.length}
+          inputChange={(event, position) => this.changeInput('innerValues', event.target.value, position)}
+          labelChange={(event, position) => this.changeLabel('innerValues', event.target.value, position)}
+          position={_categories.length}
+          checkboxChange={(event, position) => this.changeCheckbox('innerValues', event.target.checked, position)}
+          inputClass={`add-category__inner_categories_${_categories.length}`}
+        />)
+
       _categoriesValues.push({
         value: '',
+        label: '',
         online: false
       })
 
@@ -73,9 +94,20 @@ class AddCategory extends Component {
 
     if (init) {
 
-      _refinements.push(<InputWrapper key={0} inputChange={(event, position) => this.changeInput('refinementsValues', event.target.value, position)} position={0} checkboxChange={(event, position) => this.changeCheckbox('refinementsValues', event.target.checked, position)} indicator='0:' inputClass='add-category__refinement_0' selectChange={(event, position) => this.selectChange('refinementsValues', event.target.value, position)} />)
+      _refinements.push(
+        <InputWrapper
+          key={0}
+          inputChange={(event, position) => this.changeInput('refinementsValues', event.target.value, position)}
+          labelChange={(event, position) => this.changeLabel('refinementsValues', event.target.value, position)}
+          position={0}
+          checkboxChange={(event, position) => this.changeCheckbox('refinementsValues', event.target.checked, position)}
+          inputClass='add-category__refinement_0'
+          selectChange={(event, position) => this.selectChange('refinementsValues', event.target.value, position)}
+        />)
+
       _refinementsValues.push({
         value: '',
+        label: '',
         online: false,
         type: 'default'
       })
@@ -86,9 +118,20 @@ class AddCategory extends Component {
       })
     } else {
 
-      _refinements.push(<InputWrapper key={_refinements.length} inputChange={(event, position) => this.changeInput('refinementsValues', event.target.value, position)} position={_refinements.length} checkboxChange={(event, position) => this.changeCheckbox('refinementsValues', event.target.checked, position)} selectChange={(event, position) => this.selectChange('refinementsValues', event.target.value, position)} indicator={`${_refinements.length}:`} inputClass={`add-category__refinement_${_refinements.length}`} />)
+      _refinements.push(
+        <InputWrapper
+          key={_refinements.length}
+          inputChange={(event, position) => this.changeInput('refinementsValues', event.target.value, position)}
+          labelChange={(event, position) => this.changeLabel('refinementsValues', event.target.value, position)}
+          position={_refinements.length}
+          checkboxChange={(event, position) => this.changeCheckbox('refinementsValues', event.target.checked, position)}
+          selectChange={(event, position) => this.selectChange('refinementsValues', event.target.value, position)}
+          inputClass={`add-category__refinement_${_refinements.length}`}
+        />)
+
       _refinementsValues.push({
         value: '',
+        label: '',
         online: false,
         type: 'default'
       })
@@ -105,6 +148,16 @@ class AddCategory extends Component {
     let state = {}
 
     newValues[position]['value'] = value
+    state[array] = newValues
+
+    this.setState(state)
+  }
+
+  changeLabel(array, value, position) {
+    let newValues = this.state[array]
+    let state = {}
+
+    newValues[position]['label'] = value
     state[array] = newValues
 
     this.setState(state)
@@ -133,6 +186,7 @@ class AddCategory extends Component {
   submit() {
     const {
       categoryName,
+      categoryLabel,
       innerValues,
       refinementsValues
     } = this.state
@@ -144,6 +198,7 @@ class AddCategory extends Component {
     if (categoryName !== '') {
       actions.addCategory({
         categoryName,
+        categoryLabel,
         innerValues,
         refinementsValues
       })
@@ -156,9 +211,16 @@ class AddCategory extends Component {
     })
   }
 
+  changeCategoryLabel(event) {
+    this.setState({
+      categoryLabel: event.target.value
+    })
+  }
+
   render() {
     const {
       categoryName,
+      categoryLabel,
       innerCategories,
       refinements,
       innerValues,
@@ -169,7 +231,8 @@ class AddCategory extends Component {
       <div className='add-category add-category__wrapper'>
         <div>
           <h2> Category Name: </h2>
-          <input onChange={(event) => this.changeCategoryName(event)} value={categoryName} type='text' className='add-category__name' />
+          Name: <input onChange={(event) => this.changeCategoryName(event)} value={categoryName} type='text' className='add-category__name' />
+          Label: <input onChange={(event) => this.changeCategoryLabel(event)} value={categoryLabel} type='text' className='add-category__name' />
         </div>
         <div>
           <h4> Inner Categories: </h4>

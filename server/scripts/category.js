@@ -12,13 +12,14 @@ class Category {
 
     const {
       categoryName,
+      categoryLabel,
       innerValues,
       refinementsValues
     } = req.body
 
     const category = new CategoryModel({
       name: categoryName,
-      value: _.kebabCase(categoryName)
+      value: _.kebabCase(categoryLabel)
     })
 
     category.save((err, _category) => {
@@ -44,7 +45,7 @@ class Category {
       if (innerCategories[i].name !== '') {
         const newCat = new InnerCategoryModel({
           name: innerCategories[i].value,
-          value: _.kebabCase(innerCategories[i].value),
+          value: _.kebabCase(innerCategories[i].label),
           online: innerCategories[i].online,
           categoryID: categoryID
         })
@@ -61,7 +62,7 @@ class Category {
       if (refinements[i].name !== '') {
         const newRef = new RefinementModel({
           name: refinements[i].value,
-          value: _.kebabCase(refinements[i].value),
+          value: _.kebabCase(refinements[i].label),
           type: refinements[i].type,
           online: refinements[i].online,
           categoryID: categoryID
@@ -74,6 +75,18 @@ class Category {
 
   getAll(req, res) {
     CategoryModel.find({}).catch((error) => {
+      res.status(500).send(error)
+    }).then((categories) => {
+      res.status(200).send({
+        categories
+      })
+    })
+  }
+
+  getAllOnline(req, res) {
+    CategoryModel.find({
+      online: true
+    }).catch((error) => {
       res.status(500).send(error)
     }).then((categories) => {
       res.status(200).send({

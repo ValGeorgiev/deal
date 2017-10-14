@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import t from 'translations'
+import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { buildQuery } from 'libs/deal-query'
 import './buyestatetypes.scss'
@@ -13,20 +14,36 @@ class BuyEstateTypes extends Component {
     return ''
   }
 
+  returnCategories() {
+    const {
+      location,
+      link,
+      categories
+    } = this.props
+
+    return categories.map((category) => {
+      return (
+        <div key={category._id} className='type-wrapper'>
+          <Link to={`${link}${buildQuery(location.search, 'type', 'apartament', true)}`}>
+            <button className={`btn ${this.returnType('apartament')}`}>{category.name}</button>
+          </Link>
+        </div>
+      )
+    })
+  }
+
   render() {
     const {
       location,
       link
     } = this.props
 
+
     return (
       <div className="buy-estate-types__wrapper">
         <div className='estate_type__wrapper'>
-          <div className='type-wrapper'>
-            <Link to={`${link}${buildQuery(location.search, 'type', 'appartament', true)}`}>
-              <button className={`btn ${this.returnType('appartament')}`}>Апартаменти</button>
-            </Link>
-          </div>
+          { this.returnCategories() }
+
           <div className='type-wrapper'>
             <Link to={`${link}${buildQuery(location.search, 'type', 'house', true)}`}>
               <button className={`btn ${this.returnType('house')}`} >Къщи</button>
@@ -63,4 +80,16 @@ class BuyEstateTypes extends Component {
   }
 }
 
-export default withRouter(BuyEstateTypes)
+BuyEstateTypes.defaultProps = {
+  categories: []
+}
+
+const mapStateToProps = (state) => {
+
+  const props = {
+    categories: state.category.categories
+  }
+  return props
+}
+
+export default withRouter(connect(mapStateToProps)(BuyEstateTypes))

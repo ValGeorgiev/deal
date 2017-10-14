@@ -7,6 +7,7 @@ class InputWrapper extends Component {
     this.state = {
       position: props.position,
       value: '',
+      label: '',
       online: false,
       type: 'default'
     }
@@ -21,6 +22,17 @@ class InputWrapper extends Component {
       value: event.target.value
     })
     this.props.inputChange(event, position)
+  }
+
+  labelChange(event) {
+    const {
+      position
+    } = this.state
+
+    this.setState({
+      label: event.target.value
+    })
+    this.props.labelChange(event, position)
   }
 
   selectChange(event) {
@@ -51,25 +63,29 @@ class InputWrapper extends Component {
   render() {
     const {
       inputClass,
-      indicator,
-      selectChange
+      selectChange,
+      position
     } = this.props
 
     const {
       value,
+      label,
       online
     } = this.state
 
     return (
       <div className='admin__input-wrapper'>
-        <span>{indicator}</span>
+        <span>{`${position}:`}</span>
         <input onChange={(event) => this.inputChange(event)} type='text' className={inputClass} value={value} />
+        <input onChange={(event) => this.labelChange(event)} type='text' className={inputClass} value={label} />
         {selectChange ?
           <select onChange={(event) => this.selectChange(event)}>
             <option value='default'> default </option>
+            <option value='input'> input </option>
             <option value='range-input'> range-input </option>
             <option value='range'> range </option>
             <option value='checkbox'> checkbox </option>
+            <option value='select'> select </option>
           </select>
           : null
         }

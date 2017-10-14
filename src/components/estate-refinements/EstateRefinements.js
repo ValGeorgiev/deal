@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import t from 'translations'
 import { Link } from 'react-router-dom'
-import * as ACTIONS from 'actions'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import QuadratureRefinement from './quadrature-refinement/QuadratureRefinement'
 import PriceRefinement from './price-refinement/PriceRefinement'
 import FloorRefinement from './floor-refinement/FloorRefinement'
@@ -40,10 +38,4 @@ const mapStateToProps = (state) => {
   return props
 }
 
-const mapDispatchToProps = (dispatch) => {
-
-  const actions = ACTIONS
-  const actionMap = { actions: bindActionCreators(actions, dispatch) }
-  return actionMap
-}
-export default connect(mapStateToProps, mapDispatchToProps)(EstateRefinements)
+export default connect(mapStateToProps)(EstateRefinements)
