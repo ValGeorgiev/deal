@@ -31,7 +31,7 @@ class AddEstateInfo extends Component {
       buildingType: 'brick',
       currency: '€',
       estateType: ESTATE_TYPES.appartament,
-      estateInnerType: 'one-room',
+      additionalType: 'one-room',
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -48,6 +48,7 @@ class AddEstateInfo extends Component {
       price,
       buildingType,
       currency,
+      additionalType,
       estateType
     } = this.state
 
@@ -60,6 +61,7 @@ class AddEstateInfo extends Component {
       price,
       buildingType,
       currency,
+      additionalType,
       estateType
     })
   }
@@ -107,7 +109,7 @@ class AddEstateInfo extends Component {
 
     this.setState({
       estateType: type,
-      estateInnerType: innerType
+      additionalType: innerType
     })
   }
 
@@ -120,7 +122,7 @@ class AddEstateInfo extends Component {
 
   checkEstateInnerType(type) {
 
-    if (type === this.state.estateInnerType) {
+    if (type === this.state.additionalType) {
       return true
     }
     return false
@@ -128,7 +130,7 @@ class AddEstateInfo extends Component {
 
   selectEstateInnerType(type) {
     this.setState({
-      estateInnerType: type
+      additionalType: type
     })
   }
 

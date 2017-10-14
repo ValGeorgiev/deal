@@ -16,10 +16,11 @@ class Estate {
       price,
       buildingType,
       currency,
-      estateType
+      estateType,
+      additionalType
     } = req.body
 
-
+    console.log(additionalType)
     const estate = new EstateModel({
       quadrature,
       buildingYear,
@@ -29,6 +30,7 @@ class Estate {
       price,
       buildingType,
       currency,
+      additionalType,
       estateType
     })
 

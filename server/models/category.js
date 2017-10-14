@@ -16,6 +16,11 @@ let CategorySchema = new Schema({
   online: {
     type: Boolean,
     default: true
+  },
+  count: {
+    type: Number,
+    default: 0,
+    min: 0
   }
 })
 

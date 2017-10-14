@@ -42,41 +42,45 @@ class EstateDetails extends Component {
       estate
     } = this.props
 
+    console.log(estate)
+
     return (
       <div className='estate-details__wrapper'>
         <div className='estate-details__images col col-xs-100'>
           <Slider {...CAROUSEL_SETTINGS}>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
             <div>
-              <img src='http://via.placeholder.com/595x450' />
+              <img src='http://via.placeholder.com/595x600' />
             </div>
           </Slider>
         </div>
-        <div className='estate-details__left-col col col-xs-100 col-md-70'>
-          <div className='estate-details__info'>
-            <TopDetails estate={estate} />
-            <Description info={estate.moreInfo} />
+        <div className='estate-details__below'>
+          <div className='estate-details__left-col col col-xs-100 col-md-70'>
+            <div className='estate-details__info'>
+              <TopDetails estate={estate} />
+              <Description info={estate.moreInfo} />
+            </div>
           </div>
-        </div>
-        <div className='estate-details__right-col col col-xs-100 col-md-30'>
-          Broker Info
+          <div className='estate-details__right-col col col-xs-100 col-md-30'>
+            Broker Info
+          </div>
         </div>
 
       </div>

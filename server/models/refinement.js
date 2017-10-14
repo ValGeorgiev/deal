@@ -8,6 +8,10 @@ let RefinementSchema = new Schema({
   },
   value: {
     type: String,
+    require: true
+  },
+  type: {
+    type: String,
     required: true
   },
   online: {

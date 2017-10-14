@@ -1,31 +1,10 @@
-import React, { Component, PureComponent } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ACTIONS from 'actions'
 import _ from 'lodash'
-
+import InputWrapper from './InputWrapper'
 import './addcategory.scss'
-
-class InputWrapper extends PureComponent {
-
-  render() {
-    const {
-      inputClass,
-      indicator,
-      inputValue,
-      inputChange,
-      checkboxChange
-    } = this.props
-
-    return (
-      <div className='input-wrapper'>
-        <span>{indicator}</span>
-        <input onChange={(event) => inputChange(event)} value={inputValue.name} type='text' className={inputClass} />
-        <input onChange={(event) => checkboxChange(event)} type='checkbox' checked={inputValue.online} />
-      </div>
-    )
-  }
-}
 
 class AddCategory extends Component {
   constructor() {
@@ -33,36 +12,129 @@ class AddCategory extends Component {
 
     this.state = {
       categoryName: '',
-      innerCategories: initializeArrayWithObjects(10),
-      refinements: initializeArrayWithObjects(10)
+      innerCategories: [],
+      innerValues: [],
+      refinements: [],
+      refinementsValues: []
     }
 
     this.submit = this.submit.bind(this)
   }
 
-  changeInput(type, value, index) {
-    let _state = {}
-
-    _state[type] = this.state[type]
-    _state[type][index].name = value
-
-    this.setState(_state)
+  componentDidMount() {
+    this.updateInnerCategories(true)
+    this.updateRefinements(true)
   }
 
-  changeCheckbox(type, value, index) {
-    let _state = {}
+  updateInnerCategories(init = false) {
+    const {
+      innerCategories,
+      innerValues
+    } = this.state
 
-    _state[type] = this.state[type]
-    _state[type][index].online = value
+    let _categories = innerCategories
+    let _categoriesValues = innerValues
 
-    this.setState(_state)
+    if (init) {
+
+      _categories.push(<InputWrapper key={0} inputChange={(event, position) => this.changeInput('innerValues', event.target.value, position)} position={0} checkboxChange={(event, position) => this.changeCheckbox('innerValues', event.target.checked, position)} indicator='0:' inputClass='add-category__inner_categories_0' />)
+      _categoriesValues.push({
+        value: '',
+        online: false
+      })
+
+      this.setState({
+        innerCategories: _categories,
+        innerValues: _categoriesValues
+      })
+    } else {
+
+      _categories.push(<InputWrapper key={_categories.length} inputChange={(event, position) => this.changeInput('innerValues', event.target.value, position)} position={_categories.length} checkboxChange={(event, position) => this.changeCheckbox('innerValues', event.target.checked, position)} indicator={`${_categories.length}:`} inputClass={`add-category__inner_categories_${_categories.length}`} />)
+      _categoriesValues.push({
+        value: '',
+        online: false
+      })
+
+      this.setState({
+        innerCategories: _categories,
+        innerValues: _categoriesValues
+      })
+    }
+  }
+
+  updateRefinements(init = false) {
+    const {
+      refinements,
+      refinementsValues
+    } = this.state
+
+    let _refinements = refinements
+    let _refinementsValues = refinementsValues
+
+    if (init) {
+
+      _refinements.push(<InputWrapper key={0} inputChange={(event, position) => this.changeInput('refinementsValues', event.target.value, position)} position={0} checkboxChange={(event, position) => this.changeCheckbox('refinementsValues', event.target.checked, position)} indicator='0:' inputClass='add-category__refinement_0' selectChange={(event, position) => this.selectChange('refinementsValues', event.target.value, position)} />)
+      _refinementsValues.push({
+        value: '',
+        online: false,
+        type: 'default'
+      })
+
+      this.setState({
+        refinementsValues: _refinements,
+        refinementsValues: _refinementsValues
+      })
+    } else {
+
+      _refinements.push(<InputWrapper key={_refinements.length} inputChange={(event, position) => this.changeInput('refinementsValues', event.target.value, position)} position={_refinements.length} checkboxChange={(event, position) => this.changeCheckbox('refinementsValues', event.target.checked, position)} selectChange={(event, position) => this.selectChange('refinementsValues', event.target.value, position)} indicator={`${_refinements.length}:`} inputClass={`add-category__refinement_${_refinements.length}`} />)
+      _refinementsValues.push({
+        value: '',
+        online: false,
+        type: 'default'
+      })
+
+      this.setState({
+        refinementsValues: _refinements,
+        refinementsValues: _refinementsValues
+      })
+    }
+  }
+
+  changeInput(array, value, position) {
+    let newValues = this.state[array]
+    let state = {}
+
+    newValues[position]['value'] = value
+    state[array] = newValues
+
+    this.setState(state)
+  }
+
+  changeCheckbox(array, value, position) {
+    let newValues = this.state[array]
+    let state = {}
+
+    newValues[position]['online'] = value
+    state[array] = newValues
+
+    this.setState(state)
+  }
+
+  selectChange(array, value, position) {
+    let newValues = this.state[array]
+    let state = {}
+
+    newValues[position]['type'] = value
+    state[array] = newValues
+
+    this.setState(state)
   }
 
   submit() {
     const {
       categoryName,
-      innerCategories,
-      refinements
+      innerValues,
+      refinementsValues
     } = this.state
 
     const {
@@ -72,8 +144,8 @@ class AddCategory extends Component {
     if (categoryName !== '') {
       actions.addCategory({
         categoryName,
-        innerCategories,
-        refinements
+        innerValues,
+        refinementsValues
       })
     }
   }
@@ -88,7 +160,9 @@ class AddCategory extends Component {
     const {
       categoryName,
       innerCategories,
-      refinements
+      refinements,
+      innerValues,
+      refinementsValues
     } = this.state
 
     return (
@@ -99,36 +173,16 @@ class AddCategory extends Component {
         </div>
         <div>
           <h4> Inner Categories: </h4>
-          <div className='col col-xs-100 col-md-50'>
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 0)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 0)} inputValue={innerCategories[0]} indicator='0:' inputClass='add-category__inner_categories_0' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 1)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 1)} inputValue={innerCategories[1]} indicator='1:' inputClass='add-category__inner_categories_1' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 2)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 2)} inputValue={innerCategories[2]} indicator='2:' inputClass='add-category__inner_categories_2' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 3)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 3)} inputValue={innerCategories[3]} indicator='3:' inputClass='add-category__inner_categories_3' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 4)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 4)} inputValue={innerCategories[4]} indicator='4:' inputClass='add-category__inner_categories_4' />
-          </div>
-          <div className='col col-xs-100 col-md-50'>
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 5)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 5)} inputValue={innerCategories[5]} indicator='5:' inputClass='add-category__inner_categories_5' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 6)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 6)} inputValue={innerCategories[6]} indicator='6:' inputClass='add-category__inner_categories_6' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 7)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 7)} inputValue={innerCategories[7]} indicator='7:' inputClass='add-category__inner_categories_7' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 8)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 8)} inputValue={innerCategories[8]} indicator='8:' inputClass='add-category__inner_categories_8' />
-            <InputWrapper inputChange={(event) => this.changeInput('innerCategories', event.target.value, 9)} checkboxChange={(event) => this.changeCheckbox('innerCategories', event.target.checked, 9)} inputValue={innerCategories[9]} indicator='9:' inputClass='add-category__inner_categories_9' />
+          <div className='col col-xs-100'>
+            <button className='btn btn-blue' onClick={() => this.updateInnerCategories()}>Add</button>
+            { innerCategories }
           </div>
         </div>
         <div>
           <h4> Refinements: </h4>
-          <div className='col col-xs-100 col-md-50'>
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 0)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 0)} inputValue={refinements[0]} indicator='0:' inputClass='add-category__refinements_0' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 1)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 1)} inputValue={refinements[1]} indicator='1:' inputClass='add-category__refinements_1' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 2)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 2)} inputValue={refinements[2]} indicator='2:' inputClass='add-category__refinements_2' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 3)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 3)} inputValue={refinements[3]} indicator='3:' inputClass='add-category__refinements_3' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 4)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 4)} inputValue={refinements[4]} indicator='4:' inputClass='add-category__refinements_4' />
-          </div>
-          <div className='col col-xs-100 col-md-50'>
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 5)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 5)} inputValue={refinements[5]} indicator='5:' inputClass='add-category__refinements_5' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 6)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 6)} inputValue={refinements[6]} indicator='6:' inputClass='add-category__refinements_6' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 7)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 7)} inputValue={refinements[7]} indicator='7:' inputClass='add-category__refinements_7' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 8)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 8)} inputValue={refinements[8]} indicator='8:' inputClass='add-category__refinements_8' />
-            <InputWrapper inputChange={(event) => this.changeInput('refinements', event.target.value, 9)} checkboxChange={(event) => this.changeCheckbox('refinements', event.target.checked, 9)} inputValue={refinements[9]} indicator='9:' inputClass='add-category__refinements_9' />
+          <div className='col col-xs-100'>
+            <button className='btn btn-blue' onClick={() => this.updateRefinements()}>Add</button>
+            { refinements }
           </div>
         </div>
         <button className='btn btn-blue' onClick={this.submit}>Submit</button>
@@ -144,19 +198,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 
   return actionMap
-}
-
-function initializeArrayWithObjects(count) {
-  let array = []
-
-  for (let i = 0; i < count; i++) {
-    let obj = new Object()
-    obj.name = ''
-    obj.online = true
-
-    array.push(obj)
-  }
-  return array
 }
 
 export default connect(null, mapDispatchToProps)(AddCategory)

@@ -12,8 +12,8 @@ class Category {
 
     const {
       categoryName,
-      innerCategories,
-      refinements
+      innerValues,
+      refinementsValues
     } = req.body
 
     const category = new CategoryModel({
@@ -28,8 +28,8 @@ class Category {
         })
       }
 
-      this._constructInnerCategories(innerCategories, _category._id)
-      this._constructRefinements(refinements, _category._id)
+      this._constructInnerCategories(innerValues, _category._id)
+      this._constructRefinements(refinementsValues, _category._id)
 
       return res.status(201).send({
         category: _category
@@ -43,8 +43,8 @@ class Category {
 
       if (innerCategories[i].name !== '') {
         const newCat = new InnerCategoryModel({
-          name: innerCategories[i].name,
-          value: _.kebabCase(innerCategories[i].name),
+          name: innerCategories[i].value,
+          value: _.kebabCase(innerCategories[i].value),
           online: innerCategories[i].online,
           categoryID: categoryID
         })
@@ -60,8 +60,9 @@ class Category {
     for (let i = 0; i < length; i++) {
       if (refinements[i].name !== '') {
         const newRef = new RefinementModel({
-          name: refinements[i].name,
-          value: _.kebabCase(refinements[i].name),
+          name: refinements[i].value,
+          value: _.kebabCase(refinements[i].value),
+          type: refinements[i].type,
           online: refinements[i].online,
           categoryID: categoryID
         })

@@ -4,9 +4,13 @@
     padding: 0 40px;
   }
 
-  .input-wrapper {
+  .admin__input-wrapper {
     span {
       margin-right: 5px;
+    }
+
+    select {
+      margin-left: 10px;
     }
   }
 }

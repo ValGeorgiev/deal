@@ -8,7 +8,7 @@ import HTTP from '../HTTP'
 
 class Estate {
   add(data) {
-
+    console.log(data)
     return new Promise((resolve, reject) => {
       HTTP.post(ADD_ESTATE_LINK, data).then(({ json, ok }) => {
         if (ok) {

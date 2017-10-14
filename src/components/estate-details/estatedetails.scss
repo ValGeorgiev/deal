@@ -10,9 +10,19 @@
         width: 100%;
       }
     }
+
+    .slick-prev {
+      left: 0;
+      z-index: 1;
+    }
+
+    .slick-next {
+      right: 0;
+      z-index: 1;
+    }
   }
 
-  &__wrapper {
+  &__below {
     padding: 10px 50px;
   }
 
