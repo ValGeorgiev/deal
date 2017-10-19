@@ -8,7 +8,8 @@ import {
   ADMIN_GET_REFINEMENT_LINK,
   ADMIN_DELETE_REFINEMENT_LINK,
   ADMIN_UPDATE_REFINEMENT_LINK,
-  GET_ONLINE_CATEGORIES_LINK
+  GET_ONLINE_CATEGORIES_LINK,
+  GET_REFINEMENTS_BY_TYPE_LINK
 } from './links'
 
 import HTTP from '../HTTP'
@@ -90,6 +91,18 @@ class Category {
   getAllRefinements() {
     return new Promise((resolve, reject) => {
       HTTP.get(ADMIN_GET_REFINEMENTS_LINK).then(({ json, ok }) => {
+        if (ok) {
+          resolve(json)
+        } else {
+          reject(json)
+        }
+      })
+    })
+  }
+
+  getRefinementsByType(type) {
+    return new Promise((resolve, reject) => {
+      HTTP.get(`${GET_REFINEMENTS_BY_TYPE_LINK}${type}`).then(({ json, ok }) => {
         if (ok) {
           resolve(json)
         } else {

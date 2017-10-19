@@ -14,7 +14,7 @@ let InnerCategorySchema = new Schema({
     type: Boolean,
     default: true
   },
-  categoryID: {
+  category: {
     type: String,
     required: true
   }

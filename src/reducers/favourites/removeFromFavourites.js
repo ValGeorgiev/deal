@@ -1,6 +1,6 @@
 import {
   REMOVE_FROM_FAVOURITES
-} from '../../actions/const'
+} from 'actions/const'
 
 const initialState = {
 

@@ -26,3 +26,4 @@ export const ADMIN_DELETE_REFINEMENT_LINK = `${SERVER_HTTP_URL}api/admin/refinem
 export const ADMIN_UPDATE_REFINEMENT_LINK = `${SERVER_HTTP_URL}api/admin/refinement/`
 
 export const GET_ONLINE_CATEGORIES_LINK = `${SERVER_HTTP_URL}api/categories/online`
+export const GET_REFINEMENTS_BY_TYPE_LINK = `${SERVER_HTTP_URL}api/refinements/`

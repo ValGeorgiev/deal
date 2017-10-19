@@ -20,6 +20,7 @@ import category from './category/category'
 import user from './user/user'
 import favourites from './favourites/favourites'
 import estate from './estate/estate'
+import search from './search/search'
 
 const reducers = {
   router: routerReducer,
@@ -31,7 +32,8 @@ const reducers = {
   category,
   user,
   estate,
-  favourites
+  favourites,
+  search
 }
 
 const combined = combineReducers(reducers)

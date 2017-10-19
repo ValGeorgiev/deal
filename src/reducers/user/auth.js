@@ -3,7 +3,7 @@ import {
   USER_SIGN_UP_ERROR,
   USER_LOGIN,
   USER_LOGIN_ERROR
-} from '../../actions/const'
+} from 'actions/const'
 
 
 const initialState = {}

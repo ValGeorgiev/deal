@@ -2,7 +2,7 @@ import {
   ADD_TO_FAVOURITES,
   GET_FAVOURITES_ESTATES,
   REMOVE_FROM_FAVOURITES
-} from '../../actions/const'
+} from 'actions/const'
 
 const initialState = {
 

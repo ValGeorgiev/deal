@@ -1,6 +1,6 @@
 import {
   GET_FAVOURITES_ESTATES
-} from '../../actions/const'
+} from 'actions/const'
 
 const initialState = {
 

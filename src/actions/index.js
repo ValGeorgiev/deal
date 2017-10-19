@@ -73,6 +73,10 @@ import {
 } from './category/getRefinements'
 
 import {
+  getRefinementsByType
+} from './category/getRefinementsByType'
+
+import {
   getRefinement
 } from './category/getRefinement'
 
@@ -83,6 +87,12 @@ import {
 import {
   updateRefinementData
 } from './category/updateRefinementData'
+
+
+import {
+  setDefaultIndex,
+  updateIndex
+} from './search/search'
 
 const actions = {
   signup,
@@ -100,11 +110,14 @@ const actions = {
   deleteCategory,
   updateCategoryData,
   getRefinements,
+  getRefinementsByType,
   getRefinement,
   deleteRefinement,
   updateRefinementData,
   logout,
-  getOnlineCategories
+  getOnlineCategories,
+  setDefaultIndex,
+  updateIndex
 }
 
 module.exports = actions

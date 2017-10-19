@@ -1,4 +1,5 @@
 let RefinementModel = require('../models/refinement')
+let InnerCategoryModel = require('../models/innerCategory')
 const _ = require('lodash')
 
 class Refinement {
@@ -28,6 +29,34 @@ class Refinement {
     }).then((refinement) => {
       res.status(200).send({
         refinement
+      })
+    })
+  }
+
+  getRefinementsByType(req, res) {
+    const {
+      type
+    } = req.params
+
+    let filters = {}
+
+    RefinementModel.find({
+      category: type
+    }).catch((error) => {
+      res.status(500).send(error)
+    }).then((refinements) => {
+
+      filters.refinements = refinements
+
+      InnerCategoryModel.find({
+        category: type
+      }).catch((error) => {
+        res.status(500).send(error)
+      }).then((categories) => {
+        filters.categories = categories
+        res.status(200).send({
+          filters
+        })
       })
     })
   }

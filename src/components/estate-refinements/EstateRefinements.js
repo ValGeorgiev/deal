@@ -15,11 +15,31 @@ class EstateRefinements extends Component {
     super()
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {
+      refinements
+    } = nextProps
+
+    console.log('refinements')
+    console.log(refinements)
+  }
+
   render() {
+    const {
+      refinements
+    } = this.props
+
+    if (!refinements) {
+      return (
+        <div className="estate-refinements__wrapper col col-lg-30" />
+      )
+    }
+
+    const innerCategories = refinements.categories ? <InnerTypeRefinement categories={refinements.categories} /> : null
 
     return (
       <div className="estate-refinements__wrapper col col-lg-30">
-        <InnerTypeRefinement />
+        { innerCategories }
         <PriceRefinement />
         <QuadratureRefinement />
         <FloorRefinement />
@@ -34,6 +54,7 @@ class EstateRefinements extends Component {
 const mapStateToProps = (state) => {
 
   const props = {
+    refinements: state.category.refinements
   }
   return props
 }

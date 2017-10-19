@@ -8,7 +8,11 @@ import './buyestatetypes.scss'
 class BuyEstateTypes extends Component {
 
   returnType(type) {
-    if (this.props.location.search.includes(type)) {
+    const {
+      search
+    } = this.props
+
+    if (search.type && search.type.includes(type)) {
       return 'btn-blue'
     }
     return ''
@@ -24,8 +28,8 @@ class BuyEstateTypes extends Component {
     return categories.map((category) => {
       return (
         <div key={category._id} className='type-wrapper'>
-          <Link to={`${link}${buildQuery(location.search, 'type', 'apartament', true)}`}>
-            <button className={`btn ${this.returnType('apartament')}`}>{category.name}</button>
+          <Link to={`${link}${buildQuery(location.search, 'type', category.value, true)}`}>
+            <button className={`btn ${this.returnType(category.value)}`}>{category.name}</button>
           </Link>
         </div>
       )
@@ -81,13 +85,15 @@ class BuyEstateTypes extends Component {
 }
 
 BuyEstateTypes.defaultProps = {
-  categories: []
+  categories: [],
+  search: {}
 }
 
 const mapStateToProps = (state) => {
 
   const props = {
-    categories: state.category.categories
+    categories: state.category.categories,
+    search: state.search.index
   }
   return props
 }

@@ -1,6 +1,6 @@
 import {
   ADD_TO_FAVOURITES
-} from '../../actions/const'
+} from 'actions/const'
 
 const initialState = {
 

@@ -3,7 +3,7 @@ import {
   GET_USER_BY_ID_ERROR,
   GET_USER,
   LOGOUT_USER
-} from '../../actions/const'
+} from 'actions/const'
 
 const initialState = {
   message: null,
