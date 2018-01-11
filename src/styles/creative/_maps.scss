@@ -1,0 +1,30 @@
+.home-map_wrapper,
+.municipality-map__wrapper {
+  position: relative;
+
+  path {
+    cursor: pointer;
+    fill: #1C4278;
+
+    &#selected {
+      fill: #2EB5DE
+    }
+
+    &.active {
+      fill: #EDF0EB;
+    }
+  }
+
+  #map-name, #municipality-map__name {
+    display: none;
+    padding: 5px 10px;
+    color: #14141C;
+    border: 1px solid #1C4278;
+    background-color: #FAF7F8;
+
+    &.active {
+      display: inline-block;
+      position: absolute;
+    }
+  }
+}

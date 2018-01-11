@@ -1,0 +1,16 @@
+.add-information {
+
+  &__wrapper {
+    padding: 0 35px;
+  }
+
+  &__label {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  &__value {
+    width: 100%;
+    height: 200px;
+  }
+}

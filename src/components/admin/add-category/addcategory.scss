@@ -1,0 +1,16 @@
+.add-category {
+
+  &__wrapper {
+    padding: 0 40px;
+  }
+
+  .admin__input-wrapper {
+    span {
+      margin-right: 5px;
+    }
+
+    select {
+      margin-left: 10px;
+    }
+  }
+}

@@ -204,11 +204,15 @@ class WebpackBaseConfig {
         alias: {
           actions: `${this.srcPathAbsolute}/actions/`,
           components: `${this.srcPathAbsolute}/components/`,
+          containers: `${this.srcPathAbsolute}/containers/`,
           config: `${this.srcPathAbsolute}/config/${this.env}.js`,
           images: `${this.srcPathAbsolute}/images/`,
           sources: `${this.srcPathAbsolute}/sources/`,
           stores: `${this.srcPathAbsolute}/stores/`,
-          styles: `${this.srcPathAbsolute}/styles/`
+          styles: `${this.srcPathAbsolute}/styles/`,
+          translations: `${this.srcPathAbsolute}/translations/`,
+          libs: `${this.srcPathAbsolute}/libs/`,
+          scripts: `${this.srcPathAbsolute}/scripts/`
         },
         extensions: ['.js', '.jsx'],
         modules: [

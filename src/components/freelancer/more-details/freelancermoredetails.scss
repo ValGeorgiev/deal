@@ -1,0 +1,21 @@
+.more-details {
+
+  &__wrapper {
+    border-top: 1px solid #14141C;
+    border-bottom: 1px solid #14141C;
+    padding: 15px 35px;
+    margin: 20px 0;
+
+    .input-wrapper {
+
+      input {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__label {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+}

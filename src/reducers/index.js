@@ -8,12 +8,33 @@
  *          you edit them, they are not updated again.
  */
 /* Populated by react-webpack-redux:reducer */
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
 import routerReducer from './routerReducer'
+import authentication from './user/auth'
+import getUser from './user/getUser'
+import addToFavourites from './favourites/addToFavourites'
+import removeFromFavourites from './favourites/removeFromFavourites'
+import getFavourites from './favourites/getFavourites'
+import category from './category/category'
+import user from './user/user'
+import favourites from './favourites/favourites'
+import estate from './estate/estate'
+import search from './search/search'
 
 const reducers = {
-  router: routerReducer
-};
-const combined = combineReducers(reducers);
-module.exports = combined;
+  router: routerReducer,
+  authentication,
+  getUser,
+  addToFavourites,
+  removeFromFavourites,
+  getFavourites,
+  category,
+  user,
+  estate,
+  favourites,
+  search
+}
+
+const combined = combineReducers(reducers)
+module.exports = combined

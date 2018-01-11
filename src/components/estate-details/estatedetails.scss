@@ -1,0 +1,47 @@
+.estate-details {
+
+  &__images {
+
+    .slick-track {
+      height: auto;
+
+      img {
+        margin: 0 3px;
+        width: 100%;
+      }
+    }
+
+    .slick-prev {
+      left: 0;
+      z-index: 1;
+    }
+
+    .slick-next {
+      right: 0;
+      z-index: 1;
+    }
+  }
+
+  &__below {
+    padding: 10px 50px;
+  }
+
+  &__left-col {
+    display: inline-block;
+    border: 1px solid black;
+  }
+
+  &__right-col {
+    padding-left: 15px;
+    vertical-align: top;
+    display: inline-block;
+    height: 700px;
+    width: 300px;
+    border: 1px solid black;
+  }
+
+  &__info {
+    height: 200px;
+    border: 1px solid black;
+  }
+}

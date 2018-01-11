@@ -1,0 +1,25 @@
+.profile-name {
+
+  &__wrapper {
+    display: inline-block;
+  }
+
+  &__name {
+    color: #14141C;
+    margin: 0 0 0 20px;
+  }
+}
+
+.public-profile {
+
+  &__profile {
+
+    .profile-name {
+
+      &__name {
+        font-size: 28px;
+        margin: 0;
+      }
+    }
+  }
+}

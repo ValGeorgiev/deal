@@ -1,0 +1,23 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+html {
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+
+  &:after,
+  &:before {
+    box-sizing: border-box;
+  }
+
+}

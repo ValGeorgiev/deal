@@ -1,0 +1,122 @@
+.header {
+
+  &__wrapper {
+    width: 100%;
+    height: 65px;
+    padding: 5px;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__fav {
+    height: 55px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0 10px;
+
+    &-icon {
+      margin-top: 6px;
+      width: 37px;
+    }
+
+    &-counter {
+      position: absolute;
+      left: 14px;
+      top: -2px;
+      font-size: 18px;
+      font-weight: 700;
+
+      &.large-number {
+        left: 10px;
+        top: -4px;
+      }
+    }
+  }
+
+  &__settings {
+    position: relative;
+    display: inline-block;
+
+    .icon {
+      vertical-align: middle;
+      width: 27px;
+      margin: -6px 10px 0;
+      cursor: pointer;
+    }
+  }
+
+  &__auth {
+    float: right;
+    height: 55px;
+    line-height: 55px;
+
+    &__message {
+      display: inline-block;
+      font-size: 18px;
+
+      .names {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__login-section {
+    float: right;
+    margin: 5px 10px;
+    font-size: 19px;
+
+    a {
+      line-height: 35px;
+      margin: 0 10px;
+      padding: 10px 5px;
+    }
+  }
+}
+
+.settings {
+
+  &__wrapper {
+    position: absolute;
+    top: 50px;
+    left: -140px;
+    width: 170px;
+    border: 1px solid #EDF0EB;
+    background-color: #FAF7F8;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(185,186,184,1);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(185,186,184,1);
+    box-shadow: 0px 0px 15px 0px rgba(185,186,184,1);
+    z-index: 9001;
+  }
+
+  &__logout {
+    cursor: pointer;
+  }
+
+  &__item {
+    padding-left: 20px;
+
+    a, span {
+
+      display: block;
+    }
+
+    &:first-child {
+      border-bottom: 1px solid #14141C;
+    }
+  }
+
+  &__background {
+    position: fixed;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+  }
+}

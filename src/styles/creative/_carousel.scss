@@ -1,0 +1,86 @@
+
+.slick {
+
+  &-slider {
+    position: relative;
+  }
+
+  &-slide {
+    margin: 10px 0;
+  }
+
+  &-dots {
+    text-align: center;
+    padding: 0;
+    line-height: 50px;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+
+      &.slick-active {
+
+        button {
+          background-color: #14141C;
+        }
+      }
+
+      button {
+        border: 0;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid #14141C;
+        width: 10px;
+        height: 15px;
+        border-radius: 50%;
+        text-indent: -9999em;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-prev {
+    position: absolute;
+    content: '';
+    top: calc(50% - 80px);
+    left: -50px;
+    background-color: rgba(28, 66, 120, 0.5);
+    width: 50px;
+    height: 100px;
+    cursor: pointer;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 30px;
+      height: 30px;
+      background-image: url('/static/arrow.png');
+      background-repeat: no-repeat;
+      top: 35px;
+      right: 12px;
+      transform: rotate(180deg)
+    }
+  }
+
+  &-next {
+    position: absolute;
+    content: '';
+    top: calc(50% - 80px);
+    right: -50px;
+    background-color: rgba(28, 66, 120, 0.5);
+    width: 50px;
+    height: 100px;
+    cursor: pointer;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 30px;
+      height: 30px;
+      background-image: url('/static/arrow.png');
+      background-repeat: no-repeat;
+      top: 35px;
+      left: 12px;
+    }
+  }
+}

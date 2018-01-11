@@ -1,0 +1,13 @@
+.profile-links {
+
+  &__wrapper {
+    margin: 40px 0;
+    text-align: center;
+
+    a {
+      margin: 0 20px;
+      font-size: 20px;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.login__btn-wrapper {
+  margin: 0 10px 20px;
+  text-align: center;
+
+  .login__signup-btn {
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+    color: #1C4278;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.login_wrapper {
+
+  .input-wrapper {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+
+    input {
+      float: right;
+      margin-right: 10px;
+    }
+  }
+
+  .error-wrappper {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    color: #FF2B38
+  }
+}

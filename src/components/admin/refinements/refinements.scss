@@ -1,0 +1,11 @@
+.refinements {
+  padding: 10px 20px;
+
+  &__item {
+
+    button {
+      margin-left: 10px;
+      width: 45px;
+    }
+  }
+}

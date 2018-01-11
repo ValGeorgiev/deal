@@ -1,0 +1,32 @@
+.footer {
+
+  &__wrapper {
+    background-color: #1C4278;
+    color: #EDF0EB;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  &__row {
+    margin-bottom: 20px;
+  }
+
+  &__deal, &__create, &__more, &__estates {
+    display: inline-block;
+    margin: 0 20px;
+    vertical-align: top;
+    text-align: left;
+
+    h3 {
+      border-bottom: 1px solid #EDF0EB;
+    }
+
+    a {
+      display: block;
+      color: #EDF0EB;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+  }
+}

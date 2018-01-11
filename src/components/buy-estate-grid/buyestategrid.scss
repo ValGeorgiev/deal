@@ -1,0 +1,53 @@
+.loading-wrapper {
+
+  .loading-image {
+    width: 150px;
+    height: 140px;
+    animation: loading 5s infinite;
+    display: inline-block;
+  }
+
+  .loading-description {
+    display: inline-block;
+    height: 30px;
+    width: 35%;
+    margin: 10px 0 0 10px;
+    animation: loading 5s infinite;
+    vertical-align: top;
+  }
+}
+
+.buy-estate-grid__wrapper {
+
+  .col {
+    float: left;
+  }
+}
+
+.public-profile__estates {
+  vertical-align: top;
+  padding: 20px 0 0 20px;
+
+  .grid__title {
+    display: none;
+  }
+}
+
+
+@keyframes loading {
+  0% {
+    background-color: #D5D2DF;
+  }
+
+  35% {
+    background-color: #AFA9C1;
+  }
+
+  65% {
+    background-color: #C2BED0;
+  }
+
+  100% {
+    background-color: #D5D2DF;
+  }
+}
